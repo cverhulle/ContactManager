@@ -4,8 +4,15 @@ package ContactManager;
 public class Contact {
 
     // On fournit quatre propriétés à cette classe.
-    private String nom;
-    private String prenom;
+    private String lastName;
+    private String firstName;
     private String email;
-    private String telephone;
+    private String phoneNumber;
+
+    public Contact(String lastName, String firstName, String email, String phoneNumber) {
+        this.lastName = lastName;
+        this.firstName = firstName;
+        this.email = email;
+        this.phoneNumber = phoneNumber;
+    }
 }
