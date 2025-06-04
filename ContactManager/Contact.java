@@ -1,4 +1,4 @@
-package ContactManager;
+package contactmanager;
 
 // Cette classe a pour but de créer l'objet "Contact". 
 public class Contact {

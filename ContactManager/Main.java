@@ -1,4 +1,4 @@
-package ContactManager;
+package contactmanager;
 
 public class Main {
 
