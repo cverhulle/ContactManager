@@ -4,7 +4,7 @@ package contactmanager;
 public class Contact {
 
     // On fournit quatre propriétés à cette classe.
-    final private String lastName;
+    private String lastName;
     final private String firstName;
     final private String email;
     final private String phoneNumber;
@@ -35,6 +35,11 @@ public class Contact {
     // On crée une méthode pour récupérer le numéro de téléphone.
     public String getPhoneNomber(){
         return phoneNumber;
+    }
+
+    // On crée une méthode pour modifier le nom.
+    public void setLastName(String lastName){
+        this.lastName = lastName;
     }
 
     // On gère l'affichage dans la console
