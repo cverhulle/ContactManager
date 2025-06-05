@@ -62,6 +62,4 @@ public class Contact {
     public String toString() {
         return firstName + " " + lastName + " - " + email + " - " + phoneNumber;
     }
-
-    
 }
