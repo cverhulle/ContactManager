@@ -4,10 +4,10 @@ package contactmanager;
 public class Contact {
 
     // On fournit quatre propriétés à cette classe.
-    private String lastName;
-    private String firstName;
-    private String email;
-    private String phoneNumber;
+    final private String lastName;
+    final private String firstName;
+    final private String email;
+    final private String phoneNumber;
 
     // On crée le constructeur de la classe Contact.
     public Contact(String lastName, String firstName, String email, String phoneNumber) {
