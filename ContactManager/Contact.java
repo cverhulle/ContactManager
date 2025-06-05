@@ -63,7 +63,8 @@ public class Contact {
         return firstName + " " + lastName + " - " + email + " - " + phoneNumber;
     }
 
-    // On redéfinit la méthode equals
+    // On redéfinit la méthode equals.
+    // Deux contacts sont considérés identiques ssi ils ont le même email.
     @Override
     public boolean equals(Object obj) {
 
