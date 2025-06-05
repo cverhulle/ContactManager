@@ -37,6 +37,7 @@ public class Contact {
         return phoneNumber;
     }
 
+    // On gère l'affichage dans la console
     @Override
     public String toString() {
         return firstName + " " + lastName + " - " + email + " - " + phoneNumber;
