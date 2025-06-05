@@ -17,7 +17,7 @@ public class ContactManager {
     // Ajout d'une méthode pour ajouter un contact.
     public void addContact(Contact contact) {
         if (contacts.contains(contact)) {
-            System.out.println("⚠️ Ce contact existe déjà (même email).");
+            System.out.println("⚠️ Ce contact existe déjà.");
         } else {
             contacts.add(contact);
             System.out.println("✅ Contact ajouté : " + contact.getFirstName() + " " + contact.getLastName());
