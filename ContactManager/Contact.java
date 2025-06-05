@@ -17,4 +17,22 @@ public class Contact {
         this.phoneNumber = phoneNumber;
     }
 
+    // On crée une méthode pour récupérer le prénom
+    public String getLastName() {
+        return lastName;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public String getEmail(){
+        return email;
+    }
+
+    public String getPhoneNimber(){
+        return phoneNumber;
+    }
+
+    
 }
