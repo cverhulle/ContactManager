@@ -5,9 +5,9 @@ public class Contact {
 
     // On fournit quatre propriétés à cette classe.
     private String lastName;
-    final private String firstName;
-    final private String email;
-    final private String phoneNumber;
+    private String firstName;
+    private String email;
+    private String phoneNumber;
 
     // On crée le constructeur de la classe Contact.
     public Contact(String lastName, String firstName, String email, String phoneNumber) {
@@ -40,6 +40,21 @@ public class Contact {
     // On crée une méthode pour modifier le nom.
     public void setLastName(String lastName){
         this.lastName = lastName;
+    }
+
+    // On crée une méthode pour modifier le prénom.
+    public void setFirstName(String firstName){
+        this.firstName = firstName;
+    }
+
+    // On crée une méthode pour modifier l'email
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    // On crée une méthode pour modifier le numéro de téléphone
+    public void setPhoneNumber(String phoneNumber){
+        this.phoneNumber = phoneNumber;
     }
 
     // On gère l'affichage dans la console
