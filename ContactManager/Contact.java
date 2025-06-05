@@ -63,8 +63,7 @@ public class Contact {
         return firstName + " " + lastName + " - " + email + " - " + phoneNumber;
     }
 
-    // On redéfinit la méthode equals.
-    // Deux contacts sont considérés identiques ssi ils ont le même email.
+    /*On redéfinit la méthode equals.
     @Override
     public boolean equals(Object obj) {
 
@@ -85,5 +84,5 @@ public class Contact {
     @Override
     public int hashCode() {
         return email.toLowerCase().hashCode();
-    }
+    } */
 }
