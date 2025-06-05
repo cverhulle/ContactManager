@@ -23,4 +23,19 @@ public class ContactManager {
             System.out.println("Contact ajouté : " + contact.getFirstName() + " " + contact.getLastName());
         }
     }
+
+    // On gère l'affiche d'un élément de type ContactManager
+    @Override
+    public String toString() {
+        if (contacts.isEmpty()) {
+            return "Aucun contact enregistré.";
+        }
+
+        StringBuilder listeDeContacts = new StringBuilder();
+        listeDeContacts.append("Carnet de contacts :\n");
+        for (int i = 0; i < contacts.size(); i++) {
+            listeDeContacts.append((i + 1)).append(". ").append(contacts.get(i)).append("\n");
+        }
+        return listeDeContacts.toString();
+    }
 }
