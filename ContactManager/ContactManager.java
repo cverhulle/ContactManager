@@ -14,14 +14,21 @@ public class ContactManager {
         this.contacts = new ArrayList<>();
     }
 
-    // Ajout d'une méthode pour ajouter un contact.
-    public void addContact(Contact contact) {
-        if (contacts.contains(contact)) {
-            System.out.println("Ce contact existe déjà.");
-        } else {
-            contacts.add(contact);
-            System.out.println("Contact ajouté : " + contact.getFirstName() + " " + contact.getLastName());
+    // Méthode pour ajouter un contact.
+    // Si l'email ou le numéro de téléphone est déjà utilisé, on n'ajoute pas celui-ci.
+    public void addContact(Contact newContact) {
+        for (Contact contact : contacts) {
+            boolean sameEmail = contact.getEmail().equalsIgnoreCase(newContact.getEmail());
+            boolean samePhone = contact.getPhoneNumber().equals(newContact.getPhoneNumber());
+
+            if (sameEmail || samePhone) {
+                System.out.println("Contact déjà existant (email ou numéro) : " + contact);
+                return;
+            }
         }
+
+        contacts.add(newContact);
+        System.out.println("✅ Contact ajouté : " + newContact);
     }
 
     // On gère l'affiche d'un élément de type ContactManager

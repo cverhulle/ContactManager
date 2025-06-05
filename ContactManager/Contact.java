@@ -33,7 +33,7 @@ public class Contact {
     }
 
     // On crée une méthode pour récupérer le numéro de téléphone.
-    public String getPhoneNomber(){
+    public String getPhoneNumber(){
         return phoneNumber;
     }
 
