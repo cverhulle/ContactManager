@@ -9,7 +9,7 @@ public class Contact {
     private String email;
     private String phoneNumber;
 
-    // On crée le constructeur de la classe Contact
+    // On crée le constructeur de la classe Contact.
     public Contact(String lastName, String firstName, String email, String phoneNumber) {
         this.lastName = lastName;
         this.firstName = firstName;
@@ -17,20 +17,23 @@ public class Contact {
         this.phoneNumber = phoneNumber;
     }
 
-    // On crée une méthode pour récupérer le prénom
+    // On crée une méthode pour récupérer le nom.
     public String getLastName() {
         return lastName;
     }
 
+    // On crée une méthode pour récupérer le prénom.
     public String getFirstName() {
         return firstName;
     }
 
+    // On crée une méthode pour récupérer l'email.
     public String getEmail(){
         return email;
     }
 
-    public String getPhoneNimber(){
+    // On crée une méthode pour récupérer le numéro de téléphone.
+    public String getPhoneNomber(){
         return phoneNumber;
     }
 
