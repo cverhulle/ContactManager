@@ -30,6 +30,28 @@ public class ContactApp {
 
             // On récupère la réponse de l'utilisateur
             String choice = scanner.nextLine();
+
+            // On ajout en fonction de la réponse de ce dernier.
+            switch (choice) {
+                case "1":
+                    // addContact();
+                    break;
+                case "2":
+                    // removeContact();
+                    break;
+                case "3":
+                    System.out.println(contacts);
+                    break;
+                case "4":
+                    running = false;
+                    System.out.println("Au revoir !");
+                    break;
+                default:
+                    System.out.println("Choix invalide.");
+            }
         }
+
+        scanner.close();
     }
+
 }
