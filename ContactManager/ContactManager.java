@@ -18,19 +18,29 @@ public class ContactManager {
     // Si l'email ou le numéro de téléphone est déjà utilisé, on n'ajoute pas celui-ci.
     public void addContact(Contact newContact) {
         for (Contact contact : contacts) {
+
+            // On regarde si l'email est déjà utilisé
             boolean sameEmail = contact.getEmail().equalsIgnoreCase(newContact.getEmail());
 
-            
+            // On récupère le numéro de téléphone de la personne à ajouter en supprimant les espaces.
             String newPhone = newContact.getPhoneNumber().replaceAll("\\s+", "");
+
+            // On récupère le numéro de téléphone dans la liste des contacts en supprimant les espaces.
             String existingPhone = contact.getPhoneNumber().replaceAll("\\s+", "");
 
+            // On regarde si le numéro de téléphone est déjà utilisé.
             boolean samePhone = newPhone.equals(existingPhone);
 
+            // Si l'email ou le téléphone est déjà pris...
             if (sameEmail || samePhone) {
+
+                // On affiche un message et, on n'ajoute pas le contact
                 System.out.println("Contact déjà existant : " + contact);
                 return;
             }
         }
+
+        // Sinon, on ajoute le contact.
         contacts.add(newContact);
         System.out.println("Contact ajouté : " + newContact);
     }
