@@ -19,7 +19,7 @@ public class Contact {
         this.lastName = lastName;
         this.firstName = firstName;
         this.email = email;
-        this.phoneNumber = phoneNumber;
+        this.phoneNumber = Utils.normalizePhone(phoneNumber);
     }
 
     // On crée une méthode pour récupérer le nom.
@@ -64,7 +64,7 @@ public class Contact {
 
     // On crée une méthode pour modifier le numéro de téléphone
     public void setPhoneNumber(String phoneNumber){
-        this.phoneNumber = phoneNumber;
+        this.phoneNumber = Utils.normalizePhone(phoneNumber);
     }
 
     // On gère l'affichage dans la console
