@@ -19,7 +19,12 @@ public class ContactManager {
     public void addContact(Contact newContact) {
         for (Contact contact : contacts) {
             boolean sameEmail = contact.getEmail().equalsIgnoreCase(newContact.getEmail());
-            boolean samePhone = contact.getPhoneNumber().equals(newContact.getPhoneNumber());
+
+            
+            String newPhone = newContact.getPhoneNumber().replaceAll("\\s+", "");
+            String existingPhone = contact.getPhoneNumber().replaceAll("\\s+", "");
+
+            boolean samePhone = newPhone.equals(existingPhone);
 
             if (sameEmail || samePhone) {
                 System.out.println("Contact déjà existant : " + contact);
