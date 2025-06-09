@@ -14,17 +14,12 @@ public class ContactManager {
         this.contacts = new ArrayList<>();
     }
 
-    // Cette méthode permet de supprimer les espaces dans un numéro de téléphone.
-    private String normalizePhone(String phone) {
-        return phone.replaceAll("\\s+", "");
-    }
-
     // Méthode pour ajouter un contact.
     // Si l'email ou le numéro de téléphone est déjà utilisé, on n'ajoute pas celui-ci.
     public void addContact(Contact newContact) {
 
         // On récupère le numéro de téléphone de la personne à ajouter en supprimant les espaces.
-        String newPhone = normalizePhone(newContact.getPhoneNumber());
+        String newPhone = Utils.normalizePhone(newContact.getPhoneNumber());
 
         for (Contact contact : contacts) {
 
@@ -32,7 +27,7 @@ public class ContactManager {
             boolean sameEmail = contact.getEmail().equalsIgnoreCase(newContact.getEmail());
 
             // On récupère le numéro de téléphone dans la liste des contacts en supprimant les espaces.
-            String existingPhone = normalizePhone(contact.getPhoneNumber());
+            String existingPhone = Utils.normalizePhone(contact.getPhoneNumber());
 
             // On regarde si le numéro de téléphone est déjà utilisé.
             boolean samePhone = newPhone.equals(existingPhone);
