@@ -3,14 +3,19 @@ package contactmanager;
 // Cette classe a pour but de créer l'objet "Contact". 
 public class Contact {
 
+    // On crée un compteur pour les id.
+    private int idCounter = 1;
+
     // On fournit quatre propriétés à cette classe.
     private String lastName;
     private String firstName;
     private String email;
     private String phoneNumber;
+    private int id;
 
     // On crée le constructeur de la classe Contact.
     public Contact(String lastName, String firstName, String email, String phoneNumber) {
+        this.id = idCounter++;
         this.lastName = lastName;
         this.firstName = firstName;
         this.email = email;
