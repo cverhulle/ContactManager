@@ -42,6 +42,11 @@ public class Contact {
         return phoneNumber;
     }
 
+    // On crée une méthode pour récupérer l'id.
+    public int getId() {
+        return id;
+    }
+
     // On crée une méthode pour modifier le nom.
     public void setLastName(String lastName){
         this.lastName = lastName;
