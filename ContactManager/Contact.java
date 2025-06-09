@@ -11,7 +11,7 @@ public class Contact {
     private String firstName;
     private String email;
     private String phoneNumber;
-    private int id;
+    final private int id;
 
     // On crée le constructeur de la classe Contact.
     public Contact(String lastName, String firstName, String email, String phoneNumber) {
@@ -70,7 +70,7 @@ public class Contact {
     // On gère l'affichage dans la console
     @Override
     public String toString() {
-        return firstName + " " + lastName + " - " + email + " - " + phoneNumber;
+        return "[" + id + "] " + firstName + " " + lastName + " - " + email + " - " + phoneNumber;
     }
 
     /*On redéfinit la méthode equals.
