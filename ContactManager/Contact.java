@@ -72,27 +72,4 @@ public class Contact {
     public String toString() {
         return "[" + id + "] " + firstName + " " + lastName + " - " + email + " - " + phoneNumber;
     }
-
-    /*On redéfinit la méthode equals.
-    @Override
-    public boolean equals(Object obj) {
-
-        // Si l'objet qu'on compare est exactement le même, on retourne true.
-        if (this == obj) return true;
-
-        // Si l'objet est null ou pas du même type, on retourne false.
-        if (obj == null || getClass() != obj.getClass()) return false;
-
-        // On transforme l'objet en contact pour accèder à ses propriétés.
-        Contact contact = (Contact) obj;
-
-        // On compare les deux emails en ignorant la casse
-        return email.equalsIgnoreCase(contact.email); 
-    }
-
-    // On redéfinit la méthode hashCode pour qu'elle retourne un numéro unique pour chaque email.
-    @Override
-    public int hashCode() {
-        return email.toLowerCase().hashCode();
-    } */
 }

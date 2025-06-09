@@ -26,7 +26,5 @@ public class Main {
 
         //On affiche la liste de contact.
         System.out.println(contacts);
-
-
     }
 }
