@@ -8,4 +8,10 @@ public class ContactApp {
     private ContactManager contacts;
     private Scanner scanner;
     
+    // On crée le constructeur de la classe : 
+    // Il initialise une liste de contacts vide et, le scanner
+    public ContactApp() {
+        this.contacts = new ContactManager();
+        this.scanner = new Scanner(System.in);
+    }
 }
