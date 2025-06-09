@@ -17,13 +17,14 @@ public class ContactManager {
     // Méthode pour ajouter un contact.
     // Si l'email ou le numéro de téléphone est déjà utilisé, on n'ajoute pas celui-ci.
     public void addContact(Contact newContact) {
+
+        // On récupère le numéro de téléphone de la personne à ajouter en supprimant les espaces.
+        String newPhone = newContact.getPhoneNumber().replaceAll("\\s+", "");
+
         for (Contact contact : contacts) {
 
             // On regarde si l'email est déjà utilisé
             boolean sameEmail = contact.getEmail().equalsIgnoreCase(newContact.getEmail());
-
-            // On récupère le numéro de téléphone de la personne à ajouter en supprimant les espaces.
-            String newPhone = newContact.getPhoneNumber().replaceAll("\\s+", "");
 
             // On récupère le numéro de téléphone dans la liste des contacts en supprimant les espaces.
             String existingPhone = contact.getPhoneNumber().replaceAll("\\s+", "");
