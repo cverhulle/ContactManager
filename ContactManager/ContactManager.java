@@ -58,6 +58,17 @@ public class ContactManager {
         System.out.println("Aucun contact trouvé avec l'id : " + id);
     }
 
+    // Cette méthode permet d'afficher la liste des contacts.
+    public void displayContacts() {
+        if (contacts.isEmpty()) {
+            System.out.println("Aucun contact dans le carnet.");
+        } else {
+            for (Contact contact : contacts) {
+                System.out.println(contact);
+            }
+        }
+    }
+
     // On gère l'affiche d'un élément de type ContactManager
     @Override
     public String toString() {

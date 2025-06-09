@@ -18,13 +18,13 @@ public class Main {
         contacts.addContact(contact3); // Le contact n'est pas ajouté (numéro de téléphone)
         
         // On affiche la liste
-        System.out.println(contacts);
+        contacts.displayContacts();
 
         // On teste la suppression de contact.
         contacts.removeContactById(1); // Supprime l'id numéro 1
         contacts.removeContactById(3); // Ne fait rien
 
         //On affiche la liste de contact.
-        System.out.println(contacts);
+        contacts.displayContacts();
     }
 }
