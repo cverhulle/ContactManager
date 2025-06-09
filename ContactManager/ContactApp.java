@@ -34,7 +34,7 @@ public class ContactApp {
             // On ajout en fonction de la réponse de ce dernier.
             switch (choice) {
                 case "1":
-                    // addContact();
+                    addContact();
                     break;
                 case "2":
                     // removeContact();
@@ -52,6 +52,21 @@ public class ContactApp {
         }
 
         scanner.close();
+    }
+
+    // Cette métohde permet d'ajouter un contact dans la liste.
+    private void addContact() {
+        System.out.print("Prénom : ");
+        String firstName = scanner.nextLine();
+        System.out.print("Nom : ");
+        String lastName = scanner.nextLine();
+        System.out.print("Email : ");
+        String email = scanner.nextLine();
+        System.out.print("Téléphone : ");
+        String phone = scanner.nextLine();
+
+        Contact contact = new Contact(lastName, firstName, email, phone);
+        contacts.addContact(contact);
     }
 
 }
