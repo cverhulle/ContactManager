@@ -28,7 +28,7 @@ public class ContactManager {
         }
 
         contacts.add(newContact);
-        System.out.println("✅ Contact ajouté : " + newContact);
+        System.out.println("Contact ajouté : " + newContact);
     }
 
     // On gère l'affiche d'un élément de type ContactManager
