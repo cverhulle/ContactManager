@@ -22,11 +22,10 @@ public class ContactManager {
             boolean samePhone = contact.getPhoneNumber().equals(newContact.getPhoneNumber());
 
             if (sameEmail || samePhone) {
-                System.out.println("Contact déjà existant (email ou numéro) : " + contact);
+                System.out.println("Contact déjà existant : " + contact);
                 return;
             }
         }
-
         contacts.add(newContact);
         System.out.println("Contact ajouté : " + newContact);
     }
