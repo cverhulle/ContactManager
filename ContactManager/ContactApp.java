@@ -5,7 +5,9 @@ package contactmanager;
 import java.util.Scanner;
 
 public class ContactApp {
+    @SuppressWarnings("FieldMayBeFinal")
     private ContactManager contacts;
+    @SuppressWarnings("FieldMayBeFinal")
     private Scanner scanner;
     
     // On crée le constructeur de la classe : 
@@ -33,24 +35,16 @@ public class ContactApp {
 
             // On ajout en fonction de la réponse de ce dernier.
             switch (choice) {
-                case "1":
-                    addContact();
-                    break;
-                case "2":
-                    removeContact();
-                    break;
-                case "3":
-                    System.out.println(contacts);
-                    break;
-                case "4":
+                case "1" -> addContact();
+                case "2" -> removeContact();
+                case "3" -> System.out.println(contacts);
+                case "4" -> {
                     running = false;
                     System.out.println("Au revoir !");
-                    break;
-                default:
-                    System.out.println("Choix invalide.");
+                }
+                default -> System.out.println("Choix invalide.");
             }
         }
-
         scanner.close();
     }
 
