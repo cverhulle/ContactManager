@@ -37,7 +37,7 @@ public class ContactApp {
                     addContact();
                     break;
                 case "2":
-                    // removeContact();
+                    removeContact();
                     break;
                 case "3":
                     System.out.println(contacts);
@@ -67,6 +67,17 @@ public class ContactApp {
 
         Contact contact = new Contact(lastName, firstName, email, phone);
         contacts.addContact(contact);
+    }
+
+    // Cette méthode permet de supprimer un contact.
+    private void removeContact() {
+        System.out.print("ID du contact à supprimer : ");
+        try {
+            int id = Integer.parseInt(scanner.nextLine());
+            contacts.removeContactById(id);
+        } catch (NumberFormatException e) {
+            System.out.println("❌ ID invalide.");
+        }
     }
 
 }
