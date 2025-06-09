@@ -46,6 +46,18 @@ public class ContactManager {
         System.out.println("Contact ajouté : " + newContact);
     }
 
+    // Cette méthode permet de supprimer un contact par son id.
+    public void removeContactById(int id) {
+        for (Contact contact : contacts) {
+            if (contact.getId() == id) {
+                contacts.remove(contact);
+                System.out.println("Contact supprimé : " + contact);
+                return;
+            }
+        }
+        System.out.println("Aucun contact trouvé avec l'id : " + id);
+    }
+
     // On gère l'affiche d'un élément de type ContactManager
     @Override
     public String toString() {
