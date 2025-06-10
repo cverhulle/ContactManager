@@ -32,7 +32,7 @@ public class ContactApp {
             switch (choice) {
                 case "1" -> addContact();
                 case "2" -> removeContact();
-                case "3" -> System.out.println(contacts);
+                case "3" -> afficherContacts();
                 case "4" -> {
                     System.out.println("Rechercher par :");
                     System.out.println("1. Prénom");
@@ -73,6 +73,11 @@ public class ContactApp {
         System.out.println("4. Rechercher un contact");            
         System.out.println("5. Quitter");
         System.out.print("Choix : ");
+    }
+
+    // Cette méthode permet d'afficher les contacts.    
+    private void afficherContacts() {
+        System.out.println(contacts);
     }
 
     // Cette métohde permet d'ajouter un contact dans la liste.
