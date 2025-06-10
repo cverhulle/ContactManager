@@ -22,13 +22,8 @@ public class ContactApp {
 
         // Tant que le programme est en cours, on affiche le menu.
         while(running) {
-            System.out.println("\n--- MENU ---");
-            System.out.println("1. Ajouter un contact");
-            System.out.println("2. Supprimer un contact");
-            System.out.println("3. Afficher les contacts");
-            System.out.println("4. Rechercher un contact");            
-            System.out.println("5. Quitter");
-            System.out.print("Choix : ");
+            // On affiche le menu principal
+            afficherMenuPrincipal();
 
             // On récupère la réponse de l'utilisateur
             String choice = scanner.nextLine();
@@ -67,6 +62,17 @@ public class ContactApp {
             }
         }
         scanner.close();
+    }
+
+    // Cette méthode permet d'afficher le menu principal.
+    private void afficherMenuPrincipal() {
+        System.out.println("\n--- MENU ---");
+        System.out.println("1. Ajouter un contact");
+        System.out.println("2. Supprimer un contact");
+        System.out.println("3. Afficher les contacts");
+        System.out.println("4. Rechercher un contact");            
+        System.out.println("5. Quitter");
+        System.out.print("Choix : ");
     }
 
     // Cette métohde permet d'ajouter un contact dans la liste.
