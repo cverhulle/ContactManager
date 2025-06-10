@@ -1,9 +1,8 @@
 package contactmanager;
 
-// Cette classe permet de gérer le déroulé de l'application en fonction des réponses de l'utilisateur
-
 import java.util.Scanner;
 
+// Cette classe permet de gérer le déroulé de l'application en fonction des réponses de l'utilisateur
 public class ContactApp {
     @SuppressWarnings("FieldMayBeFinal")
     private ContactManager contacts;
