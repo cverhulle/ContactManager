@@ -27,7 +27,7 @@ public class ContactApp {
             System.out.println("1. Ajouter un contact");
             System.out.println("2. Supprimer un contact");
             System.out.println("3. Afficher les contacts");
-            System.out.println("4. Recherche un contact");            
+            System.out.println("4. Rechercher un contact");            
             System.out.println("5. Quitter");
             System.out.print("Choix : ");
 
@@ -41,10 +41,10 @@ public class ContactApp {
                 case "3" -> System.out.println(contacts);
                 case "4" -> {
                     System.out.println("Rechercher par :");
-                    System.out.println("1. prenom");
-                    System.out.println("2. nom");
-                    System.out.println("3. email");
-                    System.out.println("4. telephone");
+                    System.out.println("1. Prénom");
+                    System.out.println("2. Nom");
+                    System.out.println("3. Email");
+                    System.out.println("4. Téléphone");
                     System.out.print("Votre choix : ");
                     String fieldChoice = scanner.nextLine();
 
