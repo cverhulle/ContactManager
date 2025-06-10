@@ -70,7 +70,7 @@ public class ContactApp {
             int id = Integer.parseInt(scanner.nextLine());
             contacts.removeContactById(id);
         } catch (NumberFormatException e) {
-            System.out.println("❌ ID invalide.");
+            System.out.println("ID invalide.");
         }
     }
 
