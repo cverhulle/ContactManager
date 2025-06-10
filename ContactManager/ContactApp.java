@@ -27,7 +27,8 @@ public class ContactApp {
             System.out.println("1. Ajouter un contact");
             System.out.println("2. Supprimer un contact");
             System.out.println("3. Afficher les contacts");
-            System.out.println("4. Quitter");
+            System.out.println("4. Recherche un contact");            
+            System.out.println("5. Quitter");
             System.out.print("Choix : ");
 
             // On récupère la réponse de l'utilisateur
