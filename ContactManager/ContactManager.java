@@ -101,9 +101,9 @@ public class ContactManager {
         }
 
         StringBuilder listeDeContacts = new StringBuilder();
-        listeDeContacts.append("Carnet de contacts :\n");
+        listeDeContacts.append("Carnet de contacts :");
         for (int i = 0; i < contacts.size(); i++) {
-            listeDeContacts.append((i + 1)).append(". ").append(contacts.get(i)).append("\n");
+            listeDeContacts.append("\n").append((i + 1)).append(". ").append(contacts.get(i));
         }
         return listeDeContacts.toString();
     }
