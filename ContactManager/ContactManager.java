@@ -87,6 +87,12 @@ public class ContactManager {
         searchGeneric("email", contact -> contact.getEmail().toLowerCase().contains(query.toLowerCase()));
     }
 
+    // Cette méthode permet de trouver un contact en donnant un numéro de téléphone.
+    public void searchByPhone(String query) {
+        String normalizedQuery = query.replaceAll("\\s+", "");
+        searchGeneric("téléphone", contact -> contact.getPhoneNumber().replaceAll("\\s+", "").contains(normalizedQuery));
+    }
+
     // On gère l'affiche d'un élément de type ContactManager
     @Override
     public String toString() {
