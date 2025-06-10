@@ -33,27 +33,7 @@ public class ContactApp {
                 case "1" -> addContact();
                 case "2" -> removeContact();
                 case "3" -> afficherContacts();
-                case "4" -> {
-                    System.out.println("Rechercher par :");
-                    System.out.println("1. Prénom");
-                    System.out.println("2. Nom");
-                    System.out.println("3. Email");
-                    System.out.println("4. Téléphone");
-                    System.out.print("Votre choix : ");
-                    String fieldChoice = scanner.nextLine();
-
-                    System.out.print("Entrez la valeur à rechercher : ");
-                    String query = scanner.nextLine();
-
-                    switch (fieldChoice) {
-                        case "1" -> contacts.searchByFirstName(query);
-                        case "2" -> contacts.searchByLastName(query);
-                        case "3" -> contacts.searchByEmail(query);
-                        case "4" -> contacts.searchByPhone(query);
-                        default -> System.out.println("Choix invalide.");
-                    }
-                    break;
-                }
+                case "4" -> rechercherContact();
                 case "5" -> {
                     running = false;
                     System.out.println("Au revoir !");
@@ -78,6 +58,28 @@ public class ContactApp {
     // Cette méthode permet d'afficher les contacts.    
     private void afficherContacts() {
         System.out.println(contacts);
+    }
+
+    // Cette méthode permet de recherche un contact
+    private void rechercherContact() {
+        System.out.println("Rechercher par :");
+        System.out.println("1. Prénom");
+        System.out.println("2. Nom");
+        System.out.println("3. Email");
+        System.out.println("4. Téléphone");
+        System.out.print("Votre choix : ");
+        String fieldChoice = scanner.nextLine();
+
+        System.out.print("Entrez la valeur à rechercher : ");
+        String query = scanner.nextLine();
+
+        switch (fieldChoice) {
+            case "1" -> contacts.searchByFirstName(query);
+            case "2" -> contacts.searchByLastName(query);
+            case "3" -> contacts.searchByEmail(query);
+            case "4" -> contacts.searchByPhone(query);
+            default -> System.out.println("Choix invalide.");
+        }
     }
 
     // Cette métohde permet d'ajouter un contact dans la liste.
