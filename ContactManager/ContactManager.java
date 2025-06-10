@@ -89,7 +89,7 @@ public class ContactManager {
 
     // Cette méthode permet de trouver un contact en donnant un numéro de téléphone.
     public void searchByPhone(String query) {
-        String normalizedQuery = query.replaceAll("\\s+", "");
+        String normalizedQuery = Utils.normalizePhone(query);
         searchGeneric("téléphone", contact -> contact.getPhoneNumber().replaceAll("\\s+", "").contains(normalizedQuery));
     }
 
