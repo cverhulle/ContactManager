@@ -50,8 +50,9 @@ public class ContactApp {
         System.out.println("1. Ajouter un contact");
         System.out.println("2. Supprimer un contact");
         System.out.println("3. Afficher les contacts");
-        System.out.println("4. Rechercher un contact");            
-        System.out.println("5. Quitter");
+        System.out.println("4. Rechercher un contact");          
+        System.out.println("5. Modifier un contact");     
+        System.out.println("6. Quitter");
         System.out.print("Choix : ");
     }
 
