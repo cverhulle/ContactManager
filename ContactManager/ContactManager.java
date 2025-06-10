@@ -93,6 +93,16 @@ public class ContactManager {
         searchGeneric("téléphone", contact -> contact.getPhoneNumber().replaceAll("\\s+", "").contains(normalizedQuery));
     }
 
+    // Cette métohde permet de récupérer un Contact à partir de son id en argument.
+    public Contact getContactById(int id) {
+        for (Contact contact : contacts) {
+            if (contact.getId() == id) {
+                return contact;
+            }
+        }
+        return null;
+    }   
+
     // On gère l'affiche d'un élément de type ContactManager
     @Override
     public String toString() {
