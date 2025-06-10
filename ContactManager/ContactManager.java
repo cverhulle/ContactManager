@@ -77,6 +77,11 @@ public class ContactManager {
         searchGeneric("prénom", contact -> contact.getFirstName().toLowerCase().contains(query.toLowerCase()));
     }
 
+    // Cette méthode permet de trouver un contact en donnant un nom.
+    public void searchByLastName(String query) {
+        searchGeneric("nom", contact -> contact.getLastName().toLowerCase().contains(query.toLowerCase()));
+    }
+
     // On gère l'affiche d'un élément de type ContactManager
     @Override
     public String toString() {
