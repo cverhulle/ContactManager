@@ -39,6 +39,27 @@ public class ContactApp {
                 case "2" -> removeContact();
                 case "3" -> System.out.println(contacts);
                 case "4" -> {
+                    System.out.println("Rechercher par :");
+                    System.out.println("1. prenom");
+                    System.out.println("2. nom");
+                    System.out.println("3. email");
+                    System.out.println("4. telephone");
+                    System.out.print("Votre choix : ");
+                    String fieldChoice = scanner.nextLine();
+
+                    System.out.print("Entrez la valeur à rechercher : ");
+                    String query = scanner.nextLine();
+
+                    switch (fieldChoice) {
+                        case "1" -> contacts.searchByFirstName(query);
+                        case "2" -> contacts.searchByLastName(query);
+                        case "3" -> contacts.searchByEmail(query);
+                        case "4" -> contacts.searchByPhone(query);
+                        default -> System.out.println("Choix invalide.");
+                    }
+                    break;
+                }
+                case "5" -> {
                     running = false;
                     System.out.println("Au revoir !");
                 }
