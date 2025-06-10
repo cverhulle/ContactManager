@@ -34,7 +34,8 @@ public class ContactApp {
                 case "2" -> removeContact();
                 case "3" -> afficherContacts();
                 case "4" -> rechercherContact();
-                case "5" -> {
+                case "5" -> modifierContact();
+                case "6" -> {
                     running = false;
                     System.out.println("Au revoir !");
                 }
