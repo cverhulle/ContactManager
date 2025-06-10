@@ -57,6 +57,32 @@ public class ContactApp {
         System.out.print("Choix : ");
     }
 
+    // Cette métohde permet d'ajouter un contact dans la liste.
+    private void addContact() {
+        System.out.print("Prénom : ");
+        String firstName = scanner.nextLine();
+        System.out.print("Nom : ");
+        String lastName = scanner.nextLine();
+        System.out.print("Email : ");
+        String email = scanner.nextLine();
+        System.out.print("Téléphone : ");
+        String phone = scanner.nextLine();
+
+        Contact contact = new Contact(lastName, firstName, email, phone);
+        contacts.addContact(contact);
+    }
+
+    // Cette méthode permet de supprimer un contact.
+    private void removeContact() {
+        System.out.print("ID du contact à supprimer : ");
+        try {
+            int id = Integer.parseInt(scanner.nextLine());
+            contacts.removeContactById(id);
+        } catch (NumberFormatException e) {
+            System.out.println("ID invalide.");
+        }
+    }
+
     // Cette méthode permet d'afficher les contacts.    
     private void afficherContacts() {
         System.out.println(contacts);
@@ -81,32 +107,6 @@ public class ContactApp {
             case "3" -> contacts.searchByEmail(query);
             case "4" -> contacts.searchByPhone(query);
             default -> System.out.println("Choix invalide.");
-        }
-    }
-
-    // Cette métohde permet d'ajouter un contact dans la liste.
-    private void addContact() {
-        System.out.print("Prénom : ");
-        String firstName = scanner.nextLine();
-        System.out.print("Nom : ");
-        String lastName = scanner.nextLine();
-        System.out.print("Email : ");
-        String email = scanner.nextLine();
-        System.out.print("Téléphone : ");
-        String phone = scanner.nextLine();
-
-        Contact contact = new Contact(lastName, firstName, email, phone);
-        contacts.addContact(contact);
-    }
-
-    // Cette méthode permet de supprimer un contact.
-    private void removeContact() {
-        System.out.print("ID du contact à supprimer : ");
-        try {
-            int id = Integer.parseInt(scanner.nextLine());
-            contacts.removeContactById(id);
-        } catch (NumberFormatException e) {
-            System.out.println("ID invalide.");
         }
     }
 
