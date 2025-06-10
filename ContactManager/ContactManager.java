@@ -58,6 +58,20 @@ public class ContactManager {
         System.out.println("Aucun contact trouvé avec l'id : " + id);
     }
 
+    // Cette méthode sera appelée dans les différentes voies pour trouver un contact.
+    private void searchGeneric(String label, java.util.function.Predicate<Contact> predicate) {
+        boolean found = false;
+        for (Contact contact : contacts) {
+            if (predicate.test(contact)) {
+                System.out.println("Résultat trouvé : " + contact);
+                found = true;
+            }
+        }
+        if (!found) {
+            System.out.println("Aucun contact ne correspond au champ de recherche : " + label);
+        }
+    }
+
     // Cette méthode permet de rechercher un contact à partir d'un champ (nom, prénom etc...) et d'une entrée utilisateur.
     public void searchContacts(String field, String query) {
         String normalizedQuery = query.trim().toLowerCase();
