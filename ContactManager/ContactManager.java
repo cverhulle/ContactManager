@@ -82,6 +82,11 @@ public class ContactManager {
         searchGeneric("nom", contact -> contact.getLastName().toLowerCase().contains(query.toLowerCase()));
     }
 
+    // Cette méthode permet de trouver un contact en donnant un email.
+    public void searchByEmail(String query) {
+        searchGeneric("email", contact -> contact.getEmail().toLowerCase().contains(query.toLowerCase()));
+    }
+
     // On gère l'affiche d'un élément de type ContactManager
     @Override
     public String toString() {
