@@ -108,4 +108,40 @@ public class ContactApp {
         }
     }
 
+    // Cette métohde permet de modifier un Contact.
+    private void modifierContact() {
+        System.out.print("ID du contact à modifier : ");
+        try {
+            int id = Integer.parseInt(scanner.nextLine());
+
+            Contact contact = contacts.getContactById(id);
+            if (contact == null) {
+                System.out.println("Aucun contact trouvé avec cet ID.");
+                return;
+            }
+
+            System.out.println("Laissez vide pour ne pas modifier un champ.");
+
+            System.out.print("Nouveau prénom (" + contact.getFirstName() + ") : ");
+            String firstName = scanner.nextLine();
+
+            System.out.print("Nouveau nom (" + contact.getLastName() + ") : ");
+            String lastName = scanner.nextLine();
+
+            System.out.print("Nouvel email (" + contact.getEmail() + ") : ");
+            String email = scanner.nextLine();
+
+            System.out.print("Nouveau téléphone (" + contact.getPhoneNumber() + ") : ");
+            String phone = scanner.nextLine();
+
+            boolean success = contacts.updateContact(id, firstName, lastName, email, phone);
+            if (success) {
+                System.out.println("Contact modifié avec succès !");
+            } else {
+                System.out.println("Erreur lors de la modification du contact.");
+            }
+        } catch (NumberFormatException e) {
+            System.out.println("ID invalide.");
+        }
+    }
 }
