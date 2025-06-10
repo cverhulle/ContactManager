@@ -103,6 +103,27 @@ public class ContactManager {
         return null;
     }   
 
+    // Cette méthode permet de modifer toutes les données d'un Contact. Celles-ci sont données en argument.
+    public boolean updateContact(int id, String firstName, String lastName, String email, String phone) {
+        Contact contact = getContactById(id);
+        if (contact == null) {
+            return false;
+        }
+        if (firstName != null && !firstName.isBlank()) {
+            contact.setFirstName(firstName);
+        }
+        if (lastName != null && !lastName.isBlank()) {
+            contact.setLastName(lastName);
+        }
+        if (email != null && !email.isBlank()) {
+            contact.setEmail(email);
+        }
+        if (phone != null && !phone.isBlank()) {
+            contact.setPhoneNumber(phone);
+        }
+        return true; 
+    }
+
     // On gère l'affiche d'un élément de type ContactManager
     @Override
     public String toString() {
