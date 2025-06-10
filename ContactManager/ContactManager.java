@@ -72,31 +72,6 @@ public class ContactManager {
         }
     }
 
-    // Cette méthode permet de rechercher un contact à partir d'un champ (nom, prénom etc...) et d'une entrée utilisateur.
-    public void searchContacts(String field, String query) {
-        String normalizedQuery = query.trim().toLowerCase();
-        boolean found = false;
-
-        for (Contact contact : contacts) {
-            boolean match = switch (field.toLowerCase()) {
-                case "prenom" -> contact.getFirstName().toLowerCase().contains(normalizedQuery);
-                case "nom"    -> contact.getLastName().toLowerCase().contains(normalizedQuery);
-                case "email"  -> contact.getEmail().toLowerCase().contains(normalizedQuery);
-                case "telephone" -> contact.getPhoneNumber().replaceAll("\\s+", "").contains(normalizedQuery);
-                default -> false;
-            };
-
-            if (match) {
-                System.out.println("Résultat trouvé : " + contact);
-                found = true;
-            }
-        }
-
-        if (!found) {
-            System.out.println("Aucun contact ne correspond à la recherche.");
-        }
-    }
-
     // On gère l'affiche d'un élément de type ContactManager
     @Override
     public String toString() {
