@@ -27,6 +27,13 @@ public class Utils {
         return scanner.nextLine();
     }
 
+    // Cette méthode permet de demander à l'utilisateur de confirmer un choix.
+    public static boolean confirmChoice(Scanner scanner, String message) {
+        System.out.println(message);
+        String confirmation = askInput(scanner, "Tapez 'oui' pour confirmer : ");
+        return confirmation.equalsIgnoreCase("oui");
+    }
+
     // Cette méthode prend en argument un scanner, un nom de champ, sa valeur actuelle et l'autorisation d'une réponse vide
     // Si la saisie est vide et que le blanc n'est pas autorisé, on répète la question. Sinon, on retourne la saisie.
     public static String askField(Scanner scanner, String label, String currentValue, boolean allowBlank) {
