@@ -24,9 +24,18 @@ public class Utils {
     // Cette méthode prend en argument un scanner, un nom de champ, sa valeur actuelle et l'autorisation d'une réponse vide
     // Si la saisie est vide et que le blanc n'est pas autorisé, on retourne null. Sinon, on retourne la saisie.
     public static String askField(Scanner scanner, String label, String currentValue, boolean allowBlank) {
-        System.out.print(label + (currentValue != null ? " (" + currentValue + ")" : "") + " : ");
-        String input = scanner.nextLine();
-        return input.isBlank() && !allowBlank ? null : input;
+        String input;
+
+        while (true) {
+            System.out.print(label + (currentValue != null ? " (" + currentValue + ")" : "") + " : ");
+            input = scanner.nextLine();
+
+            if (!input.isBlank() || allowBlank) {
+                return input;
+            }
+
+            System.out.println("Ce champ ne peut pas être vide. Veuillez réessayer.");
+        }
     }
 
     // Cette méthode permet d'afficher un menu (argument options) et elle retourne le choix de l'utilisateur.
