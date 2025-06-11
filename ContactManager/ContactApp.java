@@ -78,7 +78,7 @@ public class ContactApp {
     private void removeContact() {
         int id = Utils.askIdContact(scanner);
         if (id != -1) {
-            contacts.removeContactById(id);
+            confirmRemoveContact(id);
         }
     }
 
