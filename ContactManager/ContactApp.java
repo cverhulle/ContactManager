@@ -74,12 +74,9 @@ public class ContactApp {
 
     // Cette méthode permet de supprimer un contact.
     private void removeContact() {
-        System.out.print("ID du contact à supprimer : ");
-        try {
-            int id = Integer.parseInt(scanner.nextLine());
+        int id = Utils.demanderIdContact(scanner);
+        if (id != -1) {
             contacts.removeContactById(id);
-        } catch (NumberFormatException e) {
-            System.out.println("ID invalide.");
         }
     }
 
