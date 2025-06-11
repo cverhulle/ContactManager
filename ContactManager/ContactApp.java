@@ -120,17 +120,10 @@ public class ContactApp {
         // On entre les données à modifier
         System.out.println("Laissez vide pour ne pas modifier un champ.");
 
-        System.out.print("Nouveau prénom (" + contact.getFirstName() + ") : ");
-        String firstName = scanner.nextLine();
-
-        System.out.print("Nouveau nom (" + contact.getLastName() + ") : ");
-        String lastName = scanner.nextLine();
-
-        System.out.print("Nouvel email (" + contact.getEmail() + ") : ");
-        String email = scanner.nextLine();
-
-        System.out.print("Nouveau téléphone (" + contact.getPhoneNumber() + ") : ");
-        String phone = scanner.nextLine();
+        String firstName = Utils.askField(scanner, "Nouveau prénom", contact.getFirstName(), true);
+        String lastName  = Utils.askField(scanner, "Nouveau nom", contact.getLastName(), true);
+        String email     = Utils.askField(scanner, "Nouvel email", contact.getEmail(), true);
+        String phone     = Utils.askField(scanner, "Nouveau téléphone", contact.getPhoneNumber(), true);
 
         boolean success = contacts.updateContact(id, firstName, lastName, email, phone);
         if (success) {
