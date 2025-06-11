@@ -109,14 +109,19 @@ public class ContactApp {
 
     // Cette méthode permet de modifier un Contact.
     private void modifyContact() {
+
+        // On récupère l'id du contact à modifier
         int id = Utils.askIdContact(scanner);
         if (id == -1) return;
+
+        // On récupère les données du contact à modifier
         Contact contact = contacts.getContactById(id);
         if (contact == null) {
             System.out.println("Aucun contact trouvé avec cet ID.");
             return;
         }
 
+        // On entre les données à modifier
         System.out.println("Laissez vide pour ne pas modifier un champ.");
 
         System.out.print("Nouveau prénom (" + contact.getFirstName() + ") : ");
