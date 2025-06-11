@@ -42,7 +42,7 @@ public class ContactApp {
         scanner.close();
     }
 
-    // Cette méthode permet d'afficher le menu principal.
+    // Cette méthode permet d'afficher le menu principal. Elle retourne le chix de l'utilisateur.
     private String displayMainMenu() {
         String[] options = {
             "Ajouter un contact",
