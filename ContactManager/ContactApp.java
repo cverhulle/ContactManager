@@ -86,9 +86,8 @@ public class ContactApp {
     private void confirmRemoveContact(Integer id) {
         Contact contact = contacts.getContactById(id);
         if (contact != null) {
-            System.out.println("Voulez-vous vraiment supprimer ce contact ? " + contact);
-            String confirmation = Utils.askInput(scanner, "Tapez 'oui' pour confirmer : ");
-            if (confirmation.equalsIgnoreCase("oui")) {
+            String message = "Voulez-vous vraiment supprimer ce contact ? " + contact;
+            if (Utils.confirmChoice(scanner, message)) {
                 contacts.removeContactById(id);
             } else {
                 System.out.println("Suppression annulée.");
