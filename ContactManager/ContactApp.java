@@ -26,7 +26,7 @@ public class ContactApp {
             String choice = displayMainMenu();
 
             // On appelle la méthode correspondante au choix de l'utilisateur.
-            handleMenuChoice(choice);
+            running = handleMenuChoice(choice);
         }
         scanner.close();
     }
@@ -47,7 +47,7 @@ public class ContactApp {
     }
 
     // Cette méthode prend en argument le numéro du choix de l'utilisateur et appel la méthode correspondante.
-    private void handleMenuChoice(String choice) {
+    private boolean handleMenuChoice(String choice) {
         switch (choice) {
             case "1" -> addContact();
             case "2" -> removeContact();
@@ -56,10 +56,11 @@ public class ContactApp {
             case "5" -> modifyContact();
             case "6" -> {
                 System.out.println("Au revoir !");
-                System.exit(0);
+                return false;
             }
             default -> System.out.println("Choix invalide.");
         }
+        return true;
     }
 
     // Cette métohde permet d'ajouter un contact dans la liste.
