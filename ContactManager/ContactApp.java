@@ -88,13 +88,8 @@ public class ContactApp {
 
     // Cette méthode permet de recherche un contact
     private void findContact() {
-        System.out.println("Rechercher par :");
-        System.out.println("1. Prénom");
-        System.out.println("2. Nom");
-        System.out.println("3. Email");
-        System.out.println("4. Téléphone");
-        System.out.print("Votre choix : ");
-        String fieldChoice = scanner.nextLine();
+        String[] options = { "Prénom", "Nom", "Email", "Téléphone" };
+        String fieldChoice = Utils.askMenuChoice(scanner, "Rechercher par :", options);
 
         System.out.print("Entrez la valeur à rechercher : ");
         String query = scanner.nextLine();
