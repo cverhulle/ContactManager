@@ -23,7 +23,7 @@ public class ContactApp {
         // Tant que le programme est en cours, on affiche le menu.
         while(running) {
             // On affiche le menu principal
-            afficherMenuPrincipal();
+            displayMainMenu();
 
             // On récupère la réponse de l'utilisateur
             String choice = scanner.nextLine();
@@ -32,9 +32,9 @@ public class ContactApp {
             switch (choice) {
                 case "1" -> addContact();
                 case "2" -> removeContact();
-                case "3" -> afficherContacts();
-                case "4" -> rechercherContact();
-                case "5" -> modifierContact();
+                case "3" -> showAllContacts();
+                case "4" -> findContact();
+                case "5" -> modifyContact();
                 case "6" -> {
                     running = false;
                     System.out.println("Au revoir !");
@@ -46,7 +46,7 @@ public class ContactApp {
     }
 
     // Cette méthode permet d'afficher le menu principal.
-    private void afficherMenuPrincipal() {
+    private void displayMainMenu() {
         System.out.println("\n--- MENU ---");
         System.out.println("1. Ajouter un contact");
         System.out.println("2. Supprimer un contact");
@@ -81,12 +81,12 @@ public class ContactApp {
     }
 
     // Cette méthode permet d'afficher les contacts.    
-    private void afficherContacts() {
+    private void showAllContacts() {
         System.out.println(contacts);
     }
 
     // Cette méthode permet de recherche un contact
-    private void rechercherContact() {
+    private void findContact() {
         System.out.println("Rechercher par :");
         System.out.println("1. Prénom");
         System.out.println("2. Nom");
@@ -108,7 +108,7 @@ public class ContactApp {
     }
 
     // Cette méthode permet de modifier un Contact.
-    private void modifierContact() {
+    private void modifyContact() {
         int id = Utils.askIdContact(scanner);
         if (id == -1) return;
         Contact contact = contacts.getContactById(id);
