@@ -28,4 +28,14 @@ public class Utils {
         String input = scanner.nextLine();
         return input.isBlank() && !allowBlank ? null : input;
     }
+
+    // Cette méthode permet d'afficher un menu (argument options) et elle retourne le choix de l'utilisateur.
+    public static String askMenuChoice(Scanner scanner, String title, String[] options) {
+        System.out.println("\n" + title);
+        for (int i = 0; i < options.length; i++) {
+            System.out.printf("%d. %s%n", i + 1, options[i]);
+        }
+        System.out.print("Votre choix : ");
+        return scanner.nextLine();
+    }
 }
