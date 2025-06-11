@@ -22,7 +22,7 @@ public class Utils {
     }
 
     // Cette méthode prend en argument un scanner, un nom de champ, sa valeur actuelle et l'autorisation d'une réponse vide
-    // Si la saisie est vide et que le blanc n'est pas autorisé, on retourne null. Sinon, on retourne la saisie.
+    // Si la saisie est vide et que le blanc n'est pas autorisé, on répète la question. Sinon, on retourne la saisie.
     public static String askField(Scanner scanner, String label, String currentValue, boolean allowBlank) {
         String input;
 
