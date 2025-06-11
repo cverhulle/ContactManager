@@ -91,8 +91,7 @@ public class ContactApp {
         String[] options = { "Prénom", "Nom", "Email", "Téléphone" };
         String fieldChoice = Utils.askMenuChoice(scanner, "Rechercher par :", options);
 
-        System.out.print("Entrez la valeur à rechercher : ");
-        String query = scanner.nextLine();
+        String query = Utils.askInput(scanner, "Entrez la valeur à rechercher : ");
 
         switch (fieldChoice) {
             case "1" -> contacts.searchByFirstName(query);
