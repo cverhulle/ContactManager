@@ -59,14 +59,10 @@ public class ContactApp {
 
     // Cette métohde permet d'ajouter un contact dans la liste.
     private void addContact() {
-        System.out.print("Prénom : ");
-        String firstName = scanner.nextLine();
-        System.out.print("Nom : ");
-        String lastName = scanner.nextLine();
-        System.out.print("Email : ");
-        String email = scanner.nextLine();
-        System.out.print("Téléphone : ");
-        String phone = scanner.nextLine();
+        String firstName = Utils.askField(scanner, "Prénom", null, false);
+        String lastName  = Utils.askField(scanner, "Nom", null, false);
+        String email     = Utils.askField(scanner, "Email", null, false);
+        String phone     = Utils.askField(scanner, "Téléphone", null, false);
 
         Contact contact = new Contact(lastName, firstName, email, phone);
         contacts.addContact(contact);
