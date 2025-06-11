@@ -126,10 +126,6 @@ public class ContactApp {
         String phone     = Utils.askField(scanner, "Nouveau téléphone", contact.getPhoneNumber(), true);
 
         boolean success = contacts.updateContact(id, firstName, lastName, email, phone);
-        if (success) {
-            System.out.println("Contact modifié avec succès !");
-        } else {
-            System.out.println("Erreur lors de la modification du contact.");
-        }
+        System.out.println(success ? "Contact modifié avec succès !" : "Erreur lors de la modification.");
     }
 }
