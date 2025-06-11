@@ -11,7 +11,7 @@ public class Utils {
 
     // Cette méthode permet de demander l'id d'un Contact.
     // On retourne -1 en cas d'erreur.
-    public static int demanderIdContact(Scanner scanner) {
+    public static int askIdContact(Scanner scanner) {
         System.out.print("Entrez l'ID du contact : ");
         try {
             return Integer.parseInt(scanner.nextLine());

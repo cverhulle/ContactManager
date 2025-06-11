@@ -74,7 +74,7 @@ public class ContactApp {
 
     // Cette méthode permet de supprimer un contact.
     private void removeContact() {
-        int id = Utils.demanderIdContact(scanner);
+        int id = Utils.askIdContact(scanner);
         if (id != -1) {
             contacts.removeContactById(id);
         }
@@ -109,7 +109,7 @@ public class ContactApp {
 
     // Cette méthode permet de modifier un Contact.
     private void modifierContact() {
-        int id = Utils.demanderIdContact(scanner);
+        int id = Utils.askIdContact(scanner);
         if (id == -1) return;
         Contact contact = contacts.getContactById(id);
         if (contact == null) {
