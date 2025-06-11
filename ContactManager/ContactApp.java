@@ -82,6 +82,23 @@ public class ContactApp {
         }
     }
 
+    // Cette méthode permet de confirmer la suppression d'un contact
+    private void confirmRemoveContact(Integer id) {
+        Contact contact = contacts.getContactById(id);
+        if (contact != null) {
+            System.out.println("Voulez-vous vraiment supprimer ce contact ? " + contact);
+            String confirmation = Utils.askInput(scanner, "Tapez 'oui' pour confirmer : ");
+            if (confirmation.equalsIgnoreCase("oui")) {
+                contacts.removeContactById(id);
+                System.out.println("Contact supprimé.");
+            } else {
+                System.out.println("Suppression annulée.");
+            }
+        } else {
+            System.out.println("Aucun contact trouvé avec cet ID.");
+        }
+    }
+
     // Cette méthode permet d'afficher les contacts.    
     private void showAllContacts() {
         System.out.println(contacts);
