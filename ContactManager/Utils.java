@@ -33,8 +33,8 @@ public class Utils {
         String input;
 
         while (true) {
-            System.out.print(label + (currentValue != null ? " (" + currentValue + ")" : "") + " : ");
-            input = scanner.nextLine();
+            String prompt = label + (currentValue != null ? " (" + currentValue + ")" : "") + " : ";
+            input = askInput(scanner, prompt);
 
             if (!input.isBlank() || allowBlank) {
                 return input;
