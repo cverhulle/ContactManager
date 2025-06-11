@@ -110,7 +110,7 @@ public class ContactApp {
         }
     }
 
-    // Cette métohde permet de modifier un Contact.
+    // Cette méthode permet de modifier un Contact.
     private void modifierContact() {
         System.out.print("ID du contact à modifier : ");
         try {
