@@ -22,22 +22,11 @@ public class ContactApp {
 
         // Tant que le programme est en cours, on affiche le menu.
         while(running) {
-            // On affiche le menu principal
+            // On affiche le menu principal et, on récupère son choix.
             String choice = displayMainMenu();
 
-            // On ajout en fonction de la réponse de ce dernier.
-            switch (choice) {
-                case "1" -> addContact();
-                case "2" -> removeContact();
-                case "3" -> showAllContacts();
-                case "4" -> findContact();
-                case "5" -> modifyContact();
-                case "6" -> {
-                    running = false;
-                    System.out.println("Au revoir !");
-                }
-                default -> System.out.println("Choix invalide.");
-            }
+            // On appelle la méthode correspondante au choix de l'utilisateur.
+            handleMenuChoice(choice);
         }
         scanner.close();
     }
@@ -55,6 +44,22 @@ public class ContactApp {
 
         String choice = Utils.askMenuChoice(scanner, "--- MENU ---", options);
         return choice;
+    }
+
+    // Cette méthode prend en argument le numéro du choix de l'utilisateur et appel la méthode correspondante.
+    private void handleMenuChoice(String choice) {
+        switch (choice) {
+            case "1" -> addContact();
+            case "2" -> removeContact();
+            case "3" -> showAllContacts();
+            case "4" -> findContact();
+            case "5" -> modifyContact();
+            case "6" -> {
+                System.out.println("Au revoir !");
+                System.exit(0);
+            }
+            default -> System.out.println("Choix invalide.");
+        }
     }
 
     // Cette métohde permet d'ajouter un contact dans la liste.
