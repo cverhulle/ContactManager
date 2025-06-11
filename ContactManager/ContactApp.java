@@ -90,7 +90,6 @@ public class ContactApp {
             String confirmation = Utils.askInput(scanner, "Tapez 'oui' pour confirmer : ");
             if (confirmation.equalsIgnoreCase("oui")) {
                 contacts.removeContactById(id);
-                System.out.println("Contact supprimé.");
             } else {
                 System.out.println("Suppression annulée.");
             }
