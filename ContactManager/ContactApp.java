@@ -65,8 +65,8 @@ public class ContactApp {
                 System.out.println("Au revoir !");
                 return false;
             }
-            default -> System.out.println("Choix invalide.");
         }
+
         return true;
     }
 
