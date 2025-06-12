@@ -48,6 +48,13 @@ public class ContactApp {
 
     // Cette méthode prend en argument le numéro du choix de l'utilisateur et appel la méthode correspondante.
     private boolean handleMenuChoice(String choice) {
+
+        // Si le choix n'est pas valide, on retourne True
+        if (!Utils.isValidMenuChoice(choice, 6)) {
+            System.out.println("Choix invalide.");
+            return true;
+        }
+
         switch (choice) {
             case "1" -> addContact();
             case "2" -> removeContact();
