@@ -4,9 +4,10 @@ package contactmanager;
 public class Contact {
 
     // On crée un compteur pour les id.
-    private static int idCounter = 1; // Le static permet de faire en sorte que le compteur soit commun à tous les contacts.
+    // Le "static" permet de faire en sorte que le compteur soit commun à tous les contacts.
+    private static int idCounter = 1; 
 
-    // On fournit quatre propriétés à cette classe.
+    // On fournit cinq propriétés à cette classe.
     private String lastName;
     private String firstName;
     private String email;
