@@ -2,7 +2,7 @@ package contactmanager;
 
 import java.util.Scanner;
 
-// Cette classe permet de gérer le déroulé de l'application en fonction des réponses de l'utilisateur
+// Cette classe permet de gérer le déroulé de l'application en fonction des réponses de l'utilisateur.
 public class ContactApp {
     @SuppressWarnings("FieldMayBeFinal")
     private ContactManager contacts;
@@ -10,13 +10,13 @@ public class ContactApp {
     private Scanner scanner;
     
     // On crée le constructeur de la classe : 
-    // Il initialise une liste de contacts vide et, le scanner
+    // Il initialise une liste de contacts vide et, le scanner.
     public ContactApp() {
         this.contacts = new ContactManager();
         this.scanner = new Scanner(System.in);
     }
 
-    // Cette méthode est utilisée lorsque le programme est en cours
+    // Cette méthode est utilisée lorsque le programme est en cours.
     public void run() {
         boolean running = true;
 
@@ -84,11 +84,23 @@ public class ContactApp {
 
     // Cette méthode permet de confirmer la suppression d'un contact
     private void confirmRemoveContact(Integer id) {
+
+        // On récupère le contact grâce à son id.
         Contact contact = contacts.getContactById(id);
+
+        // S'il est trouvé...
         if (contact != null) {
+
+            // On demande à l'utilisateur de confirmer la suppression
             String message = "Voulez-vous vraiment supprimer ce contact ? " + contact;
+
+            // Si c'est confirmé...
             if (Utils.confirmChoice(scanner, message)) {
+
+                // On supprime le contact.
                 contacts.removeContactById(id);
+
+            // Sinon, on annule la suppression.
             } else {
                 System.out.println("Suppression annulée.");
             }
@@ -104,16 +116,21 @@ public class ContactApp {
 
     // Cette méthode permet de recherche un contact
     private void findContact() {
+
+        // On affiche la liste des champs de recherche possible.
         String[] options = { "Prénom", "Nom", "Email", "Téléphone" };
         String fieldChoice = Utils.askMenuChoice(scanner, "Rechercher par :", options);
 
+        // Si le choix entré n'est pas dans les possibilités, on retourne au menu principal.
         if (!fieldChoice.matches("[1-4]")) {
             System.out.println("Choix invalide.");
             return;
         }
 
+        // On demande la chaîne de caractères à trouver.
         String query = Utils.askInput(scanner, "Entrez la valeur à rechercher : ");
 
+        // On effectue la recherche correspondate au choix et à la chaîne entrée.
         switch (fieldChoice) {
             case "1" -> contacts.searchByFirstName(query);
             case "2" -> contacts.searchByLastName(query);
@@ -144,7 +161,10 @@ public class ContactApp {
         String email     = Utils.askField(scanner, "Nouvel email", contact.getEmail(), true);
         String phone     = Utils.askField(scanner, "Nouveau téléphone", contact.getPhoneNumber(), true);
 
+        // On met à jour le contact avec les données.
         boolean success = contacts.updateContact(id, firstName, lastName, email, phone);
+
+        // Si les données sont "valables", on affiche un message de succès. Sinon, c'est un message d'erreur.
         System.out.println(success ? "Contact modifié avec succès !" : "Erreur lors de la modification.");
     }
 }
