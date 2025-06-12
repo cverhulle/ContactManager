@@ -138,24 +138,15 @@ public class ContactManager {
         String normalizedPhone = Utils.normalizePhone(phone);
 
         // On vérifie si l'email est déjà utilisé.
-        if (email != null && !email.isBlank()) {
-            for (Contact contactInMyList : contacts) {
-                if (contactInMyList.getId() != id && email.equalsIgnoreCase(contactInMyList.getEmail())) {
-                    System.out.println("Cet email est déjà utilisé par un autre contact.");
-                    return false;
-                }
-            }
+        if (email != null && !email.isBlank() && isEmailUsed(email, id)) {
+                System.out.println("Cet email est déjà utilisé par un autre contact.");
+                return false;
         }
 
         // On vérifie si le numéro de téléphone est déjà utilisé.
-        if (phone != null && !phone.isBlank()) {
-
-            for (Contact contactInMyList : contacts) {
-                if (contactInMyList.getId() != id && normalizedPhone.equals(contactInMyList.getPhoneNumber())) {
-                    System.out.println("Ce numéro est déjà utilisé par un autre contact.");
-                    return false;
-                }
-            }
+        if (phone != null && !phone.isBlank() && isPhoneUsed(normalizedPhone, id)) {
+            System.out.println("Ce numéro est déjà utilisé par un autre contact.");
+            return false;   
         }
 
         // Si tout est ok, on applique les modifications
