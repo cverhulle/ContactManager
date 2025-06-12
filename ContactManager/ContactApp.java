@@ -42,7 +42,7 @@ public class ContactApp {
             "Quitter"
         };
 
-        String choice = Utils.askMenuChoice(scanner, "--- MENU ---", options);
+        String choice = Utils.askMenuChoice(scanner, "--- MENU ---", options, null);
         return choice;
     }
 
@@ -119,10 +119,10 @@ public class ContactApp {
 
         // On affiche la liste des champs de recherche possible.
         String[] options = { "Prénom", "Nom", "Email", "Téléphone" };
-        String fieldChoice = Utils.askMenuChoice(scanner, "Rechercher par :", options);
+        String fieldChoice = Utils.askMenuChoice(scanner, "Rechercher par :", options, "Annuler la recherche");
 
         // Si le choix entré n'est pas dans les possibilités, on retourne au menu principal.
-        if (!fieldChoice.matches("[1-4]")) {
+        if (fieldChoice == null || !fieldChoice.matches("[1-4]")) {
             System.out.println("Choix invalide.");
             return;
         }
