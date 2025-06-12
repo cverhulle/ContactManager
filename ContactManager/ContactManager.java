@@ -120,8 +120,9 @@ public class ContactManager {
 
         // On vérifie si le numéro de téléphone est déjà utilisé.
         if (phone != null && !phone.isBlank()) {
+            String normalizedPhone = Utils.normalizePhone(phone);
             for (Contact contactInMyList : contacts) {
-                if (contactInMyList.getId() != id && phone.equals(contactInMyList.getPhoneNumber())) {
+                if (contactInMyList.getId() != id && normalizedPhone.equals(contactInMyList.getPhoneNumber())) {
                     System.out.println("Ce numéro est déjà utilisé par un autre contact.");
                     return false;
                 }
@@ -139,7 +140,7 @@ public class ContactManager {
             contact.setEmail(email);
         }
         if (phone != null && !phone.isBlank()) {
-            contact.setPhoneNumber(phone);
+            contact.setPhoneNumber(normalizedPhone);
         }
 
         return true;
