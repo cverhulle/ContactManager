@@ -21,8 +21,13 @@ public class Utils {
         while (true) {
 
             // On demande à l'utilisateur de répondre à une question
-            String prompt = label + (currentValue != null ? " (" + currentValue + ")" : "") + " : ";
+            String prompt = label + (currentValue != null ? "(" + currentValue + ")" : "") + "(0 pour annuler) : ";
             input = askInput(scanner, prompt);
+
+            // Si la réponse est 0, on considère que l'utilisater annule.
+            if (input.equals("0")) {
+                return null;
+            }
 
             // Si la réponse n'est pas vide ou que le vide est autorisé, on retourne la réponse.
             if (!input.isBlank() || allowBlank) {
