@@ -72,7 +72,7 @@ public class Utils {
         System.out.print("Votre choix : ");
         String answer = scanner.nextLine();
 
-        if (cancelLabel != null && answer.equals("0")) {
+        if (cancelLabel != null && isCancelChoice(answer)) {
             return null; 
         }
 
