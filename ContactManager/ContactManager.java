@@ -110,8 +110,8 @@ public class ContactManager {
 
         // On vérifie si l'email est déjà utilisé.
         if (email != null && !email.isBlank()) {
-            for (Contact other : contacts) {
-                if (other.getId() != id && email.equalsIgnoreCase(other.getEmail())) {
+            for (Contact contactInMyList : contacts) {
+                if (contactInMyList.getId() != id && email.equalsIgnoreCase(contactInMyList.getEmail())) {
                     System.out.println("Cet email est déjà utilisé par un autre contact.");
                     return false;
                 }
@@ -120,8 +120,8 @@ public class ContactManager {
 
         // On vérifie si le numéro de téléphone est déjà utilisé.
         if (phone != null && !phone.isBlank()) {
-            for (Contact other : contacts) {
-                if (other.getId() != id && phone.equals(other.getPhoneNumber())) {
+            for (Contact contactInMyList : contacts) {
+                if (contactInMyList.getId() != id && phone.equals(contactInMyList.getPhoneNumber())) {
                     System.out.println("Ce numéro est déjà utilisé par un autre contact.");
                     return false;
                 }
