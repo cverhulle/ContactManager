@@ -86,7 +86,7 @@ public class Utils {
     }
 
     // Cette méthode déclenche une erreur si la réponse de l'utilisateur est d'annuler.
-    public static String askRequiredField(Scanner scanner, String label) {
+    public static String askFieldOrThrow(Scanner scanner, String label) {
         String input = askField(scanner, label, null, false);
         if (input == null) {
             throw new CancelledInputException();
