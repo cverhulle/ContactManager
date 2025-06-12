@@ -53,13 +53,23 @@ public class Utils {
     }
 
     // Cette méthode permet d'afficher un menu (argument options) et elle retourne le choix de l'utilisateur.
-    public static String askMenuChoice(Scanner scanner, String title, String[] options) {
+    public static String askMenuChoice(Scanner scanner, String title, String[] options, String cancelLabel) {
         System.out.println("\n" + title);
         for (int i = 0; i < options.length; i++) {
             System.out.printf("%d. %s%n", i + 1, options[i]);
         }
+
+        if(cancelLabel != null) {
+            System.out.println("0. " + cancelLabel);
+        }
         System.out.print("Votre choix : ");
-        return scanner.nextLine();
+        String answer = scanner.nextLine();
+
+        if (cancelLabel != null && answer.equals("0")) {
+            return null; 
+        }
+
+        return answer;
     }
 
     // Cette méthode permet de demander à l'utilisateur de confirmer un choix.
