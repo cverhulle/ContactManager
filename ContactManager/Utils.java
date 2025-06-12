@@ -86,6 +86,23 @@ public class Utils {
         return value != null && !value.isBlank();
     }
 
+    // Cette méthode permet de voir si le choix fait dans un menu est recevable
+    public static boolean isValidMenuChoice(String choice, int numberOfOptions) {
+
+        // Dans le cas où le choix est 0, on retourne false
+        if (choice == null) return false;
+
+        // On regarde si le choix est entre 1 et le nombre d'options du menu.
+        try {
+            int value = Integer.parseInt(choice);
+            return value >= 1 && value <= numberOfOptions;
+        
+        // En cas d'erreur (mauvaise entrée utilisateur par exemple), on retourne false
+        } catch (NumberFormatException e) {
+            return false;
+        }
+    }
+
     // Cette méthode permet de supprimer les espaces dans un numéro de téléphone.
     public static String normalizePhone(String phone) {
         return phone.replaceAll("\\s+", "");
