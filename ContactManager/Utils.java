@@ -79,6 +79,15 @@ public class Utils {
         return answer;
     }
 
+    // Cette méthode déclenche une erreur si la réponse de l'utilisateur est d'annuler.
+    public static String askRequiredField(Scanner scanner, String label) {
+        String input = askField(scanner, label, null, false);
+        if (input == null) {
+            // throw new CancelledInputException();
+        }
+        return input;
+    }
+
     // Cette méthode permet de demander à l'utilisateur de confirmer un choix.
     public static boolean confirmChoice(Scanner scanner, String message) {
         System.out.println(message);
