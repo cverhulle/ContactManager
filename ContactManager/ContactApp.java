@@ -128,6 +128,12 @@ public class ContactApp {
         String[] options = { "Prénom", "Nom", "Email", "Téléphone" };
         String fieldChoice = Utils.askMenuChoice(scanner, "Rechercher par :", options, "Annuler la recherche");
 
+        // Si l'utilisateur a choisi d'annuler, on retourne au menu princiapl.
+        if ("0".equals(fieldChoice)) {
+            System.out.println("Recherche annulée.");
+            return;
+        }
+
         // Si le choix entré n'est pas dans les possibilités, on retourne au menu principal.
         if (!Utils.isValidMenuChoice(fieldChoice, options.length)) {
             System.out.println("Choix invalide.");
