@@ -103,6 +103,16 @@ public class ContactManager {
         return null;
     }   
 
+    // Cette méthode permet de vérifier si l'email est déjà utilisé par un contact (en excluant un id donné)
+    private boolean isEmailUsed(String email, int excludeId) {
+        for (Contact contact : contacts) {
+            if (contact.getId() != excludeId && email.equalsIgnoreCase(contact.getEmail())) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     // Cette méthode permet de modifer toutes les données d'un Contact. Celles-ci sont données en argument.
     public boolean updateContact(int id, String firstName, String lastName, String email, String phone) {
 
