@@ -88,7 +88,10 @@ public class ContactApp {
     // Cette méthode permet de supprimer un contact.
     private void removeContact() {
         int id = Utils.askIdContact(scanner);
-        if (id != -1) {
+
+        if (id == 0) {
+            System.out.println("Suppression annulée.");
+        } else {
             confirmRemoveContact(id);
         }
     }
