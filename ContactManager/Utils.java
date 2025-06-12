@@ -1,8 +1,16 @@
 package contactmanager;
 
 import java.util.Scanner;
+import java.util.function.Consumer;
 
 public class Utils {
+
+    // Cette méthode permet d'appliquer un setter seulement si la valeur n'est pas null ou vide.
+    public static void applyIfNotBlank(String value, Consumer<String> setter) {
+        if (isNotNullOrBlank(value)) {
+            setter.accept(value);
+        }
+    }
 
     // Cette méthode prend en argument un scanner, un nom de champ, sa valeur actuelle et l'autorisation d'une réponse vide
     // Si la saisie est vide et que le blanc n'est pas autorisé, on répète la question. Sinon, on retourne la saisie.
