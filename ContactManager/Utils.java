@@ -40,14 +40,20 @@ public class Utils {
     }
 
     // Cette méthode permet de demander l'id d'un Contact.
-    // On retourne -1 en cas d'erreur.
+    // On retourne 0 en cas d'erreur.
     public static int askIdContact(Scanner scanner) {
-        System.out.print("Entrez l'ID du contact : ");
+        System.out.print("Entrez l'ID du contact (0 pour annuler) :");
+        String answer = scanner.nextLine();
+
+        if (isCancelChoice(answer)) {
+            return 0;
+        }
+
         try {
-            return Integer.parseInt(scanner.nextLine());
+            return Integer.parseInt(answer);
         } catch (NumberFormatException e) {
             System.out.println("ID invalide.");
-            return -1;
+            return 0;
         }
     }
 
