@@ -83,7 +83,7 @@ public class Utils {
     public static String askRequiredField(Scanner scanner, String label) {
         String input = askField(scanner, label, null, false);
         if (input == null) {
-            // throw new CancelledInputException();
+            throw new CancelledInputException();
         }
         return input;
     }
