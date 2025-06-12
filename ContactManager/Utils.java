@@ -21,7 +21,7 @@ public class Utils {
         while (true) {
 
             // On demande à l'utilisateur de répondre à une question
-            String prompt = label + (currentValue != null ? "(" + currentValue + ")" : "") + "(0 pour annuler) : ";
+            String prompt = label + (currentValue != null ? "(" + currentValue + ")" : "") + " (0 pour annuler) : ";
             input = askInput(scanner, prompt);
 
             // Si la réponse est 0, on considère que l'utilisater annule.
