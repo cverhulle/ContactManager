@@ -108,35 +108,41 @@ public class ContactManager {
         Contact contact = getContactById(id);
         if (contact == null) return false;
 
-        // On vérifie unicité email
+        // On vérifie si l'email est déjà utilisé.
         if (email != null && !email.isBlank()) {
-            for (Contact contactInMyList : contacts) {
-                if (contactInMyList.getId() != id && email.equalsIgnoreCase(contactInMyList.getEmail())) {
+            for (Contact other : contacts) {
+                if (other.getId() != id && email.equalsIgnoreCase(other.getEmail())) {
                     System.out.println("Cet email est déjà utilisé par un autre contact.");
                     return false;
                 }
             }
-            contact.setEmail(email);
         }
 
-        // On vérifie unicité téléphone
+        // On vérifie si le numéro de téléphone est déjà utilisé.
         if (phone != null && !phone.isBlank()) {
-            for (Contact contactInMyList : contacts) {
-                if (contactInMyList.getId() != id && phone.equals(contactInMyList.getPhoneNumber())) {
+            for (Contact other : contacts) {
+                if (other.getId() != id && phone.equals(other.getPhoneNumber())) {
                     System.out.println("Ce numéro est déjà utilisé par un autre contact.");
                     return false;
                 }
             }
-            contact.setPhoneNumber(phone);
         }
 
+        // Si tout est ok, on applique les modifications
         if (firstName != null && !firstName.isBlank()) {
             contact.setFirstName(firstName);
         }
         if (lastName != null && !lastName.isBlank()) {
             contact.setLastName(lastName);
         }
-    return true;
+        if (email != null && !email.isBlank()) {
+            contact.setEmail(email);
+        }
+        if (phone != null && !phone.isBlank()) {
+            contact.setPhoneNumber(phone);
+        }
+
+        return true;
     }
 
     // On gère l'affiche d'un élément de type ContactManager
