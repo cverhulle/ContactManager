@@ -106,22 +106,37 @@ public class ContactManager {
     // Cette méthode permet de modifer toutes les données d'un Contact. Celles-ci sont données en argument.
     public boolean updateContact(int id, String firstName, String lastName, String email, String phone) {
         Contact contact = getContactById(id);
-        if (contact == null) {
-            return false;
+        if (contact == null) return false;
+
+        // On vérifie unicité email
+        if (email != null && !email.isBlank()) {
+            for (Contact contactInMyList : contacts) {
+                if (contactInMyList.getId() != id && email.equalsIgnoreCase(contactInMyList.getEmail())) {
+                    System.out.println("Cet email est déjà utilisé par un autre contact.");
+                    return false;
+                }
+            }
+            contact.setEmail(email);
         }
+
+        // On vérifie unicité téléphone
+        if (phone != null && !phone.isBlank()) {
+            for (Contact contactInMyList : contacts) {
+                if (contactInMyList.getId() != id && phone.equals(contactInMyList.getPhoneNumber())) {
+                    System.out.println("Ce numéro est déjà utilisé par un autre contact.");
+                    return false;
+                }
+            }
+            contact.setPhoneNumber(phone);
+        }
+
         if (firstName != null && !firstName.isBlank()) {
             contact.setFirstName(firstName);
         }
         if (lastName != null && !lastName.isBlank()) {
             contact.setLastName(lastName);
         }
-        if (email != null && !email.isBlank()) {
-            contact.setEmail(email);
-        }
-        if (phone != null && !phone.isBlank()) {
-            contact.setPhoneNumber(phone);
-        }
-        return true; 
+    return true;
     }
 
     // On gère l'affiche d'un élément de type ContactManager
