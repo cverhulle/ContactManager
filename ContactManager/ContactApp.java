@@ -72,32 +72,17 @@ public class ContactApp {
 
     // Cette métohde permet d'ajouter un contact dans la liste.
     private void addContact() {
-        String firstName = Utils.askField(scanner, "Prénom", null, false);
-        if (firstName == null) {
-            System.out.println("Ajout annulé.");
-            return;
-        }
+        try{ 
+            String firstName = Utils.askRequiredField(scanner, "Prénom");
+            String lastName  = Utils.askRequiredField(scanner, "Nom");
+            String email     = Utils.askRequiredField(scanner, "Email");
+            String phone     = Utils.askRequiredField(scanner, "Téléphone");
 
-        String lastName = Utils.askField(scanner, "Nom", null, false);
-        if (lastName == null) {
+            Contact contact = new Contact(lastName, firstName, email, phone);
+            contacts.addContact(contact);
+        } catch (CancelledInputException e) {
             System.out.println("Ajout annulé.");
-            return;
         }
-
-        String email = Utils.askField(scanner, "Email", null, false);
-        if (email == null) {
-            System.out.println("Ajout annulé.");
-            return;
-        }
-
-        String phone = Utils.askField(scanner, "Téléphone", null, false);
-        if (phone == null) {
-            System.out.println("Ajout annulé.");
-            return;
-        }
-
-        Contact contact = new Contact(lastName, firstName, email, phone);
-        contacts.addContact(contact);
     }
 
     // Cette méthode permet de supprimer un contact.
