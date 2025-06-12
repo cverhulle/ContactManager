@@ -72,6 +72,8 @@ public class ContactApp {
 
     // Cette métohde permet d'ajouter un contact dans la liste.
     private void addContact() {
+
+        // On demande les champs du contact à l'utilisateur
         try{ 
             String firstName = Utils.askRequiredField(scanner, "Prénom");
             String lastName  = Utils.askRequiredField(scanner, "Nom");
@@ -80,6 +82,8 @@ public class ContactApp {
 
             Contact contact = new Contact(lastName, firstName, email, phone);
             contacts.addContact(contact);
+        
+        // Si l'utilisateur tape 0, on récupère l'erreur et on annule l'ajout.
         } catch (CancelledInputException e) {
             System.out.println("Ajout annulé.");
         }
@@ -89,6 +93,7 @@ public class ContactApp {
     private void removeContact() {
         int id = Utils.askIdContact(scanner);
 
+        // Si la réponse est 0, on annule la suppression de contact.
         if (id == 0) {
             System.out.println("Suppression annulée.");
         } else {
