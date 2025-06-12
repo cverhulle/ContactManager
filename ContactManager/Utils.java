@@ -81,6 +81,11 @@ public class Utils {
         return confirmation.equalsIgnoreCase("oui");
     }
 
+    // Cette méthode permet de tester si l'utilisateur souhaite annuler un choix.
+    public static boolean isCancelChoice(String choice) {
+        return "0".equals(choice);
+    }
+
     // Cette méthode retourne true si la variable est null ou vide.
     public static boolean isNotNullOrBlank(String value) {
         return value != null && !value.isBlank();
