@@ -169,7 +169,10 @@ public class ContactApp {
 
         // On récupère l'id du contact à modifier
         int id = Utils.askIdContact(scanner);
-        if (id == -1) return;
+        if (id == 0) {
+            System.out.println("Modification annulée.");
+            return;
+        }
 
         // On récupère les données du contact à modifier
         Contact contact = contacts.getContactById(id);
