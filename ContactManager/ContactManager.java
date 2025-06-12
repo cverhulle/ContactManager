@@ -150,18 +150,10 @@ public class ContactManager {
         }
 
         // Si tout est ok, on applique les modifications
-        if (firstName != null && !firstName.isBlank()) {
-            contact.setFirstName(firstName);
-        }
-        if (lastName != null && !lastName.isBlank()) {
-            contact.setLastName(lastName);
-        }
-        if (email != null && !email.isBlank()) {
-            contact.setEmail(email);
-        }
-        if (phone != null && !phone.isBlank()) {
-            contact.setPhoneNumber(normalizedPhone);
-        }
+        Utils.applyIfNotBlank(firstName, contact::setFirstName);
+        Utils.applyIfNotBlank(lastName, contact::setLastName);
+        Utils.applyIfNotBlank(email, contact::setEmail);
+        Utils.applyIfNotBlank(normalizedPhone, contact::setPhoneNumber);
 
         return true;
     }
