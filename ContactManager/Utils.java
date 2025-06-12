@@ -52,7 +52,9 @@ public class Utils {
         return scanner.nextLine();
     }
 
-    // Cette méthode permet d'afficher un menu (argument options) et elle retourne le choix de l'utilisateur.
+    // Cette méthode permet d'afficher un menu (argument options)
+    // L'argument cancelLabel permet d'afficher un message si l'on veut retourner en arrière
+    // Cette méthode retourne le choix de l'utilisateur ou null si on choisit de revenir au menu principal.
     public static String askMenuChoice(Scanner scanner, String title, String[] options, String cancelLabel) {
         System.out.println("\n" + title);
         for (int i = 0; i < options.length; i++) {
