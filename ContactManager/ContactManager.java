@@ -113,6 +113,20 @@ public class ContactManager {
         return false;
     }
 
+    // Cette méthode permet de vérifier si le numéro de téléphone est déjà utilisé par un contact (en excluant un id donné)
+    private boolean isPhoneUsed(String phone, int excludeId) {
+
+        // On normalise le numéro de téléphone
+        String normalizedPhone = Utils.normalizePhone(phone);
+
+        for (Contact contact : contacts) {
+            if (contact.getId() != excludeId && normalizedPhone.equals(contact.getPhoneNumber())) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     // Cette méthode permet de modifer toutes les données d'un Contact. Celles-ci sont données en argument.
     public boolean updateContact(int id, String firstName, String lastName, String email, String phone) {
 
