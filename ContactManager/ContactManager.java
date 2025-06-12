@@ -105,10 +105,13 @@ public class ContactManager {
 
     // Cette méthode permet de modifer toutes les données d'un Contact. Celles-ci sont données en argument.
     public boolean updateContact(int id, String firstName, String lastName, String email, String phone) {
+
+        // On récupère les données du contact.
         Contact contact = getContactById(id);
         if (contact == null) return false;
 
-        String normalizedPhone = null;
+        // On normalise le numéro de téléphone
+        String normalizedPhone = Utils.normalizePhone(phone);
 
         // On vérifie si l'email est déjà utilisé.
         if (email != null && !email.isBlank()) {
@@ -122,7 +125,7 @@ public class ContactManager {
 
         // On vérifie si le numéro de téléphone est déjà utilisé.
         if (phone != null && !phone.isBlank()) {
-            normalizedPhone = Utils.normalizePhone(phone);
+
             for (Contact contactInMyList : contacts) {
                 if (contactInMyList.getId() != id && normalizedPhone.equals(contactInMyList.getPhoneNumber())) {
                     System.out.println("Ce numéro est déjà utilisé par un autre contact.");
