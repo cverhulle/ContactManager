@@ -129,7 +129,7 @@ public class ContactApp {
         String fieldChoice = Utils.askMenuChoice(scanner, "Rechercher par :", options, "Annuler la recherche");
 
         // Si l'utilisateur a choisi d'annuler, on retourne au menu princiapl.
-        if ("0".equals(fieldChoice)) {
+        if (Utils.isCancelChoice(fieldChoice)) {
             System.out.println("Recherche annulée.");
             return;
         }
