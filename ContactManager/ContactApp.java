@@ -107,6 +107,11 @@ public class ContactApp {
         String[] options = { "Prénom", "Nom", "Email", "Téléphone" };
         String fieldChoice = Utils.askMenuChoice(scanner, "Rechercher par :", options);
 
+        if (!fieldChoice.matches("[1-4]")) {
+            System.out.println("Choix invalide.");
+            return;
+        }
+
         String query = Utils.askInput(scanner, "Entrez la valeur à rechercher : ");
 
         switch (fieldChoice) {
@@ -114,7 +119,6 @@ public class ContactApp {
             case "2" -> contacts.searchByLastName(query);
             case "3" -> contacts.searchByEmail(query);
             case "4" -> contacts.searchByPhone(query);
-            default -> System.out.println("Choix invalide.");
         }
     }
 
