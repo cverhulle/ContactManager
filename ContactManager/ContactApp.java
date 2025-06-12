@@ -122,7 +122,7 @@ public class ContactApp {
         String fieldChoice = Utils.askMenuChoice(scanner, "Rechercher par :", options, "Annuler la recherche");
 
         // Si le choix entré n'est pas dans les possibilités, on retourne au menu principal.
-        if (fieldChoice == null || !fieldChoice.matches("[1-4]")) {
+        if (!Utils.isValidMenuChoice(fieldChoice, options.length)) {
             System.out.println("Choix invalide.");
             return;
         }
