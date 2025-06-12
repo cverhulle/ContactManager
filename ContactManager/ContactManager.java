@@ -161,13 +161,22 @@ public class ContactManager {
     // On gère l'affiche d'un élément de type ContactManager
     @Override
     public String toString() {
+
+        // S'il n'y a aucun contact, on affiche un message personnalisé.
         if (contacts.isEmpty()) {
             return "Aucun contact enregistré.";
         }
 
+        // Sinon, on initialise une chaîne de caractères.
         StringBuilder listeDeContacts = new StringBuilder();
+
+        // On affiche un message en haut de la liste de contacts.
         listeDeContacts.append("Carnet de contacts :");
+
+        // Pour chaque contact...
         for (int i = 0; i < contacts.size(); i++) {
+
+            // On passe à la ligne, on affiche le numéro du contact dans la liste et ses données (id, nom, prénom etc...)
             listeDeContacts.append("\n").append((i + 1)).append(". ").append(contacts.get(i));
         }
         return listeDeContacts.toString();
