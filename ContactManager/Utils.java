@@ -17,14 +17,19 @@ public class Utils {
     public static String askField(Scanner scanner, String label, String currentValue, boolean allowBlank) {
         String input;
 
+        // On crée une boucle infinie 
         while (true) {
+
+            // On demande à l'utilisateur de répondre à une question
             String prompt = label + (currentValue != null ? " (" + currentValue + ")" : "") + " : ";
             input = askInput(scanner, prompt);
 
+            // Si la réponse n'est pas vide ou que le vide est autorisé, on retourne la réponse.
             if (!input.isBlank() || allowBlank) {
                 return input;
             }
 
+            // Si la réponse est vide et que ce n'est pas autorisé, on affiche une erreur et on recommence la boucle.
             System.out.println("Ce champ ne peut pas être vide. Veuillez réessayer.");
         }
     }
