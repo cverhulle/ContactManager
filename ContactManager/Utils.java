@@ -56,6 +56,11 @@ public class Utils {
         return confirmation.equalsIgnoreCase("oui");
     }
 
+    // Cette méthode retourne true si la variable est null ou vide.
+    public static boolean isNotNullOrBlank(String value) {
+        return value != null && !value.isBlank();
+    }
+
     // Cette méthode permet de supprimer les espaces dans un numéro de téléphone.
     public static String normalizePhone(String phone) {
         return phone.replaceAll("\\s+", "");
