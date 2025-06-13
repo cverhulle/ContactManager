@@ -86,7 +86,7 @@ public class Utils {
     }
 
     // Cette méthode permet de demander à l'utilisateur de choisir parmi la liste des Tags et retourne sa réponse.
-    public static Tags askTag(Scanner scanner) {
+    public static String askTag(Scanner scanner) {
         Tags[] tags = Tags.values();
 
         // Construire le tableau de noms depuis l'enum
@@ -105,7 +105,7 @@ public class Utils {
 
         int index = Integer.parseInt(choice) - 1;
 
-        return tags[index];
+        return tagNames[index];
     }
 
     // Cette méthode permet de demander à l'utilisateur de confirmer un choix.
