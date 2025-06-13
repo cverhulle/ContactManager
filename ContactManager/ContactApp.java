@@ -79,7 +79,7 @@ public class ContactApp {
             String lastName  = Utils.askField(scanner, "Nom",null,false);
             String email     = Utils.askField(scanner, "Email",null,false);
             String phone     = Utils.askField(scanner, "Téléphone",null,false);
-            Tags tag         = Utils.askTag(scanner);
+            Tags tag         = Utils.askTag(scanner, "Tag", null, false);
 
             Contact contact = new Contact(lastName, firstName, email, phone,tag);
             contacts.addContact(contact);
@@ -194,7 +194,7 @@ public class ContactApp {
             String lastName  = Utils.askField(scanner, "Nouveau nom", contact.getLastName(), true);
             String email     = Utils.askField(scanner, "Nouvel email", contact.getEmail(), true);
             String phone     = Utils.askField(scanner, "Nouveau téléphone", contact.getPhoneNumber(), true);
-            Tags tag         = Utils.askTag(scanner);
+            Tags tag         = Utils.askTag(scanner, "Nouveau tag", contact.getTag(), true);
 
             // On met à jour le contact avec les données.
             boolean success = contacts.updateContact(id, firstName, lastName, email, phone,tag);
