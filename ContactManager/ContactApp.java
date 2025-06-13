@@ -75,10 +75,10 @@ public class ContactApp {
 
         // On demande les champs du contact à l'utilisateur
         try{ 
-            String firstName = Utils.askFieldOrThrow(scanner, "Prénom");
-            String lastName  = Utils.askFieldOrThrow(scanner, "Nom");
-            String email     = Utils.askFieldOrThrow(scanner, "Email");
-            String phone     = Utils.askFieldOrThrow(scanner, "Téléphone");
+            String firstName = Utils.askField(scanner, "Prénom",null,false);
+            String lastName  = Utils.askField(scanner, "Nom",null,false);
+            String email     = Utils.askField(scanner, "Email",null,false);
+            String phone     = Utils.askField(scanner, "Téléphone",null,false);
 
             Contact contact = new Contact(lastName, firstName, email, phone);
             contacts.addContact(contact);
