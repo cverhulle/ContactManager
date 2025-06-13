@@ -13,10 +13,10 @@ public class Contact {
     private String email;
     private String phoneNumber;
     final private int id;
-    private String tag;
+    private Tags tag;
 
     // On crée le constructeur de la classe Contact.
-    public Contact(String lastName, String firstName, String email, String phoneNumber, String tag) {
+    public Contact(String lastName, String firstName, String email, String phoneNumber, Tags tag) {
         this.id = idCounter++;
         this.lastName = lastName;
         this.firstName = firstName;
@@ -51,7 +51,7 @@ public class Contact {
     }
 
     // On crée une méthode pour récupérer le tag.
-    public String getTag() {
+    public Tags getTag() {
         return tag;
     }
 
@@ -71,7 +71,7 @@ public class Contact {
     }
 
     // On crée une méthode pour modifier le tag
-    public void setTag(String tag) {
+    public void setTag(Tags tag) {
         this.tag = tag;
     }
 
