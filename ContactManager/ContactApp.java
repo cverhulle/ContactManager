@@ -2,8 +2,6 @@ package contactmanager;
 
 import java.util.Scanner;
 
-import javax.swing.text.html.HTML.Tag;
-
 // Cette classe permet de gérer le déroulé de l'application en fonction des réponses de l'utilisateur.
 public class ContactApp {
     @SuppressWarnings("FieldMayBeFinal")
