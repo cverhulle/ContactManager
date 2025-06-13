@@ -7,7 +7,7 @@ public class Contact {
     // Le "static" permet de faire en sorte que le compteur soit commun à tous les contacts.
     private static int idCounter = 1; 
 
-    // On fournit cinq propriétés à cette classe.
+    // On fournit six propriétés à cette classe.
     private String lastName;
     private String firstName;
     private String email;
@@ -16,12 +16,13 @@ public class Contact {
     private String tag;
 
     // On crée le constructeur de la classe Contact.
-    public Contact(String lastName, String firstName, String email, String phoneNumber) {
+    public Contact(String lastName, String firstName, String email, String phoneNumber, String tag) {
         this.id = idCounter++;
         this.lastName = lastName;
         this.firstName = firstName;
         this.email = email;
         this.phoneNumber = Utils.normalizePhone(phoneNumber);
+        this.tag = tag;
     }
 
     // On crée une méthode pour récupérer le nom.
@@ -47,6 +48,11 @@ public class Contact {
     // On crée une méthode pour récupérer l'id.
     public int getId() {
         return id;
+    }
+
+    // On crée une méthode pour récupérer l'id.
+    public String getTag() {
+        return tag;
     }
 
     // On crée une méthode pour modifier le nom.
