@@ -13,6 +13,7 @@ public class Contact {
     private String email;
     private String phoneNumber;
     final private int id;
+    private String tag;
 
     // On crée le constructeur de la classe Contact.
     public Contact(String lastName, String firstName, String email, String phoneNumber) {
