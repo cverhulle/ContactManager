@@ -133,7 +133,7 @@ public class ContactManager {
     }
 
     // Cette méthode permet de modifer toutes les données d'un Contact. Celles-ci sont données en argument.
-    public boolean updateContact(int id, String firstName, String lastName, String email, String phone, String tag) {
+    public boolean updateContact(int id, String firstName, String lastName, String email, String phone, Tags tag) {
 
         // On récupère les données du contact.
         Contact contact = getContactById(id);
@@ -159,7 +159,7 @@ public class ContactManager {
         Utils.applyIfNotBlank(lastName, contact::setLastName);
         Utils.applyIfNotBlank(email, contact::setEmail);
         Utils.applyIfNotBlank(normalizedPhone, contact::setPhoneNumber);
-        Utils.applyIfNotBlank(tag, contact::setTag);
+        contact.setTag(tag);
 
         return true;
     }
