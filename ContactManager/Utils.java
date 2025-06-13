@@ -26,7 +26,7 @@ public class Utils {
 
             // Si la réponse est 0, on considère que l'utilisater annule.
             if (input.equals("0")) {
-                return null;
+                throw new CancelledInputException();
             }
 
             // Si la réponse n'est pas vide ou que le vide est autorisé, on retourne la réponse.
