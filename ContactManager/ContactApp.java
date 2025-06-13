@@ -2,6 +2,8 @@ package contactmanager;
 
 import java.util.Scanner;
 
+import javax.swing.text.html.HTML.Tag;
+
 // Cette classe permet de gérer le déroulé de l'application en fonction des réponses de l'utilisateur.
 public class ContactApp {
     @SuppressWarnings("FieldMayBeFinal")
@@ -79,7 +81,7 @@ public class ContactApp {
             String lastName  = Utils.askField(scanner, "Nom",null,false);
             String email     = Utils.askField(scanner, "Email",null,false);
             String phone     = Utils.askField(scanner, "Téléphone",null,false);
-            String tag       = Utils.askField(scanner, "Tag",null,false);
+            Tags tag         = Utils.askTag(scanner);
 
             Contact contact = new Contact(lastName, firstName, email, phone,tag);
             contacts.addContact(contact);
@@ -162,7 +164,10 @@ public class ContactApp {
             case "2" -> contacts.searchByLastName(query);
             case "3" -> contacts.searchByEmail(query);
             case "4" -> contacts.searchByPhone(query);
-            case "5" -> contacts.searchByTag(query);
+            case "5" -> {
+                Tags tag = Utils.parseTag(query);
+                contacts.searchByTag(tag);
+            }
         }
     }
 
@@ -191,7 +196,7 @@ public class ContactApp {
             String lastName  = Utils.askField(scanner, "Nouveau nom", contact.getLastName(), true);
             String email     = Utils.askField(scanner, "Nouvel email", contact.getEmail(), true);
             String phone     = Utils.askField(scanner, "Nouveau téléphone", contact.getPhoneNumber(), true);
-            String tag       = Utils.askField(scanner, "Nouveau tag", contact.getPhoneNumber(), true);
+            Tags tag       = Utils.askTag(scanner);
 
             // On met à jour le contact avec les données.
             boolean success = contacts.updateContact(id, firstName, lastName, email, phone,tag);
