@@ -194,7 +194,7 @@ public class ContactApp {
             String lastName  = Utils.askField(scanner, "Nouveau nom", contact.getLastName(), true);
             String email     = Utils.askField(scanner, "Nouvel email", contact.getEmail(), true);
             String phone     = Utils.askField(scanner, "Nouveau téléphone", contact.getPhoneNumber(), true);
-            Tags tag       = Utils.askTag(scanner);
+            Tags tag         = Utils.askTag(scanner);
 
             // On met à jour le contact avec les données.
             boolean success = contacts.updateContact(id, firstName, lastName, email, phone,tag);
