@@ -83,6 +83,6 @@ public class Contact {
     // On gère l'affichage dans la console
     @Override
     public String toString() {
-        return "[" + id + "] " + firstName + " " + lastName + " - " + email + " - " + phoneNumber + "-" + tag;
+        return "[" + id + "] " + firstName + " " + lastName + " - " + email + " - " + phoneNumber + " - " + tag;
     }
 }
