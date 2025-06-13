@@ -163,7 +163,7 @@ public class ContactApp {
             case "3" -> contacts.searchByEmail(query);
             case "4" -> contacts.searchByPhone(query);
             case "5" -> {
-                Tags tag = Utils.parseTag(query);
+                Tags tag = Tags.parseTag(query);
                 contacts.searchByTag(tag);
             }
         }
