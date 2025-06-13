@@ -50,7 +50,7 @@ public class Contact {
         return id;
     }
 
-    // On crée une méthode pour récupérer l'id.
+    // On crée une méthode pour récupérer le tag.
     public String getTag() {
         return tag;
     }
@@ -70,6 +70,11 @@ public class Contact {
         this.email = email;
     }
 
+    // On crée une méthode pour modifier le tag
+    public void setTag(String tag) {
+        this.tag = tag;
+    }
+
     // On crée une méthode pour modifier le numéro de téléphone
     public void setPhoneNumber(String phoneNumber){
         this.phoneNumber = Utils.normalizePhone(phoneNumber);
@@ -78,6 +83,6 @@ public class Contact {
     // On gère l'affichage dans la console
     @Override
     public String toString() {
-        return "[" + id + "] " + firstName + " " + lastName + " - " + email + " - " + phoneNumber;
+        return "[" + id + "] " + firstName + " " + lastName + " - " + email + " - " + phoneNumber + "-" + tag;
     }
 }
