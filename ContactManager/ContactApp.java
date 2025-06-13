@@ -191,9 +191,10 @@ public class ContactApp {
             String lastName  = Utils.askField(scanner, "Nouveau nom", contact.getLastName(), true);
             String email     = Utils.askField(scanner, "Nouvel email", contact.getEmail(), true);
             String phone     = Utils.askField(scanner, "Nouveau téléphone", contact.getPhoneNumber(), true);
+            String tag       = Utils.askField(scanner, "Nouveau tag", contact.getPhoneNumber(), true);
 
             // On met à jour le contact avec les données.
-            boolean success = contacts.updateContact(id, firstName, lastName, email, phone);
+            boolean success = contacts.updateContact(id, firstName, lastName, email, phone,tag);
 
             // Si les données sont "valables", on affiche un message de succès. Sinon, c'est un message d'erreur.
             System.out.println(success ? "Contact modifié avec succès !" : "Erreur lors de la modification.");
