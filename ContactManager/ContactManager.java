@@ -93,6 +93,11 @@ public class ContactManager {
         searchGeneric("téléphone", contact -> contact.getPhoneNumber().replaceAll("\\s+", "").contains(normalizedQuery));
     }
 
+    // Cette méthode permet de trouver un contact en donnant un tag.
+    public void searchByTag(String query) {
+        searchGeneric("tag", contact -> contact.getTag().toLowerCase().contains(query.toLowerCase()));
+    }
+
     // Cette métohde permet de récupérer un Contact à partir de son id en argument.
     public Contact getContactById(int id) {
         for (Contact contact : contacts) {
