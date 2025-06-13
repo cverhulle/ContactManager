@@ -85,6 +85,29 @@ public class Utils {
         return answer;
     }
 
+    // Cette méthode permet de demander à l'utilisateur de choisir parmi la liste des Tags et retourne sa réponse.
+    public static Tags askTag(Scanner scanner) {
+        Tags[] tags = Tags.values();
+
+        // Construire le tableau de noms depuis l'enum
+        String[] tagNames = new String[tags.length];
+        for (int i = 0; i < tags.length; i++) {
+            tagNames[i] = tags[i].toString();
+        }
+
+        // Demander à l'utilisateur de faire son choix
+        String choice = askMenuChoice(scanner, "Choisissez un tag :", tagNames, "Annuler");
+
+        // Si l'utilisateur annule, on retourne une erreur.
+        if (choice == null) {
+            throw new CancelledInputException();
+        }
+
+        int index = Integer.parseInt(choice) - 1;
+
+        return tags[index];
+    }
+
     // Cette méthode permet de demander à l'utilisateur de confirmer un choix.
     public static boolean confirmChoice(Scanner scanner, String message) {
         System.out.println(message);
