@@ -6,7 +6,7 @@ public enum Tags {
     FAMILLE,
     AUTRE;
 
-
+    // Cette méthode renvoie la lsite des choix de Tags en tableau de String.
     public static String[] getTagsNamesInString() {
         Tags[] tags = values();
         String[] tagNames = new String[tags.length];
