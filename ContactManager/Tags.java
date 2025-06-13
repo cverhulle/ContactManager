@@ -15,4 +15,16 @@ public enum Tags {
         }
         return tagNames;
     }
+
+    // Cette méthode prend une chaine et retourne le Tag correspondant ou NULL si inconnu.
+    public static Tags parseTag(String tagName) {
+        if (tagName == null || tagName.trim().isEmpty()) {
+            return null;
+        }
+        try {
+            return Tags.valueOf(tagName.trim().toUpperCase()); // ou toUpperCase()
+        } catch (IllegalArgumentException e) {
+            return null;
+        }
+    }
 }
