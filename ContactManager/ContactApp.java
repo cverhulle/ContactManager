@@ -79,8 +79,9 @@ public class ContactApp {
             String lastName  = Utils.askField(scanner, "Nom",null,false);
             String email     = Utils.askField(scanner, "Email",null,false);
             String phone     = Utils.askField(scanner, "Téléphone",null,false);
+            String tag       = Utils.askField(scanner, "Tag",null,false);
 
-            Contact contact = new Contact(lastName, firstName, email, phone);
+            Contact contact = new Contact(lastName, firstName, email, phone,tag);
             contacts.addContact(contact);
         
         // Si l'utilisateur tape 0, on récupère l'erreur et on annule l'ajout.
