@@ -195,7 +195,8 @@ public class ContactApp {
 
             // Si les données sont "valables", on affiche un message de succès. Sinon, c'est un message d'erreur.
             System.out.println(success ? "Contact modifié avec succès !" : "Erreur lors de la modification.");
-
+        
+        // Si l'utlisateur déclenche l'erreur (en tapant 0), on annule la modification et, on affiche un message.
         } catch (CancelledInputException e) {
             System.out.println("Modification annulée");
         }
