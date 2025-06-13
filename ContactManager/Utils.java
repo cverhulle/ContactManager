@@ -113,8 +113,14 @@ public class Utils {
                     continue;
                 }
             }
-            
+
             int index = Integer.parseInt(choice) - 1;
+
+            // On regarde si l'index est cohérent avec le nombre de choix.
+            if (index < 0 || index >= tags.length) {
+                System.out.println("Choix invalide.");
+                continue;
+            }
 
             return tags[index];
         }
