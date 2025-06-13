@@ -138,7 +138,7 @@ public class ContactApp {
     private void findContact() {
 
         // On affiche la liste des champs de recherche possible.
-        String[] options = { "Prénom", "Nom", "Email", "Téléphone" };
+        String[] options = { "Prénom", "Nom", "Email", "Téléphone", "Tag" };
         String fieldChoice = Utils.askMenuChoice(scanner, "Rechercher par :", options, "Annuler la recherche");
 
         // Si l'utilisateur a choisi d'annuler, on retourne au menu princiapl.
@@ -162,6 +162,7 @@ public class ContactApp {
             case "2" -> contacts.searchByLastName(query);
             case "3" -> contacts.searchByEmail(query);
             case "4" -> contacts.searchByPhone(query);
+            case "5" -> contacts.searchByTag(query);
         }
     }
 
