@@ -86,9 +86,11 @@ public class Utils {
     }
 
     // Cette méthode permet de demander à l'utilisateur de choisir parmi la liste des Tags et retourne sa réponse.
-    public static String askTag(Scanner scanner) {
+    public static Tags askTag(Scanner scanner) {
+        Tags[] tags = Tags.values();
+
         String[] tagNames = Tags.getTagsNamesInString();
-        
+
         // Demander à l'utilisateur de faire son choix
         String choice = askMenuChoice(scanner, "Choisissez un tag :", tagNames, "Annuler");
 
@@ -99,7 +101,7 @@ public class Utils {
 
         int index = Integer.parseInt(choice) - 1;
 
-        return tagNames[index];
+        return tags[index];
     }
 
     // Cette méthode permet de demander à l'utilisateur de confirmer un choix.
