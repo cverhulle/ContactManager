@@ -3,6 +3,12 @@ package contactmanager;
 import java.util.Scanner;
 import java.util.function.Consumer;
 
+/* A FAIRE : 
+ * Gérer l'erreur dans askMenuChoice
+ * Améliorer askField et askTag : Code ressemblant et erreur à voir avec askMenuChoice
+ * Utilité de isvalidMenuChoice ?
+ */
+
 public class Utils {
 
     // Cette méthode permet d'appliquer un setter seulement si la valeur n'est pas null ou vide.
