@@ -86,22 +86,38 @@ public class Utils {
     }
 
     // Cette méthode permet de demander à l'utilisateur de choisir parmi la liste des Tags et retourne sa réponse.
-    public static Tags askTag(Scanner scanner) {
+    public static Tags askTag(Scanner scanner,  String label, Tags currentValue, boolean allowBlank) {
         Tags[] tags = Tags.values();
 
         String[] tagNames = Tags.getTagsNamesInString();
 
-        // Demander à l'utilisateur de faire son choix
-        String choice = askMenuChoice(scanner, "Choisissez un tag :", tagNames, "Annuler");
+        while (true) {
 
-        // Si l'utilisateur annule, on retourne une erreur.
-        if (choice == null) {
-            throw new CancelledInputException();
+            // On gère la question à afficher
+            String prompt = label + (currentValue != null ? "(" + currentValue + ")" : "") + " (0 pour annuler) : ";
+
+            // Demander à l'utilisateur de faire son choix
+            String choice = askMenuChoice(scanner, prompt, tagNames, "Annuler");
+
+            // Si l'utilisateur annule, on retourne une erreur.
+            if (choice == null) {
+                throw new CancelledInputException();
+            }
+
+            // cas de chaine vide
+            if (choice.isEmpty()) {
+                if (allowBlank) {
+                    return currentValue;
+                } else {
+                    System.out.println("Ce champ est obligatoire.");
+                    continue;
+                }
+            }
+            
+            int index = Integer.parseInt(choice) - 1;
+
+            return tags[index];
         }
-
-        int index = Integer.parseInt(choice) - 1;
-
-        return tags[index];
     }
 
     // Cette méthode permet de demander à l'utilisateur de confirmer un choix.
