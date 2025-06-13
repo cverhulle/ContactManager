@@ -87,14 +87,8 @@ public class Utils {
 
     // Cette méthode permet de demander à l'utilisateur de choisir parmi la liste des Tags et retourne sa réponse.
     public static String askTag(Scanner scanner) {
-        Tags[] tags = Tags.values();
-
-        // Construire le tableau de noms depuis l'enum
-        String[] tagNames = new String[tags.length];
-        for (int i = 0; i < tags.length; i++) {
-            tagNames[i] = tags[i].toString();
-        }
-
+        String[] tagNames = Tags.getTagsNamesInString();
+        
         // Demander à l'utilisateur de faire son choix
         String choice = askMenuChoice(scanner, "Choisissez un tag :", tagNames, "Annuler");
 
