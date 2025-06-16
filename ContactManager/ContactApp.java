@@ -181,9 +181,9 @@ public class ContactApp {
                     case "4" -> contacts.searchByPhone(query);
                 }
             }
-        }  // Si l'utlisateur déclenche l'erreur (en tapant 0), on annule la modification et, on affiche un message.
+        }  // Si l'utlisateur déclenche l'erreur (en tapant 0), on annule la recherche et, on affiche un message.
         catch (CancelledInputException e) {
-            System.out.println("Modification annulée");
+            System.out.println("Recherche annulée");
         }
     }
 

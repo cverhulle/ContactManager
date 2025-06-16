@@ -126,7 +126,7 @@ public class Utils {
         String choice = askMenuChoice(scanner, prompt, tagNames, "Annuler",allowBlank);
 
         // Si choice est une chaîne vide et, que le vide est autorisé, on retourne la valeure précédente
-        if (allowBlank && choice.equals( "")) {
+        if (allowBlank && choice.trim().isEmpty()) {
             return currentValue;
         } else {
 
