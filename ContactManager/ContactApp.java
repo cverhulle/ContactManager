@@ -43,7 +43,7 @@ public class ContactApp {
             "Quitter"
         };
 
-        String choice = Utils.askMenuChoice(scanner, "--- MENU ---", options, null);
+        String choice = Utils.askMenuChoice(scanner, "--- MENU ---", options, null,false);
         return choice;
     }
 
@@ -151,14 +151,14 @@ public class ContactApp {
         String[] options = { "Prénom", "Nom", "Email", "Téléphone", "Tag" };
 
         try{ 
-            String fieldChoice = Utils.askMenuChoice(scanner, "Rechercher par :", options, "Annuler la recherche");
+            String fieldChoice = Utils.askMenuChoice(scanner, "Rechercher par :", options, "Annuler la recherche",false);
 
             // Si on choisit de chercher par Tags.
             if ("5".equals(fieldChoice)) { 
 
                 // On affiche toutes les options de tag
                 String[] tagNames = Tags.getTagsNamesInString();
-                String tagChoice = Utils.askMenuChoice(scanner, "Choisissez un tag :", tagNames, "Annuler la recherche");
+                String tagChoice = Utils.askMenuChoice(scanner, "Choisissez un tag :", tagNames, "Annuler la recherche",false);
 
                 // Si l'entrée est vide, on affiche tous les contacts.
                 if (tagChoice == null) {
@@ -227,7 +227,7 @@ public class ContactApp {
         // Si l'utlisateur déclenche l'erreur (en tapant 0), on annule la modification et, on affiche un message.
         } catch (CancelledInputException e) {
             System.out.println("Modification annulée");
-            
+
             // Si l'entrée est incorrecte, on annule.
         } catch (NumberFormatException e) {
             System.out.println("Entrée incorrecte");

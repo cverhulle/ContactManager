@@ -70,7 +70,7 @@ public class Utils {
     // Cette méthode permet d'afficher un menu (argument options)
     // L'argument cancelLabel permet d'afficher un message si l'on veut revenir au menu principal (null si non souhaité)
     // Cette méthode retourne le choix de l'utilisateur (ou une erreur si on choisit de revenir au menu principal).
-    public static String askMenuChoice(Scanner scanner, String title, String[] options, String cancelLabel) {
+    public static String askMenuChoice(Scanner scanner, String title, String[] options, String cancelLabel, boolean allowBlank) {
         String answer;
 
         // On crée une boucle infinie
@@ -93,6 +93,11 @@ public class Utils {
             // Si l'annulation est choisie et possible, on retourne l'erreur
             if (cancelLabel != null && isCancelChoice(answer)) {
                 throw new CancelledInputException();
+            }
+
+            // Si la réponse est vide et que le vide est autorisé, on retourne la réponse.
+            if (answer.isBlank() && allowBlank) {
+                return answer;
             }
 
             // Si la réponse n'est pas recevable (string, nombre trop grand etc...), on repart en début de boucle
@@ -118,7 +123,7 @@ public class Utils {
         String prompt = label + (currentValue != null ? "(" + currentValue + ")" : "") + " (0 pour annuler) : ";
 
         // Demander à l'utilisateur de faire son choix
-        String choice = askMenuChoice(scanner, prompt, tagNames, "Annuler");
+        String choice = askMenuChoice(scanner, prompt, tagNames, "Annuler",false);
 
         int index = Integer.parseInt(choice) - 1;
         return tags[index];        
