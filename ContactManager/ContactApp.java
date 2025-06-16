@@ -166,7 +166,7 @@ public class ContactApp {
 
                 // Si l'entrée est vide, on affiche tous les contacts.
                 if (tagChoice == null) {
-                    System.out.println(contacts);
+                    displayContacts(contacts.getAllContacts());
                 } else {
                     // Sinon, on affiche les résultats.
                     contacts.searchByTag(tagChoice);
