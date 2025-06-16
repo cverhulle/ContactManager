@@ -5,8 +5,6 @@ import java.util.function.Consumer;
 
 /* A FAIRE : 
  * Gérer l'erreur dans askMenuChoice
- * Améliorer askField et askTag : Code ressemblant et erreur à voir avec askMenuChoice
- * Utilité de isvalidMenuChoice ?
  * Gérer la recherche avec les tags.
 */
 
@@ -32,7 +30,7 @@ public class Utils {
             input = askInput(scanner, prompt);
 
             // Si la réponse est 0, on considère que l'utilisater annule.
-            if (input.equals("0")) {
+            if (isCancelChoice(input)) {
                 throw new CancelledInputException();
             }
 
