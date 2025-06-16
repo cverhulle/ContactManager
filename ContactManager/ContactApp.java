@@ -1,5 +1,6 @@
 package contactmanager;
 
+import java.util.List;
 import java.util.Scanner;
 
 // Cette classe permet de gérer le déroulé de l'application en fonction des réponses de l'utilisateur.
@@ -136,6 +137,15 @@ public class ContactApp {
             }
         } else {
             System.out.println("Aucun contact trouvé avec cet ID.");
+        }
+    }
+
+    // Cette méthode permet d'afficher les Contacts dans une liste de contacts.
+    private void displayContacts(List<Contact> contactsToDisplay) {
+        if (contactsToDisplay.isEmpty()) {
+            System.out.println("Aucun contact trouvé.");
+        } else {
+            contactsToDisplay.forEach(System.out::println);
         }
     }
 
