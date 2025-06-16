@@ -139,54 +139,54 @@ public class ContactApp {
 
         // On affiche la liste des champs de recherche possible.
         String[] options = { "Prénom", "Nom", "Email", "Téléphone", "Tag" };
-        String fieldChoice = Utils.askMenuChoice(scanner, "Rechercher par :", options, "Annuler la recherche");
 
-        // Si l'utilisateur a choisi d'annuler, on retourne au menu princiapl.
-        if (fieldChoice == null) {
-            System.out.println("Recherche annulée.");
-            return;
-        }
+        try{ 
+            String fieldChoice = Utils.askMenuChoice(scanner, "Rechercher par :", options, "Annuler la recherche");
 
-        // Si le choix entré n'est pas dans les possibilités, on retourne au menu principal.
-        if (!Utils.isValidMenuChoice(fieldChoice, options.length)) {
-            System.out.println("Choix invalide.");
-            return;
-        }
-
-        // Si on choisit de chercher par Tags.
-        if ("5".equals(fieldChoice)) { 
-
-            // On affiche toutes les options de tag
-            String[] tagNames = Tags.getTagsNamesInString();
-            String tagChoice = Utils.askMenuChoice(scanner, "Choisissez un tag :", tagNames, "Annuler la recherche");
-
-            // Si l'entrée est vide, on affiche tous les contacts.
-            if (tagChoice == null) {
-                System.out.println("Recherche annulée");
-            
-            // Sinon, on regarde si l'entrée est valide et, on affiche les contacts correspondants.
-            } else if (Utils.isValidMenuChoice(tagChoice, tagNames.length)) {
-                Tags tag = Tags.parseTag(tagNames[Integer.parseInt(tagChoice) - 1]);
-                contacts.searchByTag(tag);
-            
-            // Si l'entrée n'est pas valide, on affiche un message d'erreur
-            } else {
+            // Si le choix entré n'est pas dans les possibilités, on retourne au menu principal.
+            if (!Utils.isValidMenuChoice(fieldChoice, options.length)) {
                 System.out.println("Choix invalide.");
+                return;
             }
-        
-        // Si l'option Tag n'est pas chosie
-        } else {
 
-            // On demande la donnée à rechercher
-            String query = Utils.askInput(scanner, "Entrez la valeur à rechercher : ");
+            // Si on choisit de chercher par Tags.
+            if ("5".equals(fieldChoice)) { 
 
-            // On lance la recherche correspondate
-            switch (fieldChoice) {
-                case "1" -> contacts.searchByFirstName(query);
-                case "2" -> contacts.searchByLastName(query);
-                case "3" -> contacts.searchByEmail(query);
-                case "4" -> contacts.searchByPhone(query);
+                // On affiche toutes les options de tag
+                String[] tagNames = Tags.getTagsNamesInString();
+                String tagChoice = Utils.askMenuChoice(scanner, "Choisissez un tag :", tagNames, "Annuler la recherche");
+
+                // Si l'entrée est vide, on affiche tous les contacts.
+                if (tagChoice == null) {
+                    System.out.println("Recherche annulée");
+                
+                // Sinon, on regarde si l'entrée est valide et, on affiche les contacts correspondants.
+                } else if (Utils.isValidMenuChoice(tagChoice, tagNames.length)) {
+                    Tags tag = Tags.parseTag(tagNames[Integer.parseInt(tagChoice) - 1]);
+                    contacts.searchByTag(tag);
+                
+                // Si l'entrée n'est pas valide, on affiche un message d'erreur
+                } else {
+                    System.out.println("Choix invalide.");
+                }
+            
+            // Si l'option Tag n'est pas chosie
+            } else {
+
+                // On demande la donnée à rechercher
+                String query = Utils.askInput(scanner, "Entrez la valeur à rechercher : ");
+
+                // On lance la recherche correspondate
+                switch (fieldChoice) {
+                    case "1" -> contacts.searchByFirstName(query);
+                    case "2" -> contacts.searchByLastName(query);
+                    case "3" -> contacts.searchByEmail(query);
+                    case "4" -> contacts.searchByPhone(query);
+                }
             }
+        }  // Si l'utlisateur déclenche l'erreur (en tapant 0), on annule la modification et, on affiche un message.
+        catch (CancelledInputException e) {
+            System.out.println("Modification annulée");
         }
     }
 
