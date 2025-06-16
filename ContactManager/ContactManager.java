@@ -164,6 +164,11 @@ public class ContactManager {
         return true;
     }
 
+    // Cette méthode retourne la liste de tous les contacts.
+    public List<Contact> getAllContacts() {
+        return new ArrayList<>(this.contacts);  
+    }
+
     // On gère l'affiche d'un élément de type ContactManager
     @Override
     public String toString() {
