@@ -18,15 +18,8 @@ public class ContactManager {
     // Si l'email ou le numéro de téléphone est déjà utilisé, on n'ajoute pas celui-ci.
     public void addContact(Contact newContact) {
 
-        // On regarde si l'email est déjà utilisé
-        boolean sameEmail = isEmailUsed(newContact.getEmail(), -1);
-
-        // On regarde si le numéro de téléphone est déjà utilisé.
-        boolean samePhone = isPhoneUsed(newContact.getPhoneNumber(), -1);
-
         // Si l'email ou le téléphone est déjà pris...
-        if (sameEmail || samePhone) {
-
+        if (isPhoneOrEmailUsed(newContact.getPhoneNumber(), newContact.getEmail(), -1)) {
             // On affiche un message et, on n'ajoute pas le contact
             System.out.println("Un contact avec cet email ou téléphone existe déjà !");
             return ;
