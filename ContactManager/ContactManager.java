@@ -126,17 +126,14 @@ public class ContactManager {
         Contact contact = getContactById(id);
         if (contact == null) return false;
 
-        // On normalise le numéro de téléphone
-        String normalizedPhone = Utils.normalizePhone(phone);
-
         // On vérifie si l'email est déjà utilisé.
-        if (email != null && !email.isBlank() && isEmailUsed(email, id)) {
+        if (email != null && !email.trim().isBlank() && isEmailUsed(email, id)) {
                 System.out.println("Cet email est déjà utilisé par un autre contact.");
                 return false;
         }
 
         // On vérifie si le numéro de téléphone est déjà utilisé.
-        if (phone != null && !phone.isBlank() && isPhoneUsed(normalizedPhone, id)) {
+        if (phone != null && !phone.trim().isBlank() && isPhoneUsed(phone, id)) {
             System.out.println("Ce numéro est déjà utilisé par un autre contact.");
             return false;   
         }
@@ -145,7 +142,7 @@ public class ContactManager {
         Utils.applyIfNotBlank(firstName, contact::setFirstName);
         Utils.applyIfNotBlank(lastName, contact::setLastName);
         Utils.applyIfNotBlank(email, contact::setEmail);
-        Utils.applyIfNotBlank(normalizedPhone, contact::setPhoneNumber);
+        Utils.applyIfNotBlank(phone, contact::setPhoneNumber);
         contact.setTag(tag);
 
         return true;
