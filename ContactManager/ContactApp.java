@@ -169,7 +169,7 @@ public class ContactApp {
                     displayContacts(contacts.getAllContacts());
                 } else {
                     // Sinon, on affiche les résultats.
-                    contacts.searchByTag(tagChoice);
+                    displayContacts(contacts.searchByTag(tagChoice));
                 }
             
             // Si l'option Tag n'est pas chosie
@@ -180,10 +180,10 @@ public class ContactApp {
 
                 // On lance la recherche correspondate
                 switch (fieldChoice) {
-                    case "1" -> contacts.searchByFirstName(query);
-                    case "2" -> contacts.searchByLastName(query);
-                    case "3" -> contacts.searchByEmail(query);
-                    case "4" -> contacts.searchByPhone(query);
+                    case "1" -> displayContacts(contacts.searchByFirstName(query));
+                    case "2" -> displayContacts(contacts.searchByLastName(query));
+                    case "3" -> displayContacts(contacts.searchByEmail(query));
+                    case "4" -> displayContacts(contacts.searchByPhone(query));
                 }
             }
         }  // Si l'utlisateur déclenche l'erreur (en tapant 0), on annule la recherche et, on affiche un message.
