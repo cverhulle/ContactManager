@@ -22,7 +22,7 @@ public enum Tags {
             return null;
         }
         try {
-            return Tags.valueOf(tagName.trim().toUpperCase()); // ou toUpperCase()
+            return Tags.valueOf(tagName.trim().toUpperCase());
         } catch (IllegalArgumentException e) {
             return null;
         }
