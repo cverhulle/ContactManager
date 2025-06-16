@@ -8,7 +8,7 @@ import java.util.function.Consumer;
  * Améliorer askField et askTag : Code ressemblant et erreur à voir avec askMenuChoice
  * Utilité de isvalidMenuChoice ?
  * Gérer la recherche avec les tags.
- */
+*/
 
 public class Utils {
 
