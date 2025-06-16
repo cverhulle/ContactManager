@@ -46,8 +46,7 @@ public class Utils {
     // Cette méthode permet de demander l'id d'un Contact.
     // On retourne une erreur en cas d'annulation "0" ou de mauvaise entrée.
     public static int askIdContact(Scanner scanner) {
-        System.out.print("Entrez l'ID du contact (0 pour annuler) :");
-        String answer = scanner.nextLine();
+        String answer = askInput(scanner, "Entrez l'ID du contact (0 pour annuler) :");
 
         // Si l'entrée est "0", on retourne une erreur
         if (isCancelChoice(answer)) {
@@ -127,7 +126,7 @@ public class Utils {
         }
     }
 
-    // Cette méthode permet de demander à l'utilisateur de confirmer un choix.
+    // Cette méthode permet de demander à l'utilisateur de confirmer un choix en affichant un message d'information au-dessus.
     public static boolean confirmChoice(Scanner scanner, String message) {
         System.out.println(message);
         String confirmation = askInput(scanner, "Tapez 'oui' pour confirmer : ");
