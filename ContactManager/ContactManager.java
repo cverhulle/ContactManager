@@ -121,6 +121,11 @@ public class ContactManager {
         return false;
     }
 
+    // Cette méthode permet de vérifier si un numéro de téléphone ou un email est déjà utilisé
+    private boolean isPhoneOrEmailUsed(String phone, String email, int excludeId) {
+        return isEmailUsed(email, excludeId) || isPhoneUsed(phone, excludeId);
+    }
+
     // Cette méthode permet de modifer toutes les données d'un Contact. Celles-ci sont données en argument.
     public boolean updateContact(int id, String firstName, String lastName, String email, String phone, Tags tag) {
 
