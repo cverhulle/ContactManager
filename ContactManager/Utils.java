@@ -151,11 +151,8 @@ public class Utils {
         return value != null && !value.isBlank();
     }
 
-    // Cette méthode permet de voir si le choix fait dans un menu est recevable
+    // Cette méthode permet de voir si le choix fait dans un menu est recevable.
     public static boolean isValidMenuChoice(String choice, int numberOfOptions) {
-
-        // Dans le cas où le choix est 0, on retourne false
-        if (choice == null) return false;
 
         // On regarde si le choix est entre 1 et le nombre d'options du menu.
         try {
