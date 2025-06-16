@@ -50,14 +50,13 @@ public class Utils {
         String answer = scanner.nextLine();
 
         if (isCancelChoice(answer)) {
-            return 0;
+            throw new CancelledInputException();
         }
 
         try {
             return Integer.parseInt(answer);
         } catch (NumberFormatException e) {
-            System.out.println("ID invalide.");
-            return 0;
+            throw new NumberFormatException();
         }
     }
 

@@ -95,15 +95,13 @@ public class ContactApp {
 
     // Cette méthode permet de supprimer un contact.
     private void removeContact () {
-
-        // On récupère "0" pour annuler ou en cas d'entrée éronnée.
-        int id = Utils.askIdContact(scanner);
-
-        // Si la réponse est 0, on annule la suppression de contact.
-        if (id == 0) {
-            System.out.println("Suppression annulée.");
-        } else {
+        try{
+            int id = Utils.askIdContact(scanner);
             confirmRemoveContact(id);
+        } catch (CancelledInputException e) {
+            System.out.println("Suppression annulée");
+        } catch (NumberFormatException e) {
+            System.out.println("Entrée incorrecte");
         }
     }
 
