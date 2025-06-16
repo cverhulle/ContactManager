@@ -71,22 +71,39 @@ public class Utils {
     // L'argument cancelLabel permet d'afficher un message si l'on veut retourner en arrière
     // Cette méthode retourne le choix de l'utilisateur ou null si on choisit de revenir au menu principal.
     public static String askMenuChoice(Scanner scanner, String title, String[] options, String cancelLabel) {
-        System.out.println("\n" + title);
-        for (int i = 0; i < options.length; i++) {
-            System.out.printf("%d. %s%n", i + 1, options[i]);
-        }
+        String answer;
 
-        if(cancelLabel != null) {
-            System.out.println("0. " + cancelLabel);
-        }
-        System.out.print("Votre choix : ");
-        String answer = scanner.nextLine();
+        // On crée une boucle infinie
+        while(true) {
 
-        if (cancelLabel != null && isCancelChoice(answer)) {
-            throw new CancelledInputException();
-        }
+            // On affiche la question posée et, les options.
+            System.out.println("\n" + title);
+            for (int i = 0; i < options.length; i++) {
+                System.out.printf("%d. %s%n", i + 1, options[i]);
+            }
 
-        return answer;
+            // Si l'utilisateur peut annuler, on afficher le message
+            if(cancelLabel != null) {
+                System.out.println("0. " + cancelLabel);
+            }
+
+            // On récupère le choix de l'utilisateur
+            answer = askInput(scanner, "Votre choix : ");
+
+            // Si l'annulation est choisie et possible, on retourne l'erreur
+            if (cancelLabel != null && isCancelChoice(answer)) {
+                throw new CancelledInputException();
+            }
+
+            // Si la réponse n'est pas recevable (string, nombre trop grand etc...), on repart en début de boucle
+            if (!isValidMenuChoice(answer, options.length)) {
+                System.out.print("L'entrée saisie n'est pas valide");
+                continue;
+            }
+
+            // Si tout est ok, on retourne la réponse.
+            return answer;   
+        }
     }
 
     // Cette méthode permet de demander à l'utilisateur de choisir parmi la liste des Tags et retourne sa réponse.
