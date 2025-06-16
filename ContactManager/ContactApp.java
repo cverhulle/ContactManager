@@ -61,7 +61,7 @@ public class ContactApp {
         switch (choice) {
             case "1" -> addContact();
             case "2" -> removeContact();
-            case "3" -> showAllContacts();
+            case "3" -> displayContacts(contacts.getAllContacts());
             case "4" -> findContact();
             case "5" -> modifyContact();
             case "6" -> {
@@ -147,11 +147,6 @@ public class ContactApp {
         } else {
             contactsToDisplay.forEach(System.out::println);
         }
-    }
-
-    // Cette méthode permet d'afficher les contacts.    
-    private void showAllContacts() {
-        System.out.println(contacts);
     }
 
     // Cette méthode permet de recherche un contact
