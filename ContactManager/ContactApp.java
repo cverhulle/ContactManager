@@ -98,7 +98,6 @@ public class ContactApp {
 
         // On récupère l'id que l'utilisateur veut supprimer.
         try{
-
             // En cas d'entrée correcte, on passe à la méthode suivante
             int id = Utils.askIdContact(scanner);
             confirmRemoveContact(id);
@@ -154,12 +153,6 @@ public class ContactApp {
         try{ 
             String fieldChoice = Utils.askMenuChoice(scanner, "Rechercher par :", options, "Annuler la recherche");
 
-            // Si le choix entré n'est pas dans les possibilités, on retourne au menu principal.
-            if (!Utils.isValidMenuChoice(fieldChoice, options.length)) {
-                System.out.println("Choix invalide.");
-                return;
-            }
-
             // Si on choisit de chercher par Tags.
             if ("5".equals(fieldChoice)) { 
 
@@ -204,12 +197,9 @@ public class ContactApp {
     // Cette méthode permet de modifier un Contact.
     private void modifyContact() {
 
+        try{
         // On récupère l'id du contact à modifier
         int id = Utils.askIdContact(scanner);
-        if (id == 0) {
-            System.out.println("Modification annulée.");
-            return;
-        }
 
         // On récupère les données du contact à modifier
         Contact contact = contacts.getContactById(id);
@@ -221,7 +211,7 @@ public class ContactApp {
         // On entre les données à modifier
         System.out.println("Laissez vide pour ne pas modifier un champ.");
 
-        try{
+
             String firstName = Utils.askField(scanner, "Nouveau prénom", contact.getFirstName(), true);
             String lastName  = Utils.askField(scanner, "Nouveau nom", contact.getLastName(), true);
             String email     = Utils.askField(scanner, "Nouvel email", contact.getEmail(), true);
@@ -237,6 +227,10 @@ public class ContactApp {
         // Si l'utlisateur déclenche l'erreur (en tapant 0), on annule la modification et, on affiche un message.
         } catch (CancelledInputException e) {
             System.out.println("Modification annulée");
+            
+            // Si l'entrée est incorrecte, on annule.
+        } catch (NumberFormatException e) {
+            System.out.println("Entrée incorrecte");
         }
     }
 }
