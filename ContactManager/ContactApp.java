@@ -157,21 +157,14 @@ public class ContactApp {
             if ("5".equals(fieldChoice)) { 
 
                 // On affiche toutes les options de tag
-                String[] tagNames = Tags.getTagsNamesInString();
-                String tagChoice = Utils.askMenuChoice(scanner, "Choisissez un tag :", tagNames, "Annuler la recherche",false);
+                Tags tagChoice = Utils.askTag(scanner, "Choisissez un tag :", null, true);
 
                 // Si l'entrée est vide, on affiche tous les contacts.
                 if (tagChoice == null) {
-                    System.out.println("Recherche annulée");
-                
-                // Sinon, on regarde si l'entrée est valide et, on affiche les contacts correspondants.
-                } else if (Utils.isValidMenuChoice(tagChoice, tagNames.length)) {
-                    Tags tag = Tags.parseTag(tagNames[Integer.parseInt(tagChoice) - 1]);
-                    contacts.searchByTag(tag);
-                
-                // Si l'entrée n'est pas valide, on affiche un message d'erreur
+                    System.out.println(contacts);
                 } else {
-                    System.out.println("Choix invalide.");
+                    // Sinon, on affiche les résultats.
+                    contacts.searchByTag(tagChoice);
                 }
             
             // Si l'option Tag n'est pas chosie
