@@ -195,32 +195,32 @@ public class ContactApp {
     private void modifyContact() {
 
         try{
-        // On récupère l'id du contact à modifier
-        int id = Utils.askIdContact(scanner);
+            // On récupère l'id du contact à modifier
+            int id = Utils.askIdContact(scanner);
 
-        // On récupère les données du contact à modifier
-        Contact contact = contacts.getContactById(id);
-        if (contact == null) {
-            System.out.println("Aucun contact trouvé avec cet ID.");
-            return;
-        }
+            // On récupère les données du contact à modifier
+            Contact contact = contacts.getContactById(id);
+            if (contact == null) {
+                System.out.println("Aucun contact trouvé avec cet ID.");
+                return;
+            }
 
-        // On entre les données à modifier
-        System.out.println("Laissez vide pour ne pas modifier un champ.");
+            // On entre les données à modifier
+            System.out.println("Laissez vide pour ne pas modifier un champ.");
 
 
-            String firstName = Utils.askField(scanner, "Nouveau prénom", contact.getFirstName(), true);
-            String lastName  = Utils.askField(scanner, "Nouveau nom", contact.getLastName(), true);
-            String email     = Utils.askField(scanner, "Nouvel email", contact.getEmail(), true);
-            String phone     = Utils.askField(scanner, "Nouveau téléphone", contact.getPhoneNumber(), true);
-            Tags tag         = Utils.askTag(scanner, "Nouveau tag", contact.getTag(), true);
+                String firstName = Utils.askField(scanner, "Nouveau prénom", contact.getFirstName(), true);
+                String lastName  = Utils.askField(scanner, "Nouveau nom", contact.getLastName(), true);
+                String email     = Utils.askField(scanner, "Nouvel email", contact.getEmail(), true);
+                String phone     = Utils.askField(scanner, "Nouveau téléphone", contact.getPhoneNumber(), true);
+                Tags tag         = Utils.askTag(scanner, "Nouveau tag", contact.getTag(), true);
 
-            // On met à jour le contact avec les données.
-            boolean success = contacts.updateContact(id, firstName, lastName, email, phone,tag);
+                // On met à jour le contact avec les données.
+                boolean success = contacts.updateContact(id, firstName, lastName, email, phone,tag);
 
-            // Si les données sont "valables", on affiche un message de succès. Sinon, c'est un message d'erreur.
-            System.out.println(success ? "Contact modifié avec succès !" : "Erreur lors de la modification.");
-        
+                // Si les données sont "valables", on affiche un message de succès. Sinon, c'est un message d'erreur.
+                System.out.println(success ? "Contact modifié avec succès !" : "Erreur lors de la modification.");
+            
         // Si l'utlisateur déclenche l'erreur (en tapant 0), on annule la modification et, on affiche un message.
         } catch (CancelledInputException e) {
             System.out.println("Modification annulée");
