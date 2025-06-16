@@ -143,6 +143,21 @@ public class ContactApp {
         }
     }
 
+    // Cette méthode permet de rechercher un contact lorsqu'on est dans le cas Tag
+    private void findContactByTag() {
+
+        // On affiche toutes les options de tag
+        Tags tagChoice = Utils.askTag(scanner, "Choisissez un tag :", null, true);
+
+        // Si l'entrée est vide, on affiche tous les contacts.
+        if (tagChoice == null) {
+            displayContacts(contacts.getAllContacts());
+        } else {
+            // Sinon, on affiche les résultats.
+            displayContacts(contacts.searchByTag(tagChoice));
+        }
+    }
+
     // Cette méthode permet de recherche un contact
     private void findContact() {
 
@@ -154,17 +169,7 @@ public class ContactApp {
 
             // Si on choisit de chercher par Tags.
             if ("5".equals(fieldChoice)) { 
-
-                // On affiche toutes les options de tag
-                Tags tagChoice = Utils.askTag(scanner, "Choisissez un tag :", null, true);
-
-                // Si l'entrée est vide, on affiche tous les contacts.
-                if (tagChoice == null) {
-                    displayContacts(contacts.getAllContacts());
-                } else {
-                    // Sinon, on affiche les résultats.
-                    displayContacts(contacts.searchByTag(tagChoice));
-                }
+                findContactByTag();
             
             // Si l'option Tag n'est pas chosie
             } else {
