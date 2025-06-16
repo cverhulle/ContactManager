@@ -18,14 +18,11 @@ public class ContactManager {
     // Si l'email ou le numéro de téléphone est déjà utilisé, on n'ajoute pas celui-ci.
     public void addContact(Contact newContact) {
 
-        // On récupère le numéro de téléphone de la personne à ajouter en supprimant les espaces.
-        String newPhone = Utils.normalizePhone(newContact.getPhoneNumber());
-
         // On regarde si l'email est déjà utilisé
         boolean sameEmail = isEmailUsed(newContact.getEmail(), -1);
 
         // On regarde si le numéro de téléphone est déjà utilisé.
-        boolean samePhone = isPhoneUsed(newPhone, -1);
+        boolean samePhone = isPhoneUsed(newContact.getPhoneNumber(), -1);
 
         // Si l'email ou le téléphone est déjà pris...
         if (sameEmail || samePhone) {
