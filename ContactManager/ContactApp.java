@@ -95,11 +95,19 @@ public class ContactApp {
 
     // Cette méthode permet de supprimer un contact.
     private void removeContact () {
+
+        // On récupère l'id que l'utilisateur veut supprimer.
         try{
+
+            // En cas d'entrée correcte, on passe à la méthode suivante
             int id = Utils.askIdContact(scanner);
             confirmRemoveContact(id);
+
+            // Si l'entrée est "0", on annule.
         } catch (CancelledInputException e) {
             System.out.println("Suppression annulée");
+
+            // Si l'entrée est incorrecte, on annule.
         } catch (NumberFormatException e) {
             System.out.println("Entrée incorrecte");
         }
