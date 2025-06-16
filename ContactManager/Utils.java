@@ -104,11 +104,6 @@ public class Utils {
             // Demander à l'utilisateur de faire son choix
             String choice = askMenuChoice(scanner, prompt, tagNames, "Annuler");
 
-            // Si l'utilisateur annule, on retourne une erreur.
-            if (choice == null) {
-                throw new CancelledInputException();
-            }
-
             // cas de chaine vide
             if (choice.isEmpty()) {
                 if (allowBlank) {
