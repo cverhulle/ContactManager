@@ -106,41 +106,22 @@ public class Utils {
         }
     }
 
-    // Cette méthode permet de demander à l'utilisateur de choisir parmi la liste des Tags et retourne sa réponse.
+    // Cette méthode permet de demander à l'utilisateur de choisir parmi la liste des Tags.
+    // Elle retourne sa réponse ou une erreur si l'utilisateur choisit d'annuler.
     public static Tags askTag(Scanner scanner,  String label, Tags currentValue, boolean allowBlank) {
-        Tags[] tags = Tags.values();
 
+        // On récupère la liste des Tags en type Tags (pour le retour) et en string (pour l'analyse)
+        Tags[] tags = Tags.values();
         String[] tagNames = Tags.getTagsNamesInString();
 
-        while (true) {
+        // On gère la question à afficher
+        String prompt = label + (currentValue != null ? "(" + currentValue + ")" : "") + " (0 pour annuler) : ";
 
-            // On gère la question à afficher
-            String prompt = label + (currentValue != null ? "(" + currentValue + ")" : "") + " (0 pour annuler) : ";
+        // Demander à l'utilisateur de faire son choix
+        String choice = askMenuChoice(scanner, prompt, tagNames, "Annuler");
 
-            // Demander à l'utilisateur de faire son choix
-            String choice = askMenuChoice(scanner, prompt, tagNames, "Annuler");
-
-            // cas de chaine vide
-            if (choice.isEmpty()) {
-                if (allowBlank) {
-                    return currentValue;
-                } else {
-                    System.out.println("Ce champ est obligatoire.");
-                    continue;
-                }
-            }
-
-            // On teste si l'entrée de l'utilisateur est un nombre.
-            // On teste si le nombre est compris dans les possibilités.
-            if (!isValidMenuChoice(choice, tags.length)) {
-                System.out.println("Choix invalide.");
-                continue;
-            }
-
-            int index = Integer.parseInt(choice) - 1;
-
-            return tags[index];
-        }
+        int index = Integer.parseInt(choice) - 1;
+        return tags[index];        
     }
 
     // Cette méthode permet de demander à l'utilisateur de confirmer un choix en affichant un message d'information au-dessus.
