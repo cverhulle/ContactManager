@@ -126,16 +126,10 @@ public class ContactManager {
         Contact contact = getContactById(id);
         if (contact == null) return false;
 
-        // On vérifie si l'email est déjà utilisé.
-        if (email != null && !email.trim().isBlank() && isEmailUsed(email, id)) {
-                System.out.println("Cet email est déjà utilisé par un autre contact.");
-                return false;
-        }
-
-        // On vérifie si le numéro de téléphone est déjà utilisé.
-        if (phone != null && !phone.trim().isBlank() && isPhoneUsed(phone, id)) {
-            System.out.println("Ce numéro est déjà utilisé par un autre contact.");
-            return false;   
+        // On regarde si l'email ou le téléphone est(sont) déjà pris.
+        if (isPhoneOrEmailUsed(phone, email, id)) {
+            System.out.println("Cet email ou ce numéro est déjà utilisé par un autre contact.");
+            return false;
         }
 
         // Si tout est ok, on applique les modifications
