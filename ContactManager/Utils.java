@@ -4,7 +4,6 @@ import java.util.Scanner;
 import java.util.function.Consumer;
 
 /* A FAIRE : 
- * Gérer l'erreur dans askMenuChoice
  * Gérer la recherche avec les tags.
 */
 
