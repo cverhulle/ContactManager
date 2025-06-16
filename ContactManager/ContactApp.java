@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 // Cette classe permet de gérer le déroulé de l'application en fonction des réponses de l'utilisateur.
 public class ContactApp {
+
     @SuppressWarnings("FieldMayBeFinal")
     private ContactManager contacts;
     @SuppressWarnings("FieldMayBeFinal")
@@ -31,7 +32,7 @@ public class ContactApp {
         scanner.close();
     }
 
-    // Cette méthode permet d'afficher le menu principal. Elle retourne le chix de l'utilisateur.
+    // Cette méthode permet d'afficher le menu principal. Elle retourne le choix de l'utilisateur.
     private String displayMainMenu() {
         String[] options = {
             "Ajouter un contact",
@@ -46,7 +47,7 @@ public class ContactApp {
         return choice;
     }
 
-    // Cette méthode prend en argument le numéro du choix de l'utilisateur et appel la méthode correspondante.
+    // Cette méthode prend en argument le numéro du choix de l'utilisateur et appelle la méthode correspondante.
     private boolean handleMenuChoice(String choice) {
 
         // Si le choix n'est pas valide, on retourne True
@@ -55,6 +56,7 @@ public class ContactApp {
             return true;
         }
 
+        // En fonction du choix réalisé, on appelle la méthode correspondante.
         switch (choice) {
             case "1" -> addContact();
             case "2" -> removeContact();
@@ -67,6 +69,7 @@ public class ContactApp {
             }
         }
 
+        // On retourne true pour poursuivre la boucle.
         return true;
     }
 
@@ -91,7 +94,9 @@ public class ContactApp {
     }
 
     // Cette méthode permet de supprimer un contact.
-    private void removeContact() {
+    private void removeContact () {
+
+        // On récupère "0" pour annuler ou en cas d'entrée éronnée.
         int id = Utils.askIdContact(scanner);
 
         // Si la réponse est 0, on annule la suppression de contact.
