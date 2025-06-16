@@ -121,13 +121,14 @@ public class Utils {
                 }
             }
 
-            int index = Integer.parseInt(choice) - 1;
-
-            // On regarde si l'index est cohérent avec le nombre de choix.
-            if (index < 0 || index >= tags.length) {
+            // On teste si l'entrée de l'utilisateur est un nombre.
+            // On teste si le nombre est compris dans les possibilités.
+            if (!isValidMenuChoice(choice, tags.length)) {
                 System.out.println("Choix invalide.");
                 continue;
             }
+
+            int index = Integer.parseInt(choice) - 1;
 
             return tags[index];
         }
