@@ -84,7 +84,7 @@ public class Utils {
         String answer = scanner.nextLine();
 
         if (cancelLabel != null && isCancelChoice(answer)) {
-            return null; 
+            throw new CancelledInputException();
         }
 
         return answer;
