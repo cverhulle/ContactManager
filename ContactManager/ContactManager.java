@@ -165,7 +165,7 @@ public class ContactManager {
             contact -> (Comparable<Object>) keyExtractor.apply(contact),    // Extraction de la clé et cast en Comparable
             Comparator.nullsLast(Comparator.naturalOrder())                 // Gestion des valeurs null en les plaçant à la fin, ordre naturel pour le reste
         );
-        
+
         // Si on veut un tri décroissant (ordre anti-alphabétique), on inverse le comparateur
         if (!ascending) {
             comparator = comparator.reversed();
@@ -176,31 +176,19 @@ public class ContactManager {
     // Cette méthode retourne une liste triée de contacts selon le prénom.
     // Le paramètre indique si le tri est par ordre alphbaétique ou anti-alphabétique.
     public List<Contact> getContactsSortedByFirstName(boolean ascending) {
-        Comparator<Contact> comparator = Comparator.comparing(Contact::getFirstName, String.CASE_INSENSITIVE_ORDER);
-        if (!ascending) {
-            comparator = comparator.reversed();
-        }
-        return getContactsSortedBy(comparator);
+        return getContactsSortedByField(Contact::getFirstName, ascending);
     }
 
     // Cette méthode retourne une liste triée de contacts selon le nom.
     // Le paramètre indique si le tri est par ordre alphbaétique ou anti-alphabétique.
     public List<Contact> getContactsSortedByLastName(boolean ascending) {
-        Comparator<Contact> comparator = Comparator.comparing(Contact::getLastName, String.CASE_INSENSITIVE_ORDER);
-        if (!ascending) {
-            comparator = comparator.reversed();
-        }
-        return getContactsSortedBy(comparator);
+        return getContactsSortedByField(Contact::getLastName, ascending);
     }
 
     // Cette méthode retourne une liste triée de contacts selon le Tag.
     // Le paramètre indique si le tri est par ordre alphbaétique ou anti-alphabétique.
     public List<Contact> getContactsSortedByTag(boolean ascending) {
-        Comparator<Contact> comparator = Comparator.comparing(Contact::getTag);
-        if (!ascending) {
-            comparator = comparator.reversed();
-        }
-        return getContactsSortedBy(comparator);
+        return getContactsSortedByField(Contact::getTag, ascending);
     }
 
     // On gère l'affiche d'un élément de type ContactManager
