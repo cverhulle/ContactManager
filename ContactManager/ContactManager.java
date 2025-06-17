@@ -188,7 +188,7 @@ public class ContactManager {
     // Cette méthode retourne une liste triée de contacts selon le Tag.
     // Le paramètre indique si le tri est par ordre alphbaétique ou anti-alphabétique.
     public List<Contact> getContactsSortedByTag(boolean ascending) {
-        return getContactsSortedByField(Contact::getTag, ascending);
+        return getContactsSortedByField(contact -> contact.getTag().name(), ascending);
     }
 
     // On gère l'affiche d'un élément de type ContactManager
