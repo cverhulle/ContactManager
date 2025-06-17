@@ -25,7 +25,7 @@ public class Utils {
         while (true) {
 
             // On demande à l'utilisateur de répondre à une question
-            String prompt = label + (currentValue != null ? "(" + currentValue + ")" : "") + " (0 pour annuler) : ";
+            String prompt = promptLabel(label, currentValue);
             input = askInput(scanner, prompt);
 
             // Si la réponse est 0, on considère que l'utilisater annule.
@@ -120,7 +120,7 @@ public class Utils {
         String[] tagNames = Tags.getTagsNamesInString();
 
         // On gère la question à afficher
-        String prompt = label + (currentValue != null ? "(" + currentValue + ")" : "") + " (0 pour annuler) : ";
+        String prompt = promptLabel(label, currentValue.toString());
 
         // Demander à l'utilisateur de faire son choix
         String choice = askMenuChoice(scanner, prompt, tagNames, "Annuler",allowBlank);
