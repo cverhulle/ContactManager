@@ -73,14 +73,8 @@ public class ContactApp {
 
         // On demande les champs du contact à l'utilisateur
         try{ 
-            String firstName = Utils.askField(scanner, "Prénom",null,false);
-            String lastName  = Utils.askField(scanner, "Nom",null,false);
-            String email     = Utils.askField(scanner, "Email",null,false);
-            String phone     = Utils.askField(scanner, "Téléphone",null,false);
-            Tags tag         = Utils.askTag(scanner, "Tag", null, false);
-
-            Contact contact = new Contact(lastName, firstName, email, phone,tag);
-            contacts.addContact(contact);
+            Contact newContact = buildContactFromUserInput(null);
+            contacts.addContact(newContact);
         
         // Si l'utilisateur tape 0, on récupère l'erreur et on annule l'ajout.
         } catch (CancelledInputException e) {
@@ -208,15 +202,12 @@ public class ContactApp {
             // On entre les données à modifier
             System.out.println("Laissez vide pour ne pas modifier un champ.");
 
-
-                String firstName = Utils.askField(scanner, "Nouveau prénom", contact.getFirstName(), true);
-                String lastName  = Utils.askField(scanner, "Nouveau nom", contact.getLastName(), true);
-                String email     = Utils.askField(scanner, "Nouvel email", contact.getEmail(), true);
-                String phone     = Utils.askField(scanner, "Nouveau téléphone", contact.getPhoneNumber(), true);
-                Tags tag         = Utils.askTag(scanner, "Nouveau tag", contact.getTag(), true);
+                // On crée un contact mis à jour à partir des données du contact précédent.
+                Contact updated = buildContactFromUserInput(contact);
 
                 // On met à jour le contact avec les données.
-                boolean success = contacts.updateContact(id, firstName, lastName, email, phone,tag);
+                boolean success = contacts.updateContact(id, updated.getFirstName(), updated.getLastName(), 
+                                                         updated.getEmail(), updated.getPhoneNumber(), updated.getTag()); 
 
                 // Si les données sont "valables", on affiche un message de succès. Sinon, c'est un message d'erreur.
                 System.out.println(success ? "Contact modifié avec succès !" : "Erreur lors de la modification.");
