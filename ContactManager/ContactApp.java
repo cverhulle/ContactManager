@@ -230,4 +230,25 @@ public class ContactApp {
             System.out.println("Entrée incorrecte");
         }
     }
+
+    // Cette méthode permet de créer un contact à partir des entrées utilisateur.
+    private Contact buildContactFromUserInput(Contact existingContact) throws CancelledInputException {
+        String firstName = Utils.askField(scanner, "Prénom", 
+                                        existingContact == null ? "" : existingContact.getFirstName(), 
+                                        existingContact == null);
+        String lastName = Utils.askField(scanner, "Nom", 
+                                        existingContact == null ? "" : existingContact.getLastName(), 
+                                        existingContact == null);
+        String email = Utils.askField(scanner, "Email", 
+                                        existingContact == null ? "" : existingContact.getEmail(), 
+                                        existingContact == null);
+        String phone = Utils.askField(scanner, "Téléphone", 
+                                        existingContact == null ? "" : existingContact.getPhoneNumber(), 
+                                        existingContact == null);
+        Tags tag = Utils.askTag(scanner, "Tag", 
+                                        existingContact == null ? null : existingContact.getTag(), 
+                                        existingContact == null);
+
+        return new Contact(lastName, firstName, email, phone, tag);
+    }
 }
