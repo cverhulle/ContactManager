@@ -133,7 +133,7 @@ public class ContactApp {
         String[] direction = {"Croissant", "Décroissant"};
 
         // On demande à l'utilisateur s'il veut trier ou revenir en arrière
-        System.out.println("Voulez-vous trier les résultats ?");
+        System.out.println("\nVoulez-vous trier les résultats ?");
 
         try{
 
@@ -154,7 +154,7 @@ public class ContactApp {
         }  
         // Si l'utlisateur déclenche l'erreur (en tapant 0), on annule la recherche et, on affiche un message.
         catch (UserCancelledException e) {
-            System.out.println("Recherche annulée");
+            System.out.println("Retour au menu principal.");
         }
     }
 
