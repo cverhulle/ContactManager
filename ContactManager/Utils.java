@@ -22,7 +22,7 @@ public abstract class Utils {
 
             // On demande à l'utilisateur de répondre à une question
             String prompt = promptLabel(label, currentValue);
-            input = askInput(scanner, prompt);
+            input = askInput(scanner, prompt).trim();
 
             // Si la réponse est 0, on considère que l'utilisater annule.
             if (isCancelChoice(input)) {
@@ -77,7 +77,7 @@ public abstract class Utils {
             displayMenuChoice(title, options, cancelLabel);
 
             // On récupère le choix de l'utilisateur
-            answer = askInput(scanner, "Votre choix : ");
+            answer = askInput(scanner, "Votre choix : ").trim();
 
             // Si l'annulation est choisie et possible, on retourne l'erreur
             if (cancelLabel != null && isCancelChoice(answer)) {
@@ -112,7 +112,7 @@ public abstract class Utils {
         String prompt = promptLabel(label, (currentValue == null) ? "" : currentValue.toString());
 
         // Demander à l'utilisateur de faire son choix
-        String choice = askMenuChoice(scanner, prompt, tagNames, "Annuler",allowBlank);
+        String choice = askMenuChoice(scanner, prompt, tagNames, "Annuler",allowBlank).trim();
 
         // Si choice est une chaîne vide et, que le vide est autorisé, on retourne la valeure précédente
         if (allowBlank && choice.trim().isEmpty()) {
@@ -128,7 +128,7 @@ public abstract class Utils {
     // Cette méthode permet de demander à l'utilisateur de confirmer un choix en affichant un message d'information au-dessus.
     public static boolean confirmChoice(Scanner scanner, String message) {
         System.out.println(message);
-        String confirmation = askInput(scanner, "Tapez 'oui' pour confirmer : ");
+        String confirmation = askInput(scanner, "Tapez 'oui' pour confirmer : ").trim();
         return confirmation.equalsIgnoreCase("oui");
     }
 
