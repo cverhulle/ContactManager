@@ -159,10 +159,14 @@ public class ContactManager {
     // Cette méthode permet de trier une liste en fournissant le critère d'extraction et, l'ordre de tri.
     public List<Contact> getContactsSortedByField(Function<Contact, ?> keyExtractor, boolean ascending) {
         @SuppressWarnings("unchecked")
+
+        // On crée un comparateur basé sur la clé extraite de chaque contact, que l'on caste en Comparable<Object>
         Comparator<Contact> comparator = Comparator.comparing(
-            contact -> (Comparable<Object>) keyExtractor.apply(contact),
-            Comparator.nullsLast(Comparator.naturalOrder())
+            contact -> (Comparable<Object>) keyExtractor.apply(contact),    // Extraction de la clé et cast en Comparable
+            Comparator.nullsLast(Comparator.naturalOrder())                 // Gestion des valeurs null en les plaçant à la fin, ordre naturel pour le reste
         );
+        
+        // Si on veut un tri décroissant (ordre anti-alphabétique), on inverse le comparateur
         if (!ascending) {
             comparator = comparator.reversed();
         }
