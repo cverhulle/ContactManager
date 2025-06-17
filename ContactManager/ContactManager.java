@@ -3,6 +3,7 @@ package contactmanager;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
+import java.util.function.Function;
 
 // Cette classe permet de gérer le carnet d'adresse.
 public class ContactManager {
@@ -153,6 +154,19 @@ public class ContactManager {
         List<Contact> sortedList = new ArrayList<>(contacts);
         sortedList.sort(comparator);
         return sortedList;
+    }
+
+    // Cette méthode permet de trier une liste en fournissant le critère d'extraction et, l'ordre de tri.
+    public List<Contact> getContactsSortedByField(Function<Contact, ?> keyExtractor, boolean ascending) {
+        @SuppressWarnings("unchecked")
+        Comparator<Contact> comparator = Comparator.comparing(
+            contact -> (Comparable<Object>) keyExtractor.apply(contact),
+            Comparator.nullsLast(Comparator.naturalOrder())
+        );
+        if (!ascending) {
+            comparator = comparator.reversed();
+        }
+        return getContactsSortedBy(comparator);
     }
 
     // Cette méthode retourne une liste triée de contacts selon le prénom.
