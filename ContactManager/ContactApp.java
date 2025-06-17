@@ -132,13 +132,21 @@ public class ContactApp {
         System.out.println("Voulez-vous trier les résultats");
         String[] options = { "Prénom", "Nom", "Tag"};
 
-        String choice = Utils.askMenuChoice(scanner, "Choisissez le filtre pour trier les données", options, "Quitter", false);
+        try{
 
-        // En fonction du choix réalisé, on appelle la méthode correspondante.
-        switch (choice) {
-            case "1" -> contacts.getContactsSortedByFirstName(true);
-            case "2" -> contacts.getContactsSortedByLastName(true);
-            case "3" -> contacts.getContactsSortedByTag(true);
+            String choice = Utils.askMenuChoice(scanner, "Choisissez le filtre pour trier les données", options, "Quitter", false);
+
+            // En fonction du choix réalisé, on appelle la méthode correspondante.
+            switch (choice) {
+                case "1" -> displayContacts(contacts.getContactsSortedByFirstName(true));
+                case "2" -> displayContacts(contacts.getContactsSortedByLastName(true));
+                case "3" -> displayContacts(contacts.getContactsSortedByTag(true));
+            }
+
+        }  
+        // Si l'utlisateur déclenche l'erreur (en tapant 0), on annule la recherche et, on affiche un message.
+        catch (UserCancelledException e) {
+            System.out.println("Recherche annulée");
         }
     }
 
