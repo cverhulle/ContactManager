@@ -26,7 +26,7 @@ public abstract class Utils {
 
             // Si la réponse est 0, on considère que l'utilisater annule.
             if (isCancelChoice(input)) {
-                throw new CancelledInputException();
+                throw new UserCancelledException();
             }
 
             // Si la réponse n'est pas vide ou que le vide est autorisé, on retourne la réponse.
@@ -46,7 +46,7 @@ public abstract class Utils {
 
         // Si l'entrée est "0", on retourne une erreur
         if (isCancelChoice(answer)) {
-            throw new CancelledInputException();
+            throw new UserCancelledException();
         }
 
         // On transforme l'entrée en Integer. En cas d'échec, on relance la méthode.
@@ -81,7 +81,7 @@ public abstract class Utils {
 
             // Si l'annulation est choisie et possible, on retourne l'erreur
             if (cancelLabel != null && isCancelChoice(answer)) {
-                throw new CancelledInputException();
+                throw new UserCancelledException();
             }
 
             // Si la réponse est vide et que le vide est autorisé, on retourne la réponse.

@@ -77,7 +77,7 @@ public class ContactApp {
             contacts.addContact(newContact);
         
         // Si l'utilisateur tape 0, on récupère l'erreur et on annule l'ajout.
-        } catch (CancelledInputException e) {
+        } catch (UserCancelledException e) {
             System.out.println("Ajout annulé.");
         }
     }
@@ -174,7 +174,7 @@ public class ContactApp {
                 }
             }
         }  // Si l'utlisateur déclenche l'erreur (en tapant 0), on annule la recherche et, on affiche un message.
-        catch (CancelledInputException e) {
+        catch (UserCancelledException e) {
             System.out.println("Recherche annulée");
         }
     }
@@ -209,7 +209,7 @@ public class ContactApp {
             System.out.println(success ? "Contact modifié avec succès !" : "Erreur lors de la modification.");
             
         // Si l'utlisateur déclenche l'erreur (en tapant 0), on annule la modification et, on affiche un message.
-        } catch (CancelledInputException e) {
+        } catch (UserCancelledException e) {
             System.out.println("Modification annulée");
         }
     }
@@ -221,14 +221,14 @@ public class ContactApp {
             return Utils.askIdContact(scanner);
 
         // Si l'utilisateur choisit d'annuler, on gère l'erreur
-        } catch (CancelledInputException e) {
+        } catch (UserCancelledException e) {
             System.out.println("Action " + action + " annulée.");
             return null;
         }
     }
 
     // Cette méthode permet de créer un contact à partir des entrées utilisateur.
-    private Contact buildContactFromUserInput(Contact existingContact) throws CancelledInputException {
+    private Contact buildContactFromUserInput(Contact existingContact) throws UserCancelledException {
         String firstName = Utils.askField(scanner, "Prénom", 
                                         existingContact == null ? null : existingContact.getFirstName(), 
                                         existingContact != null);
