@@ -3,10 +3,6 @@ package contactmanager;
 import java.util.Scanner;
 import java.util.function.Consumer;
 
-/* A FAIRE : 
- * Gérer la recherche avec les tags.
-*/
-
 public class Utils {
 
     // Cette méthode permet d'appliquer un setter seulement si la valeur n'est pas null ou vide.
