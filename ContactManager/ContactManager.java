@@ -1,6 +1,7 @@
 package contactmanager;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 // Cette classe permet de gérer le carnet d'adresse.
@@ -145,6 +146,13 @@ public class ContactManager {
     // Cette méthode retourne la liste de tous les contacts.
     public List<Contact> getAllContacts() {
         return new ArrayList<>(this.contacts);  
+    }
+
+    // Cette méthode retourne une liste triée de contacts selon le comparateur donné.
+    public List<Contact> getContactsSortedBy(Comparator<Contact> comparator) {
+        List<Contact> sortedList = new ArrayList<>(contacts);
+        sortedList.sort(comparator);
+        return sortedList;
     }
 
     // On gère l'affiche d'un élément de type ContactManager
