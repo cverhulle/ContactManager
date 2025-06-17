@@ -55,7 +55,7 @@ public class ContactApp {
         switch (choice) {
             case "1" -> addContact();
             case "2" -> removeContact();
-            case "3" -> displayContacts(contacts.getAllContacts());
+            case "3" -> handleDisplayContacts();
             case "4" -> findContact();
             case "5" -> modifyContact();
             case "6" -> {
@@ -128,19 +128,27 @@ public class ContactApp {
         // Tout d'abord, on affiche tous les contacts.
         displayContacts(contacts.getAllContacts());
 
-        // On demande à l'utilisateur s'il veut trier ou revenir en arrière
-        System.out.println("Voulez-vous trier les résultats");
+        // On initialise les variables pour le tri
         String[] options = { "Prénom", "Nom", "Tag"};
+        String[] direction = {"Croissant", "Décroissant"};
+
+        // On demande à l'utilisateur s'il veut trier ou revenir en arrière
+        System.out.println("Voulez-vous trier les résultats ?");
 
         try{
 
+            // On demande sur quel attribut s'effectuera le tri
             String choice = Utils.askMenuChoice(scanner, "Choisissez le filtre pour trier les données", options, "Quitter", false);
 
-            // En fonction du choix réalisé, on appelle la méthode correspondante.
+            // On demande si le tri est croissant ou décroissant
+            String directionChoice = Utils.askMenuChoice(scanner, "Quel est le sens de tri ?", direction, "Quitter", false);
+            boolean ascending = directionChoice.equals("1");
+
+            // En fonction des choix réalisés, on appelle la méthode correspondante.
             switch (choice) {
-                case "1" -> displayContacts(contacts.getContactsSortedByFirstName(true));
-                case "2" -> displayContacts(contacts.getContactsSortedByLastName(true));
-                case "3" -> displayContacts(contacts.getContactsSortedByTag(true));
+                case "1" -> displayContacts(contacts.getContactsSortedByFirstName(ascending));
+                case "2" -> displayContacts(contacts.getContactsSortedByLastName(ascending));
+                case "3" -> displayContacts(contacts.getContactsSortedByTag(ascending));
             }
 
         }  
