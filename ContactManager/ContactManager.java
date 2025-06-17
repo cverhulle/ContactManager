@@ -155,19 +155,34 @@ public class ContactManager {
         return sortedList;
     }
 
-    // Cette méthode retourne une liste triée de contacts par ordre alphabétique selon le prénom.
-    public List<Contact> getContactsSortedByFirstName() {
-        return getContactsSortedBy(Comparator.comparing(Contact::getFirstName, String.CASE_INSENSITIVE_ORDER));
+    // Cette méthode retourne une liste triée de contacts selon le prénom.
+    // Le paramètre indique si le tri est par ordre alphbaétique ou son contraire.
+    public List<Contact> getContactsSortedByFirstName(boolean ascending) {
+        Comparator<Contact> comparator = Comparator.comparing(Contact::getFirstName, String.CASE_INSENSITIVE_ORDER);
+        if (!ascending) {
+            comparator = comparator.reversed();
+        }
+        return getContactsSortedBy(comparator);
     }
 
-    // Cette méthode retourne une liste triée de contacts par ordre alphabétique selon le nom.
-    public List<Contact> getContactsSortedByLastName() {
-        return getContactsSortedBy(Comparator.comparing(Contact::getLastName, String.CASE_INSENSITIVE_ORDER));
+    // Cette méthode retourne une liste triée de contacts selon le nom.
+    // Le paramètre indique si le tri est par ordre alphbaétique ou son contraire.
+    public List<Contact> getContactsSortedByLastName(boolean ascending) {
+        Comparator<Contact> comparator = Comparator.comparing(Contact::getLastName, String.CASE_INSENSITIVE_ORDER);
+        if (!ascending) {
+            comparator = comparator.reversed();
+        }
+        return getContactsSortedBy(comparator);
     }
 
-    // Cette méthode retourne une liste triée de contacts par ordre alphabétique selon les Tags.
-    public List<Contact> getContactsSortedByTag() {
-        return getContactsSortedBy(Comparator.comparing(Contact::getTag));
+    // Cette méthode retourne une liste triée de contacts selon le Tag.
+    // Le paramètre indique si le tri est par ordre alphbaétique ou son contraire.
+    public List<Contact> getContactsSortedByTag(boolean ascending) {
+        Comparator<Contact> comparator = Comparator.comparing(Contact::getTag);
+        if (!ascending) {
+            comparator = comparator.reversed();
+        }
+        return getContactsSortedBy(comparator);
     }
 
     // On gère l'affiche d'un élément de type ContactManager
