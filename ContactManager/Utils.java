@@ -171,4 +171,9 @@ public class Utils {
     public static String normalizePhone(String phone) {
         return phone.replaceAll("\\s+", "");
     }
+
+    // Cette méthode permet de citer l'attribut de contact et, entre parenthèses, citer la valeur actuelle
+    public static String promptLabel(String label, String currentValue) {
+        return label + (currentValue != null ? "(" + currentValue + ")" : "") + " (0 pour annuler) : ";
+    }
 }
