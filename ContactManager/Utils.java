@@ -21,7 +21,7 @@ public abstract class Utils {
         while (true) {
 
             // On demande à l'utilisateur de répondre à une question
-            String prompt = promptLabel(label, currentValue);
+            String prompt = buildPromptLabel(label, currentValue);
             input = askInput(scanner, prompt).trim();
 
             // Si la réponse est 0, on considère que l'utilisater annule.
@@ -109,7 +109,7 @@ public abstract class Utils {
         String[] tagNames = Tags.getTagsNamesInString();
 
         // On gère la question à afficher
-        String prompt = promptLabel(label, (currentValue == null) ? "" : currentValue.toString());
+        String prompt = buildPromptLabel(label, (currentValue == null) ? "" : currentValue.toString());
 
         // Demander à l'utilisateur de faire son choix
         String choice = askMenuChoice(scanner, prompt, tagNames, "Annuler",allowBlank).trim();
@@ -177,7 +177,7 @@ public abstract class Utils {
     }
 
     // Cette méthode permet de citer l'attribut de contact et, entre parenthèses, citer la valeur actuelle
-    private static String promptLabel(String label, String currentValue) {
+    private static String buildPromptLabel(String label, String currentValue) {
         return label + (currentValue != null ? "(" + currentValue + ")" : "") + " (0 pour annuler) : ";
     }
 }
