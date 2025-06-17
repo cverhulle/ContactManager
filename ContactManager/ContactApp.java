@@ -182,37 +182,35 @@ public class ContactApp {
     // Cette méthode permet de modifier un Contact.
     private void modifyContact() {
 
+        // On récupère l'id du contact à modifier.
+        Integer id = askContactId("de modification");
+
+        if (id == null) return;
+
+        // On récupère les données du contact à modifier
+        Contact contact = contacts.getContactById(id);
+        if (contact == null) {
+            System.out.println("Aucun contact trouvé avec cet ID.");
+            return;
+        }
+        
         try{
-            // On récupère l'id du contact à modifier
-            int id = Utils.askIdContact(scanner);
-
-            // On récupère les données du contact à modifier
-            Contact contact = contacts.getContactById(id);
-            if (contact == null) {
-                System.out.println("Aucun contact trouvé avec cet ID.");
-                return;
-            }
-
             // On entre les données à modifier
             System.out.println("Laissez vide pour ne pas modifier un champ.");
 
-                // On crée un contact mis à jour à partir des données du contact précédent.
-                Contact updated = buildContactFromUserInput(contact);
+            // On crée un contact mis à jour à partir des données du contact précédent.
+            Contact updated = buildContactFromUserInput(contact);
 
-                // On met à jour le contact avec les données.
-                boolean success = contacts.updateContact(id, updated.getFirstName(), updated.getLastName(), 
-                                                         updated.getEmail(), updated.getPhoneNumber(), updated.getTag()); 
+            // On met à jour le contact avec les données.
+            boolean success = contacts.updateContact(id, updated.getFirstName(), updated.getLastName(), 
+                                                        updated.getEmail(), updated.getPhoneNumber(), updated.getTag()); 
 
-                // Si les données sont "valables", on affiche un message de succès. Sinon, c'est un message d'erreur.
-                System.out.println(success ? "Contact modifié avec succès !" : "Erreur lors de la modification.");
+            // Si les données sont "valables", on affiche un message de succès. Sinon, c'est un message d'erreur.
+            System.out.println(success ? "Contact modifié avec succès !" : "Erreur lors de la modification.");
             
         // Si l'utlisateur déclenche l'erreur (en tapant 0), on annule la modification et, on affiche un message.
         } catch (CancelledInputException e) {
             System.out.println("Modification annulée");
-
-            // Si l'entrée est incorrecte, on annule.
-        } catch (NumberFormatException e) {
-            System.out.println("Entrée incorrecte");
         }
     }
 
