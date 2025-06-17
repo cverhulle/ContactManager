@@ -224,11 +224,6 @@ public class ContactApp {
         } catch (CancelledInputException e) {
             System.out.println("Action " + action + " annulée.");
             return null;
-
-        // En cas de mauvaise entrée, on gère l'erreur
-        } catch (NumberFormatException e) {
-            System.out.println("Entrée incorrecte.");
-            return null;
         }
     }
 
