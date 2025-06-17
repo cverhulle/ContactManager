@@ -49,11 +49,12 @@ public class Utils {
             throw new CancelledInputException();
         }
 
-        // On transforme l'entrée en Integer. En cas d'échec, on retourne une erreur.
+        // On transforme l'entrée en Integer. En cas d'échec, on relance la méthode.
         try {
-            return Integer.parseInt(answer);
+            return Integer.parseInt(answer.trim());
         } catch (NumberFormatException e) {
-            throw new NumberFormatException();
+            System.out.println("L'ID n'est pas un entier.");
+            return askIdContact(scanner);
         }
     }
 
