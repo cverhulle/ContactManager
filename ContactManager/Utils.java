@@ -133,7 +133,7 @@ public class Utils {
     }
 
     // Cette méthode permet d'afficher un menu de choix
-    public static void displayMenuChoice(String title, String[] options, String cancelLabel) {
+    private static void displayMenuChoice(String title, String[] options, String cancelLabel) {
 
         // On affiche la question posée et, les options.
         System.out.println("\n" + title);
@@ -148,17 +148,17 @@ public class Utils {
     }
 
     // Cette méthode permet de tester si l'utilisateur souhaite annuler un choix.
-    public static boolean isCancelChoice(String choice) {
+    private static boolean isCancelChoice(String choice) {
         return "0".equals(choice);
     }
 
     // Cette méthode retourne true si la variable est null ou vide.
-    public static boolean isNotNullOrBlank(String value) {
+    private static boolean isNotNullOrBlank(String value) {
         return value != null && !value.isBlank();
     }
 
     // Cette méthode permet de voir si le choix fait dans un menu est recevable.
-    public static boolean isValidMenuChoice(String choice, int numberOfOptions) {
+    private static boolean isValidMenuChoice(String choice, int numberOfOptions) {
 
         // On regarde si le choix est entre 1 et le nombre d'options du menu.
         try {
@@ -177,7 +177,7 @@ public class Utils {
     }
 
     // Cette méthode permet de citer l'attribut de contact et, entre parenthèses, citer la valeur actuelle
-    public static String promptLabel(String label, String currentValue) {
+    private static String promptLabel(String label, String currentValue) {
         return label + (currentValue != null ? "(" + currentValue + ")" : "") + " (0 pour annuler) : ";
     }
 }
