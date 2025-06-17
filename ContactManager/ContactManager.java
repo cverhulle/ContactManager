@@ -156,7 +156,7 @@ public class ContactManager {
     }
 
     // Cette méthode retourne une liste triée de contacts selon le prénom.
-    // Le paramètre indique si le tri est par ordre alphbaétique ou son contraire.
+    // Le paramètre indique si le tri est par ordre alphbaétique ou anti-alphabétique.
     public List<Contact> getContactsSortedByFirstName(boolean ascending) {
         Comparator<Contact> comparator = Comparator.comparing(Contact::getFirstName, String.CASE_INSENSITIVE_ORDER);
         if (!ascending) {
@@ -166,7 +166,7 @@ public class ContactManager {
     }
 
     // Cette méthode retourne une liste triée de contacts selon le nom.
-    // Le paramètre indique si le tri est par ordre alphbaétique ou son contraire.
+    // Le paramètre indique si le tri est par ordre alphbaétique ou anti-alphabétique.
     public List<Contact> getContactsSortedByLastName(boolean ascending) {
         Comparator<Contact> comparator = Comparator.comparing(Contact::getLastName, String.CASE_INSENSITIVE_ORDER);
         if (!ascending) {
@@ -176,7 +176,7 @@ public class ContactManager {
     }
 
     // Cette méthode retourne une liste triée de contacts selon le Tag.
-    // Le paramètre indique si le tri est par ordre alphbaétique ou son contraire.
+    // Le paramètre indique si le tri est par ordre alphbaétique ou anti-alphabétique.
     public List<Contact> getContactsSortedByTag(boolean ascending) {
         Comparator<Contact> comparator = Comparator.comparing(Contact::getTag);
         if (!ascending) {
