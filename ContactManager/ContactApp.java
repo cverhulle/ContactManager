@@ -222,6 +222,19 @@ public class ContactApp {
         }
     }
 
+    // Cette méthode permet de centraliser la demande d'un id de contact.
+    private Integer askContactId(String action) {
+        try {
+            return Utils.askIdContact(scanner);
+        } catch (CancelledInputException e) {
+            System.out.println("Action " + action + " annulée.");
+            return null;
+        } catch (NumberFormatException e) {
+            System.out.println("Entrée incorrecte.");
+            return null;
+        }
+    }
+    
     // Cette méthode permet de créer un contact à partir des entrées utilisateur.
     private Contact buildContactFromUserInput(Contact existingContact) throws CancelledInputException {
         String firstName = Utils.askField(scanner, "Prénom", 
