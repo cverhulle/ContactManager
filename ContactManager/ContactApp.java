@@ -122,14 +122,7 @@ public class ContactApp {
         }
     }
 
-    // Cette méthode permet d'afficher les Contacts dans une liste de contacts.
-    private void displayContacts(List<Contact> contactsToDisplay) {
-        if (contactsToDisplay.isEmpty()) {
-            System.out.println("Aucun contact trouvé.");
-        } else {
-            contactsToDisplay.forEach(System.out::println);
-        }
-    }
+
 
     // Cette méthode permet de rechercher un contact lorsqu'on est dans le cas Tag
     private void findContactByTag() {
@@ -246,5 +239,14 @@ public class ContactApp {
                                         existingContact != null);
 
         return new Contact(lastName, firstName, email, phone, tag);
+    }
+
+    // Cette méthode permet d'afficher les Contacts dans une liste de contacts.
+    private void displayContacts(List<Contact> contactsToDisplay) {
+        if (contactsToDisplay.isEmpty()) {
+            System.out.println("Aucun contact trouvé.");
+        } else {
+            contactsToDisplay.forEach(System.out::println);
+        }
     }
 }
