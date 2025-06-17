@@ -120,7 +120,7 @@ public class Utils {
         String[] tagNames = Tags.getTagsNamesInString();
 
         // On gère la question à afficher
-        String prompt = promptLabel(label, currentValue.toString());
+        String prompt = promptLabel(label, (currentValue == null) ? "" : currentValue.toString());
 
         // Demander à l'utilisateur de faire son choix
         String choice = askMenuChoice(scanner, prompt, tagNames, "Annuler",allowBlank);
