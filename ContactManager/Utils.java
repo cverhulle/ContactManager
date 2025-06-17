@@ -3,7 +3,7 @@ package contactmanager;
 import java.util.Scanner;
 import java.util.function.Consumer;
 
-public class Utils {
+public abstract class Utils {
 
     // Cette méthode permet d'appliquer un setter seulement si la valeur n'est pas null ou vide.
     public static void applyIfNotBlank(String value, Consumer<String> setter) {
