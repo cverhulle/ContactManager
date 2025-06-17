@@ -122,7 +122,25 @@ public class ContactApp {
         }
     }
 
+    // Cette méthode permet de gérer le choix "Afficher les contacts"
+    private void handleDisplayContacts(){
 
+        // Tout d'abord, on affiche tous les contacts.
+        displayContacts(contacts.getAllContacts());
+
+        // On demande à l'utilisateur s'il veut trier ou revenir en arrière
+        System.out.println("Voulez-vous trier les résultats");
+        String[] options = { "Prénom", "Nom", "Tag"};
+
+        String choice = Utils.askMenuChoice(scanner, "Choisissez le filtre pour trier les données", options, "Quitter", false);
+
+        // En fonction du choix réalisé, on appelle la méthode correspondante.
+        switch (choice) {
+            case "1" -> contacts.getContactsSortedByFirstName(true);
+            case "2" -> contacts.getContactsSortedByLastName(true);
+            case "3" -> contacts.getContactsSortedByTag(true);
+        }
+    }
 
     // Cette méthode permet de rechercher un contact lorsqu'on est dans le cas Tag
     private void findContactByTag() {
