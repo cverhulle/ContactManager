@@ -85,20 +85,14 @@ public class ContactApp {
     // Cette méthode permet de supprimer un contact.
     private void removeContact () {
 
-        // On récupère l'id que l'utilisateur veut supprimer.
-        try{
-            // En cas d'entrée correcte, on passe à la méthode suivante
-            int id = Utils.askIdContact(scanner);
-            confirmRemoveContact(id);
+        // On demande à l'utilisateur l'id à rechercher.
+        Integer id = askContactId("de suppression");
 
-            // Si l'entrée est "0", on annule.
-        } catch (CancelledInputException e) {
-            System.out.println("Suppression annulée");
+        // On gère les cas d'erreur
+        if (id == null) return;
 
-            // Si l'entrée est incorrecte, on annule.
-        } catch (NumberFormatException e) {
-            System.out.println("Entrée incorrecte");
-        }
+        // Si tout est ok, on appelle la méthode suivante.
+        confirmRemoveContact(id);
     }
 
     // Cette méthode permet de confirmer la suppression d'un contact
@@ -224,17 +218,22 @@ public class ContactApp {
 
     // Cette méthode permet de centraliser la demande d'un id de contact.
     private Integer askContactId(String action) {
+        // On demande l'id de contact.
         try {
             return Utils.askIdContact(scanner);
+
+        // Si l'utilisateur choisit d'annuler, on gère l'erreur
         } catch (CancelledInputException e) {
             System.out.println("Action " + action + " annulée.");
             return null;
+
+        // En cas de mauvaise entrée, on gère l'erreur
         } catch (NumberFormatException e) {
             System.out.println("Entrée incorrecte.");
             return null;
         }
     }
-    
+
     // Cette méthode permet de créer un contact à partir des entrées utilisateur.
     private Contact buildContactFromUserInput(Contact existingContact) throws CancelledInputException {
         String firstName = Utils.askField(scanner, "Prénom", 
