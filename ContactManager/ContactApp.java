@@ -281,4 +281,14 @@ public class ContactApp {
             contactsToDisplay.forEach(System.out::println);
         }
     }
+
+    // Cette méthode retourne la liste de contacts entières triés selon le choix et dans l'ordre donné par ascending.
+    private List<Contact> getSortedContactsByChoice(String choice, boolean ascending) {
+        return switch (choice) {
+            case "1" -> contacts.getContactsSortedByFirstName(ascending);
+            case "2" -> contacts.getContactsSortedByLastName(ascending);
+            case "3" -> contacts.getContactsSortedByTag(ascending);
+            default -> contacts.getAllContacts();
+        };
+    }
 }
