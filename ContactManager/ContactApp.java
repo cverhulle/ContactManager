@@ -179,6 +179,10 @@ public class ContactApp {
                     default -> throw new IllegalStateException("Unexpected value: " + fieldChoice);
                 };
             }
+
+            // On demande à l'utilisateur s'il veut trier le résultat
+            List<Contact> sortedContacts = handleSortingContact(contactsFound);
+            displayContacts(sortedContacts);
         }  
         // Si l'utlisateur déclenche l'erreur (en tapant 0), on annule la recherche et, on affiche un message.
         catch (UserCancelledException e) {
