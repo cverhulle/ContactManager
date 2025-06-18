@@ -152,18 +152,19 @@ public class ContactApp {
         }
     }
 
-    // Cette méthode permet de rechercher un contact lorsqu'on est dans le cas Tag
-    private void findContactByTag() {
+    // Cette méthode permet de rechercher un contact lorsqu'on est dans le cas Tag.
+    // Elle retourne la liste de contacts correspondant au critère.
+    private List<Contact> findContactByTag() {
 
         // On affiche toutes les options de tag
         Tags tagChoice = Utils.askTag(scanner, "Choisissez un tag :", null, true);
 
         // Si l'entrée est vide, on affiche tous les contacts.
         if (tagChoice == null) {
-            displayContacts(contacts.getAllContacts());
+           return contacts.getAllContacts();
         } else {
             // Sinon, on affiche les résultats.
-            displayContacts(contacts.searchByTag(tagChoice));
+            return contacts.searchByTag(tagChoice);
         }
     }
 
@@ -186,7 +187,7 @@ public class ContactApp {
                 // On demande la donnée à rechercher
                 String query = Utils.askInput(scanner, "Entrez la valeur à rechercher : ");
 
-                // On lance la recherche correspondate
+                // On lance la recherche correspondnate
                 switch (fieldChoice) {
                     case "1" -> displayContacts(contacts.searchByFirstName(query));
                     case "2" -> displayContacts(contacts.searchByLastName(query));
