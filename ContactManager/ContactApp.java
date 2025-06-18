@@ -129,7 +129,7 @@ public class ContactApp {
         displayContacts(contacts.getAllContacts());
 
         // On initialise les variables pour le tri
-        String[] options = { "Prénom", "Nom", "Tag"};
+        String[] options = { "Prénom", "Nom", "Eamil", "Téléphone", "Tag"};
 
         // On demande à l'utilisateur s'il veut trier ou revenir en arrière
         System.out.println("\nVoulez-vous trier les résultats ?");
@@ -283,7 +283,9 @@ public class ContactApp {
         return switch (choice) {
             case "1" -> contacts.getContactsSortedByFirstName(ascending);
             case "2" -> contacts.getContactsSortedByLastName(ascending);
-            case "3" -> contacts.getContactsSortedByTag(ascending);
+            case "3" -> contacts.getContactsSortedByEmail(ascending);
+            case "4" -> contacts.getContactsSortedByPhoneNumber(ascending);
+            case "5" -> contacts.getContactsSortedByTag(ascending);
             default -> contacts.getAllContacts();
         };
     }
