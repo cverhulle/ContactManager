@@ -189,5 +189,8 @@ public abstract class Utils {
         return phone.replaceAll("\\s+", "");
     }
 
-
+    // Cette méthode transforme la réponse au choix du mode de tri (croissant ou décroissant) de string en booléen
+    private static Boolean transformDirectionStringInBoolean(String choice) {
+        return choice.equals("1");
+    }
 }
