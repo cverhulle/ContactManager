@@ -293,4 +293,29 @@ public class ContactApp {
             default -> contacts.getAllContacts();
         };
     }
+
+    // Cette méthode permet de gérer le tri d'une liste de contact.
+    private List<Contact> handleSortingContact(List<Contact> inputList) {
+        // On initialise les variables pour le tri
+        String[] options = { "Prénom", "Nom", "Email", "Téléphone", "Tag"};
+
+        // On demande à l'utilisateur s'il veut trier ou revenir en arrière
+        System.out.println("\nVoulez-vous trier les résultats ?");
+
+        try{
+            // On demande sur quel attribut s'effectuera le tri
+            String choice = Utils.askMenuChoice(scanner, "Choisissez le filtre pour trier les données", options, "Quitter", false);
+
+            // On demande si le tri est croissant ou décroissant
+            boolean ascending = Utils.chooseDirectionInBoolean(scanner);
+
+            // En fonction des choix réalisés, on appelle la méthode correspondante.
+            return getSortedContactsByChoice(inputList, choice, ascending);
+        }  
+        // Si l'utlisateur déclenche l'erreur (en tapant 0), on annule la recherche et, on affiche un message.
+        catch (UserCancelledException e) {
+            System.out.println("Retour au menu principal.");
+            return inputList;
+        }
+    }
 }
