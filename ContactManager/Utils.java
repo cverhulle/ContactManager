@@ -130,8 +130,8 @@ public abstract class Utils {
         return label + (currentValue != null ? "(" + currentValue + ")" : "") + " (0 pour annuler) : ";
     }
 
-    // Cette méthode retourne true si le choix e tri est croissant et, false si c'est décroissant
-    public static Boolean chooseDirection(Scanner scanner) {
+    // Cette méthode retourne true si le choix de tri est croissant et, false si c'est décroissant
+    public static Boolean chooseDirectionInBoolean(Scanner scanner) {
         String directionChoice = chooseDirectionInString(scanner);
         return transformDirectionStringInBoolean(directionChoice);
     }
