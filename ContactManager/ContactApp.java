@@ -143,12 +143,8 @@ public class ContactApp {
             boolean ascending = Utils.chooseDirectionInBoolean(scanner);
 
             // En fonction des choix réalisés, on appelle la méthode correspondante.
-            switch (choice) {
-                case "1" -> displayContacts(contacts.getContactsSortedByFirstName(ascending));
-                case "2" -> displayContacts(contacts.getContactsSortedByLastName(ascending));
-                case "3" -> displayContacts(contacts.getContactsSortedByTag(ascending));
-            }
-
+            List<Contact> sortedContacts = getSortedContactsByChoice(choice, ascending);
+            displayContacts(sortedContacts);
         }  
         // Si l'utlisateur déclenche l'erreur (en tapant 0), on annule la recherche et, on affiche un message.
         catch (UserCancelledException e) {
