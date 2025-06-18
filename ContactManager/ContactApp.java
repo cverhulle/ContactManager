@@ -173,13 +173,14 @@ public class ContactApp {
 
         // On affiche la liste des champs de recherche possible.
         String[] options = { "Prénom", "Nom", "Email", "Téléphone", "Tag" };
+        List<Contact> contactsFound ;
 
         try{ 
             String fieldChoice = Utils.askMenuChoice(scanner, "Rechercher par :", options, "Annuler la recherche",false);
 
             // Si on choisit de chercher par Tags.
             if ("5".equals(fieldChoice)) { 
-                findContactByTag();
+                contactsFound = findContactByTag();
             
             // Si l'option Tag n'est pas chosie
             } else {
@@ -187,15 +188,17 @@ public class ContactApp {
                 // On demande la donnée à rechercher
                 String query = Utils.askInput(scanner, "Entrez la valeur à rechercher : ");
 
-                // On lance la recherche correspondnate
-                switch (fieldChoice) {
-                    case "1" -> displayContacts(contacts.searchByFirstName(query));
-                    case "2" -> displayContacts(contacts.searchByLastName(query));
-                    case "3" -> displayContacts(contacts.searchByEmail(query));
-                    case "4" -> displayContacts(contacts.searchByPhone(query));
-                }
+                // On lance la recherche correspondante
+                contactsFound = switch (fieldChoice) {
+                    case "1" -> contacts.searchByFirstName(query);
+                    case "2" -> contacts.searchByLastName(query);
+                    case "3" -> contacts.searchByEmail(query);
+                    case "4" -> contacts.searchByPhone(query);
+                    default -> throw new IllegalStateException("Unexpected value: " + fieldChoice);
+                };
             }
-        }  // Si l'utlisateur déclenche l'erreur (en tapant 0), on annule la recherche et, on affiche un message.
+        }  
+        // Si l'utlisateur déclenche l'erreur (en tapant 0), on annule la recherche et, on affiche un message.
         catch (UserCancelledException e) {
             System.out.println("Recherche annulée");
         }
