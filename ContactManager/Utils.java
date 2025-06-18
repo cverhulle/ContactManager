@@ -125,6 +125,11 @@ public abstract class Utils {
         }
     }
 
+    // Cette méthode permet de citer l'attribut de contact et, entre parenthèses, citer la valeur actuelle
+    private static String buildPromptLabel(String label, String currentValue) {
+        return label + (currentValue != null ? "(" + currentValue + ")" : "") + " (0 pour annuler) : ";
+    }
+
     // Cette méthode permet de choisir la manière de trier (croissant ou décroissant)
     public static void chooseDirection(Scanner scanner) {
         String[] direction = {"Croissant", "Décroissant"};
@@ -184,8 +189,5 @@ public abstract class Utils {
         return phone.replaceAll("\\s+", "");
     }
 
-    // Cette méthode permet de citer l'attribut de contact et, entre parenthèses, citer la valeur actuelle
-    private static String buildPromptLabel(String label, String currentValue) {
-        return label + (currentValue != null ? "(" + currentValue + ")" : "") + " (0 pour annuler) : ";
-    }
+
 }
