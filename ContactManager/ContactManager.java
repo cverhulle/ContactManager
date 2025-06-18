@@ -150,14 +150,14 @@ public class ContactManager {
     }
 
     // Cette méthode retourne une liste triée de contacts selon le comparateur donné.
-    public List<Contact> getContactsSortedBy(Comparator<Contact> comparator) {
-        List<Contact> sortedList = new ArrayList<>(contacts);
+    public List<Contact> getContactsSortedBy(List<Contact> inputList, Comparator<Contact> comparator) {
+        List<Contact> sortedList = new ArrayList<>(inputList);
         sortedList.sort(comparator);
         return sortedList;
     }
 
     // Cette méthode permet de trier une liste en fournissant le critère d'extraction et, l'ordre de tri.
-    public List<Contact> getContactsSortedByField(Function<Contact, ?> keyExtractor, boolean ascending) {
+    public List<Contact> getContactsSortedByField(List<Contact> inputList, Function<Contact, ?> keyExtractor, boolean ascending) {
         @SuppressWarnings("unchecked")
 
         // On crée un comparateur basé sur la clé extraite de chaque contact, que l'on caste en Comparable<Object>
@@ -170,37 +170,37 @@ public class ContactManager {
         if (!ascending) {
             comparator = comparator.reversed();
         }
-        return getContactsSortedBy(comparator);
+        return getContactsSortedBy(inputList, comparator);
     }
 
     // Cette méthode retourne une liste triée de contacts selon le prénom.
     // Le paramètre indique si le tri est par ordre alphbaétique ou anti-alphabétique.
-    public List<Contact> getContactsSortedByFirstName(boolean ascending) {
-        return getContactsSortedByField(Contact::getFirstName, ascending);
+    public List<Contact> getContactsSortedByFirstName(List<Contact> inputList, boolean ascending) {
+        return getContactsSortedByField(inputList, Contact::getFirstName, ascending);
     }
 
     // Cette méthode retourne une liste triée de contacts selon le nom.
     // Le paramètre indique si le tri est par ordre alphbaétique ou anti-alphabétique.
-    public List<Contact> getContactsSortedByLastName(boolean ascending) {
-        return getContactsSortedByField(Contact::getLastName, ascending);
+    public List<Contact> getContactsSortedByLastName(List<Contact> inputList, boolean ascending) {
+        return getContactsSortedByField(inputList, Contact::getLastName, ascending);
     }
 
     // Cette méthode retourne une liste triée de contacts selon l'email.
     // Le paramètre indique si le tri est par ordre alphbaétique ou anti-alphabétique.
-    public List<Contact> getContactsSortedByEmail(boolean ascending) {
-        return getContactsSortedByField(Contact::getEmail, ascending);
+    public List<Contact> getContactsSortedByEmail(List<Contact> inputList, boolean ascending) {
+        return getContactsSortedByField(inputList, Contact::getEmail, ascending);
     }
 
     // Cette méthode retourne une liste triée de contacts selon le numéro de téléphone.
     // Le paramètre indique si le tri est par ordre alphbaétique ou anti-alphabétique.
-    public List<Contact> getContactsSortedByPhoneNumber(boolean ascending) {
-        return getContactsSortedByField(Contact::getPhoneNumber, ascending);
+    public List<Contact> getContactsSortedByPhoneNumber(List<Contact> inputList, boolean ascending) {
+        return getContactsSortedByField(inputList, Contact::getPhoneNumber, ascending);
     }
 
     // Cette méthode retourne une liste triée de contacts selon le Tag.
     // Le paramètre indique si le tri est par ordre alphbaétique ou anti-alphabétique.
-    public List<Contact> getContactsSortedByTag(boolean ascending) {
-        return getContactsSortedByField(contact -> contact.getTag().name(), ascending);
+    public List<Contact> getContactsSortedByTag(List<Contact> inputList, boolean ascending) {
+        return getContactsSortedByField(inputList, contact -> contact.getTag().name(), ascending);
     }
 
     // On gère l'affiche d'un élément de type ContactManager
