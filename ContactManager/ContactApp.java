@@ -130,7 +130,6 @@ public class ContactApp {
 
         // On initialise les variables pour le tri
         String[] options = { "Prénom", "Nom", "Tag"};
-        String[] direction = {"Croissant", "Décroissant"};
 
         // On demande à l'utilisateur s'il veut trier ou revenir en arrière
         System.out.println("\nVoulez-vous trier les résultats ?");
@@ -141,8 +140,7 @@ public class ContactApp {
             String choice = Utils.askMenuChoice(scanner, "Choisissez le filtre pour trier les données", options, "Quitter", false);
 
             // On demande si le tri est croissant ou décroissant
-            String directionChoice = Utils.askMenuChoice(scanner, "Quel est le sens de tri ?", direction, "Quitter", false);
-            boolean ascending = directionChoice.equals("1");
+            boolean ascending = Utils.chooseDirectionInBoolean(scanner);
 
             // En fonction des choix réalisés, on appelle la méthode correspondante.
             switch (choice) {
