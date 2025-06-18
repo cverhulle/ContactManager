@@ -130,12 +130,10 @@ public abstract class Utils {
         return label + (currentValue != null ? "(" + currentValue + ")" : "") + " (0 pour annuler) : ";
     }
 
-    // Cette méthode permet de choisir la manière de trier (croissant ou décroissant)
-    public static void chooseDirection(Scanner scanner) {
+    // Cette méthode permet de choisir la manière de trier (croissant ou décroissant) en retournant "1" pour croissant et "2" pour décroissant.
+    private String chooseDirection(Scanner scanner) {
         String[] direction = {"Croissant", "Décroissant"};
-
-        String directionChoice = Utils.askMenuChoice(scanner, "Quel est le sens de tri ?", direction, "Quitter", false);
-        boolean ascending = directionChoice.equals("1");
+        return Utils.askMenuChoice(scanner, "Quel est le sens de tri ?", direction, "Quitter", false);
     }
 
     // Cette méthode permet de demander à l'utilisateur de confirmer un choix en affichant un message d'information au-dessus.
