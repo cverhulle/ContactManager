@@ -185,6 +185,18 @@ public class ContactManager {
         return getContactsSortedByField(Contact::getLastName, ascending);
     }
 
+    // Cette méthode retourne une liste triée de contacts selon l'email.
+    // Le paramètre indique si le tri est par ordre alphbaétique ou anti-alphabétique.
+    public List<Contact> getContactsSortedByEmail(boolean ascending) {
+        return getContactsSortedByField(Contact::getEmail, ascending);
+    }
+
+    // Cette méthode retourne une liste triée de contacts selon le numéro de téléphone.
+    // Le paramètre indique si le tri est par ordre alphbaétique ou anti-alphabétique.
+    public List<Contact> getContactsSortedByPhoneNumber(boolean ascending) {
+        return getContactsSortedByField(Contact::getPhoneNumber, ascending);
+    }
+
     // Cette méthode retourne une liste triée de contacts selon le Tag.
     // Le paramètre indique si le tri est par ordre alphbaétique ou anti-alphabétique.
     public List<Contact> getContactsSortedByTag(boolean ascending) {
