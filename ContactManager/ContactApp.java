@@ -143,7 +143,7 @@ public class ContactApp {
             boolean ascending = Utils.chooseDirectionInBoolean(scanner);
 
             // En fonction des choix réalisés, on appelle la méthode correspondante.
-            List<Contact> sortedContacts = getSortedContactsByChoice(choice, ascending);
+            List<Contact> sortedContacts = getSortedContactsByChoice(contacts.getAllContacts(), choice, ascending);
             displayContacts(sortedContacts);
         }  
         // Si l'utlisateur déclenche l'erreur (en tapant 0), on annule la recherche et, on affiche un message.
@@ -279,13 +279,13 @@ public class ContactApp {
     }
 
     // Cette méthode retourne la liste de contacts entières triés selon le choix et dans l'ordre donné par ascending.
-    private List<Contact> getSortedContactsByChoice(String choice, boolean ascending) {
+    private List<Contact> getSortedContactsByChoice(List<Contact> inputList, String choice, boolean ascending) {
         return switch (choice) {
-            case "1" -> contacts.getContactsSortedByFirstName(ascending);
-            case "2" -> contacts.getContactsSortedByLastName(ascending);
-            case "3" -> contacts.getContactsSortedByEmail(ascending);
-            case "4" -> contacts.getContactsSortedByPhoneNumber(ascending);
-            case "5" -> contacts.getContactsSortedByTag(ascending);
+            case "1" -> contacts.getContactsSortedByFirstName(inputList, ascending);
+            case "2" -> contacts.getContactsSortedByLastName(inputList, ascending);
+            case "3" -> contacts.getContactsSortedByEmail(inputList, ascending);
+            case "4" -> contacts.getContactsSortedByPhoneNumber(inputList, ascending);
+            case "5" -> contacts.getContactsSortedByTag(inputList, ascending);
             default -> contacts.getAllContacts();
         };
     }
