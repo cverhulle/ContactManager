@@ -180,6 +180,9 @@ public class ContactApp {
                 };
             }
 
+            // On affiche la liste trouvée
+            displayContacts(contactsFound);
+
             // On demande à l'utilisateur s'il veut trier le résultat
             List<Contact> sortedContacts = handleSortingContact(contactsFound);
             displayContacts(sortedContacts);
