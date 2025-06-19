@@ -34,17 +34,18 @@ public class ContactApp {
 
     // Cette méthode est utilisée lorsque le programme est en cours.
     public void run() {
-        boolean running = true;
+        try (scanner) {
+            boolean running = true;
 
-        // Tant que le programme est en cours, on affiche le menu.
-        while(running) {
-            // On affiche le menu principal et, on récupère son choix.
-            String choice = displayMainMenu();
+            // Tant que le programme est en cours, on affiche le menu.
+            while(running) {
+                // On affiche le menu principal et, on récupère son choix.
+                String choice = displayMainMenu();
 
-            // On appelle la méthode correspondante au choix de l'utilisateur.
-            running = handleMenuChoice(choice);
+                // On appelle la méthode correspondante au choix de l'utilisateur.
+                running = handleMenuChoice(choice);
+            }
         }
-        scanner.close();
     }
 
     // Cette méthode permet d'afficher le menu principal. Elle retourne le choix de l'utilisateur.
