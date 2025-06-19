@@ -15,7 +15,7 @@ public class ContactSorter {
     }
 
     // Cette méthode permet de gérer le tri d'une liste de contact.
-    public List<Contact> handleSortingContact(List<Contact> inputList) {
+    public List<Contact> sortContact(List<Contact> inputList) {
         // On initialise les variables pour le tri
         String[] options = { "Prénom", "Nom", "Email", "Téléphone", "Tag"};
 

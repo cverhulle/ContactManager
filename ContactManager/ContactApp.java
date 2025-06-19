@@ -89,7 +89,7 @@ public class ContactApp {
         displayer.displayContacts(contacts.getAllContacts());
 
         // On demande à l'utilisateur s'il souhaite trier la liste
-        List<Contact> sortedContacts = sorter.handleSortingContact(contacts.getAllContacts());
+        List<Contact> sortedContacts = sorter.sortContact(contacts.getAllContacts());
         
         // On affiche la lsite des contacts triées.
         displayer.displayContacts(sortedContacts);
@@ -99,13 +99,13 @@ public class ContactApp {
     private void findContact() {
 
         // On gère la recherche de contact avec un filtre.
-        List<Contact> contactsFound = searcher.handleFindingContact();
+        List<Contact> contactsFound = searcher.findContact();
 
         // On affiche la liste trouvée
         displayer.displayContacts(contactsFound);
 
         // On demande à l'utilisateur s'il veut trier le résultat
-        List<Contact> sortedContacts = sorter.handleSortingContact(contactsFound);
+        List<Contact> sortedContacts = sorter.sortContact(contactsFound);
         displayer.displayContacts(sortedContacts);
     }
 

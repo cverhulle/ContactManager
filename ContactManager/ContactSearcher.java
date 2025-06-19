@@ -34,7 +34,7 @@ public class ContactSearcher {
     }
 
     // Cette méthode permet de gérer la recherche de contact
-    public List<Contact> handleFindingContact() {
+    public List<Contact> findContact() {
 
         // On affiche la liste des champs de recherche possible.
         String[] options = { "Prénom", "Nom", "Email", "Téléphone", "Tag" };
