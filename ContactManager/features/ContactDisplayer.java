@@ -1,6 +1,8 @@
-package contactmanager;
+package contactmanager.features;
 
 import java.util.List;
+
+import contactmanager.Contact;
 
 public class ContactDisplayer {
 

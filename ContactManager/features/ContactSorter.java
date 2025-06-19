@@ -1,5 +1,7 @@
-package contactmanager;
+package contactmanager.features;
 
+import contactmanager.Contact;
+import contactmanager.UserCancelledException;
 import contactmanager.utils.InputUtils;
 import contactmanager.utils.SortUtils;
 import java.util.List;

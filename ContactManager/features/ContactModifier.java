@@ -1,6 +1,10 @@
-package contactmanager;
+package contactmanager.features;
 
 import java.util.Scanner;
+
+import contactmanager.Contact;
+import contactmanager.ContactManager;
+import contactmanager.UserCancelledException;
 
 public class ContactModifier {
 

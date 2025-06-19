@@ -1,5 +1,11 @@
 package contactmanager;
 
+import contactmanager.features.ContactAdder;
+import contactmanager.features.ContactDisplayer;
+import contactmanager.features.ContactModifier;
+import contactmanager.features.ContactRemover;
+import contactmanager.features.ContactSearcher;
+import contactmanager.features.ContactSorter;
 import contactmanager.utils.InputUtils;
 import java.util.List;
 import java.util.Scanner;
