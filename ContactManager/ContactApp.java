@@ -153,44 +153,15 @@ public class ContactApp {
     // Cette méthode permet de recherche un contact
     private void findContact() {
 
-        // On affiche la liste des champs de recherche possible.
-        String[] options = { "Prénom", "Nom", "Email", "Téléphone", "Tag" };
-        List<Contact> contactsFound ;
+        // On gère la recherche de contact avec un filtre.
+        List<Contact> contactsFound = handleFindingContact();
 
-        try{ 
-            String fieldChoice = Utils.askMenuChoice(scanner, "Rechercher par :", options, "Annuler la recherche",false);
+        // On affiche la liste trouvée
+        displayContacts(contactsFound);
 
-            // Si on choisit de chercher par Tags.
-            if ("5".equals(fieldChoice)) { 
-                contactsFound = findContactByTag();
-            
-            // Si l'option Tag n'est pas chosie
-            } else {
-
-                // On demande la donnée à rechercher
-                String query = Utils.askInput(scanner, "Entrez la valeur à rechercher : ");
-
-                // On lance la recherche correspondante
-                contactsFound = switch (fieldChoice) {
-                    case "1" -> contacts.searchByFirstName(query);
-                    case "2" -> contacts.searchByLastName(query);
-                    case "3" -> contacts.searchByEmail(query);
-                    case "4" -> contacts.searchByPhone(query);
-                    default -> throw new IllegalStateException("Unexpected value: " + fieldChoice);
-                };
-            }
-
-            // On affiche la liste trouvée
-            displayContacts(contactsFound);
-
-            // On demande à l'utilisateur s'il veut trier le résultat
-            List<Contact> sortedContacts = handleSortingContact(contactsFound);
-            displayContacts(sortedContacts);
-        }  
-        // Si l'utlisateur déclenche l'erreur (en tapant 0), on annule la recherche et, on affiche un message.
-        catch (UserCancelledException e) {
-            System.out.println("Recherche annulée");
-        }
+        // On demande à l'utilisateur s'il veut trier le résultat
+        List<Contact> sortedContacts = handleSortingContact(contactsFound);
+        displayContacts(sortedContacts);
     }
 
     // Cette méthode permet de modifier un Contact.
