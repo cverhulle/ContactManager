@@ -67,8 +67,8 @@ public class ContactApp {
 
         // En fonction du choix réalisé, on appelle la méthode correspondante.
         switch (choice) {
-            case "1" -> addContact();
-            case "2" -> removeContact();
+            case "1" -> adder.addContact();
+            case "2" -> remover.removeContact();
             case "3" -> handleDisplayContacts();
             case "4" -> findContact();
             case "5" -> modifyContact();
@@ -80,60 +80,6 @@ public class ContactApp {
 
         // On retourne true pour poursuivre la boucle.
         return true;
-    }
-
-    // Cette métohde permet d'ajouter un contact dans la liste.
-    private void addContact() {
-
-        // On demande les champs du contact à l'utilisateur
-        try{ 
-            Contact newContact = buildContactFromUserInput(null);
-            contacts.addContact(newContact);
-        
-        // Si l'utilisateur tape 0, on récupère l'erreur et on annule l'ajout.
-        } catch (UserCancelledException e) {
-            System.out.println("Ajout annulé.");
-        }
-    }
-
-    // Cette méthode permet de supprimer un contact.
-    private void removeContact () {
-
-        // On demande à l'utilisateur l'id à rechercher.
-        Integer id = askContactId("de suppression");
-
-        // On gère les cas d'erreur
-        if (id == null) return;
-
-        // Si tout est ok, on appelle la méthode suivante.
-        confirmRemoveContact(id);
-    }
-
-    // Cette méthode permet de confirmer la suppression d'un contact
-    private void confirmRemoveContact(Integer id) {
-
-        // On récupère le contact grâce à son id.
-        Contact contact = contacts.getContactById(id);
-
-        // S'il est trouvé...
-        if (contact != null) {
-
-            // On demande à l'utilisateur de confirmer la suppression
-            String message = "Voulez-vous vraiment supprimer ce contact ? " + contact;
-
-            // Si c'est confirmé...
-            if (InputUtils.confirmChoice(scanner, message)) {
-
-                // On supprime le contact.
-                contacts.removeContactById(id);
-
-            // Sinon, on annule la suppression.
-            } else {
-                System.out.println("Suppression annulée.");
-            }
-        } else {
-            System.out.println("Aucun contact trouvé avec cet ID.");
-        }
     }
 
     // Cette méthode permet de gérer le choix "Afficher les contacts"
