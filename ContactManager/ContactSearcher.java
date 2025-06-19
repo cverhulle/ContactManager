@@ -33,8 +33,8 @@ public class ContactSearcher {
         }
     }
 
-    // Cette méthode permet de rechercher un contact
-    public List<Contact> handleSortingContact() {
+    // Cette méthode permet de gérer la recherche de contact
+    public List<Contact> handleFindingContact() {
 
         // On affiche la liste des champs de recherche possible.
         String[] options = { "Prénom", "Nom", "Email", "Téléphone", "Tag" };
