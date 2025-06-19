@@ -16,21 +16,6 @@ public abstract class Utils {
         return label + (currentValue != null ? "(" + currentValue + ")" : "") + " (0 pour annuler) : ";
     }
 
-    // Cette méthode permet d'afficher un menu de choix
-    public static void displayMenuChoice(String title, String[] options, String cancelLabel) {
-
-        // On affiche la question posée et, les options.
-        System.out.println("\n" + title);
-        for (int i = 0; i < options.length; i++) {
-            System.out.printf("%d. %s%n", i + 1, options[i]);
-        }
-
-        // Si l'utilisateur peut annuler, on afficher le message
-        if(cancelLabel != null) {
-            System.out.println("0. " + cancelLabel);
-        }
-    }
-
     // Cette méthode permet de tester si l'utilisateur souhaite annuler un choix.
     public static boolean isCancelChoice(String choice) {
         return "0".equals(choice);

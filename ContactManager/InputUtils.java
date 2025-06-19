@@ -67,7 +67,7 @@ public class InputUtils {
         while(true) {
 
             // On affiche le menu de choix
-            Utils.displayMenuChoice(title, options, cancelLabel);
+            DisplayUtils.displayMenuChoice(title, options, cancelLabel);
 
             // On récupère le choix de l'utilisateur
             answer = askInput(scanner, "Votre choix : ").trim();
