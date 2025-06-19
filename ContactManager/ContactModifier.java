@@ -17,7 +17,7 @@ public class ContactModifier {
     }
 
     // Cette méthode permet de modifier un Contact.
-    private void modifyContact() {
+    public void modifyContact() {
 
         // On récupère l'id du contact à modifier.
         Integer id = ContactInputHelpers.askContactId(scanner, "de modification");
