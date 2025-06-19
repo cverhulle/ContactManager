@@ -69,7 +69,7 @@ public class ContactApp {
         switch (choice) {
             case "1" -> adder.addContact();
             case "2" -> remover.removeContact();
-            case "3" -> displayContacts();
+            case "3" -> handleDisplayContacts();
             case "4" -> findContact();
             case "5" -> modifyContact();
             case "6" -> {
@@ -83,7 +83,7 @@ public class ContactApp {
     }
 
     // Cette méthode permet de gérer le choix "Afficher les contacts"
-    private void displayContacts(){
+    private void handleDisplayContacts(){
 
         // Tout d'abord, on affiche tous les contacts.
         displayer.displayContacts(contacts.getAllContacts());
