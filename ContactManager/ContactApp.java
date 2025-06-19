@@ -44,7 +44,7 @@ public class ContactApp {
             "Quitter"
         };
 
-        String choice = Utils.askMenuChoice(scanner, "--- MENU ---", options, null,false);
+        String choice = InputUtils.askMenuChoice(scanner, "--- MENU ---", options, null,false);
         return choice;
     }
 
@@ -108,7 +108,7 @@ public class ContactApp {
             String message = "Voulez-vous vraiment supprimer ce contact ? " + contact;
 
             // Si c'est confirmé...
-            if (Utils.confirmChoice(scanner, message)) {
+            if (InputUtils.confirmChoice(scanner, message)) {
 
                 // On supprime le contact.
                 contacts.removeContactById(id);
@@ -139,7 +139,7 @@ public class ContactApp {
     private List<Contact> findContactByTag() {
 
         // On affiche toutes les options de tag
-        Tags tagChoice = Utils.askTag(scanner, "Choisissez un tag :", null, true);
+        Tags tagChoice = InputUtils.askTag(scanner, "Choisissez un tag :", null, true);
 
         // Si l'entrée est vide, on affiche tous les contacts.
         if (tagChoice == null) {
@@ -186,7 +186,7 @@ public class ContactApp {
     private Integer askContactId(String action) {
         // On demande l'id de contact.
         try {
-            return Utils.askIdContact(scanner);
+            return InputUtils.askIdContact(scanner);
 
         // Si l'utilisateur choisit d'annuler, on gère l'erreur
         } catch (UserCancelledException e) {
@@ -197,19 +197,19 @@ public class ContactApp {
 
     // Cette méthode permet de créer un contact à partir des entrées utilisateur.
     private Contact buildContactFromUserInput(Contact existingContact) throws UserCancelledException {
-        String firstName = Utils.askField(scanner, "Prénom", 
+        String firstName = InputUtils.askField(scanner, "Prénom", 
                                         existingContact == null ? null : existingContact.getFirstName(), 
                                         existingContact != null);
-        String lastName = Utils.askField(scanner, "Nom", 
+        String lastName = InputUtils.askField(scanner, "Nom", 
                                         existingContact == null ? null : existingContact.getLastName(), 
                                         existingContact != null);
-        String email = Utils.askField(scanner, "Email", 
+        String email = InputUtils.askField(scanner, "Email", 
                                         existingContact == null ? null : existingContact.getEmail(), 
                                         existingContact != null);
-        String phone = Utils.askField(scanner, "Téléphone", 
+        String phone = InputUtils.askField(scanner, "Téléphone", 
                                         existingContact == null ? null : existingContact.getPhoneNumber(), 
                                         existingContact != null);
-        Tags tag = Utils.askTag(scanner, "Tag", 
+        Tags tag = InputUtils.askTag(scanner, "Tag", 
                                         existingContact == null ? null : existingContact.getTag(), 
                                         existingContact != null);
 
@@ -244,7 +244,7 @@ public class ContactApp {
         String[] options = { "Prénom", "Nom", "Email", "Téléphone", "Tag" };
 
         try{ 
-            String fieldChoice = Utils.askMenuChoice(scanner, "Rechercher par :", options, "Annuler la recherche",false);
+            String fieldChoice = InputUtils.askMenuChoice(scanner, "Rechercher par :", options, "Annuler la recherche",false);
 
             // Si on choisit de chercher par Tags.
             if ("5".equals(fieldChoice)) { 
@@ -254,7 +254,7 @@ public class ContactApp {
             } else {
 
                 // On demande la donnée à rechercher
-                String query = Utils.askInput(scanner, "Entrez la valeur à rechercher : ");
+                String query = InputUtils.askInput(scanner, "Entrez la valeur à rechercher : ");
 
                 // On lance la recherche correspondante
                 return switch (fieldChoice) {
@@ -305,10 +305,10 @@ public class ContactApp {
 
         try{
             // On demande sur quel attribut s'effectuera le tri
-            String choice = Utils.askMenuChoice(scanner, "Choisissez le filtre pour trier les données", options, "Quitter", false);
+            String choice = InputUtils.askMenuChoice(scanner, "Choisissez le filtre pour trier les données", options, "Quitter", false);
 
             // On demande si le tri est croissant ou décroissant
-            boolean ascending = Utils.chooseDirectionInBoolean(scanner);
+            boolean ascending = InputUtils.chooseDirectionInBoolean(scanner);
 
             // En fonction des choix réalisés, on appelle la méthode correspondante.
             return getSortedContactsByChoice(inputList, choice, ascending);
