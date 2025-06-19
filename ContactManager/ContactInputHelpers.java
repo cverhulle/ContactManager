@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class ContactInputHelpers {
 
     // Cette méthode permet de centraliser la demande d'un id de contact.
-    private Integer askContactId(Scanner scanner, String action) {
+    public static Integer askContactId(Scanner scanner, String action) {
         // On demande l'id de contact.
         try {
             return InputUtils.askIdContact(scanner);

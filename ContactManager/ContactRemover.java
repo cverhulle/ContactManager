@@ -20,7 +20,7 @@ public class ContactRemover {
     private void removeContact () {
 
         // On demande à l'utilisateur l'id à rechercher.
-        Integer id = askContactId("de suppression");
+        Integer id = ContactInputHelpers.askContactId(scanner, "de suppression");
 
         // On gère les cas d'erreur
         if (id == null) return;
@@ -55,18 +55,4 @@ public class ContactRemover {
             System.out.println("Aucun contact trouvé avec cet ID.");
         }
     }
-
-    // Cette méthode permet de centraliser la demande d'un id de contact.
-    private Integer askContactId(String action) {
-        // On demande l'id de contact.
-        try {
-            return InputUtils.askIdContact(scanner);
-
-        // Si l'utilisateur choisit d'annuler, on gère l'erreur
-        } catch (UserCancelledException e) {
-            System.out.println("Action " + action + " annulée.");
-            return null;
-        }
-    }
-
 }
