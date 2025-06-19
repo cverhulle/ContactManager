@@ -18,7 +18,7 @@ public class ContactAdder {
     }
 
     // Cette métohde permet d'ajouter un contact dans la liste.
-    private void addContact() {
+    public void addContact() {
 
         // On demande les champs du contact à l'utilisateur
         try{ 

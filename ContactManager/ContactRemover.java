@@ -17,7 +17,7 @@ public class ContactRemover {
     }
 
     // Cette méthode permet de supprimer un contact.
-    private void removeContact () {
+    public void removeContact () {
 
         // On demande à l'utilisateur l'id à rechercher.
         Integer id = ContactInputHelpers.askContactId(scanner, "de suppression");
