@@ -146,7 +146,7 @@ public class ContactApp {
            return contacts.getAllContacts();
         } else {
             // Sinon, on affiche les résultats.
-            return contacts.searchByTag(tagChoice);
+            return SearchUtils.searchByTag(contacts.getAllContacts(), tagChoice);
         }
     }
 
@@ -258,10 +258,10 @@ public class ContactApp {
 
                 // On lance la recherche correspondante
                 return switch (fieldChoice) {
-                    case "1" -> contacts.searchByFirstName(query);
-                    case "2" -> contacts.searchByLastName(query);
-                    case "3" -> contacts.searchByEmail(query);
-                    case "4" -> contacts.searchByPhone(query);
+                    case "1" -> SearchUtils.searchByFirstName(contacts.getAllContacts(), query);
+                    case "2" -> SearchUtils.searchByLastName(contacts.getAllContacts(), query);
+                    case "3" -> SearchUtils.searchByEmail(contacts.getAllContacts(), query);
+                    case "4" -> SearchUtils.searchByPhone(contacts.getAllContacts(), query);
                     default -> throw new IllegalStateException("Unexpected value: " + fieldChoice);
                 };
             }  

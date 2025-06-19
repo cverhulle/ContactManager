@@ -42,45 +42,7 @@ public class ContactManager {
         System.out.println("Aucun contact trouvé avec l'id : " + id);
     }
 
-    // Cette méthode sera appelée dans les différentes voies pour trouver un contact.
-    // Elle retourne la liste des contacts correspondant au critères.
-    private List<Contact> searchGeneric(java.util.function.Predicate<Contact> predicate) {
-        List<Contact> foundContacts = new ArrayList<>();
-        for (Contact contact : contacts) {
-            if (predicate.test(contact)) {
-                foundContacts.add(contact);
-            }
-        }
-        return foundContacts;
-    }
-
-    // Cette méthode retourne les contacts correspondants à la requete query dans l'attribut prénom.
-    public List<Contact> searchByFirstName(String query) {
-        return searchGeneric(contact -> contact.getFirstName().toLowerCase().contains(query.toLowerCase()));
-    }
-
-    // Cette méthode retourne les contacts correspondants à la requete query dans l'attribut nom.
-    public List<Contact> searchByLastName(String query) {
-        return searchGeneric(contact -> contact.getLastName().toLowerCase().contains(query.toLowerCase()));
-    }
-
-    // Cette méthode retourne les contacts correspondants à la requete query dans l'attribut email.
-    public List<Contact> searchByEmail(String query) {
-        return searchGeneric(contact -> contact.getEmail().toLowerCase().contains(query.toLowerCase()));
-    }
-
-    // Cette méthode retourne les contacts correspondants à la requete query dans l'attribut phone.
-    public List<Contact> searchByPhone(String query) {
-        String normalizedQuery = Utils.normalizePhone(query);
-        return searchGeneric(contact -> contact.getPhoneNumber().replaceAll("\\s+", "").contains(normalizedQuery));
-    }
-
-    // Cette méthode retourne les contacts correspondants à la requete query dans l'attribut tag.
-    public List<Contact> searchByTag(Tags tag) {
-        return searchGeneric(contact -> contact.getTag() == tag);
-    }
-
-    // Cette métohde permet de récupérer un Contact à partir de son id en argument.
+        // Cette métohde permet de récupérer un Contact à partir de son id en argument.
     public Contact getContactById(int id) {
         for (Contact contact : contacts) {
             if (contact.getId() == id) {
