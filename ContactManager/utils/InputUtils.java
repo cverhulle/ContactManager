@@ -1,9 +1,8 @@
 package contactmanager.utils;
 
-import java.util.Scanner;
-
 import contactmanager.Tags;
-import contactmanager.UserCancelledException;
+import contactmanager.exception.UserCancelledException;
+import java.util.Scanner;
 
 public class InputUtils {
 

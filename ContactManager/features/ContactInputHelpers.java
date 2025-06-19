@@ -2,7 +2,7 @@ package contactmanager.features;
 
 import contactmanager.Contact;
 import contactmanager.Tags;
-import contactmanager.UserCancelledException;
+import contactmanager.exception.UserCancelledException;
 import contactmanager.utils.InputUtils;
 import java.util.Scanner;
 

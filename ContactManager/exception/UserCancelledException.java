@@ -1,4 +1,4 @@
-package contactmanager;
+package contactmanager.exception;
 
 public class UserCancelledException extends RuntimeException {
     public UserCancelledException() {
