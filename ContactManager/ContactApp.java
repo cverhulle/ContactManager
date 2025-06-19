@@ -228,12 +228,12 @@ public class ContactApp {
     // Cette méthode retourne la liste de contacts entières triés selon le choix et dans l'ordre donné par ascending.
     private List<Contact> getSortedContactsByChoice(List<Contact> inputList, String choice, boolean ascending) {
         return switch (choice) {
-            case "1" -> contacts.getContactsSortedByFirstName(inputList, ascending);
-            case "2" -> contacts.getContactsSortedByLastName(inputList, ascending);
-            case "3" -> contacts.getContactsSortedByEmail(inputList, ascending);
-            case "4" -> contacts.getContactsSortedByPhoneNumber(inputList, ascending);
-            case "5" -> contacts.getContactsSortedByTag(inputList, ascending);
-            default -> contacts.getAllContacts();
+            case "1" -> SortUtils.getContactsSortedByFirstName(inputList, ascending);
+            case "2" -> SortUtils.getContactsSortedByLastName(inputList, ascending);
+            case "3" -> SortUtils.getContactsSortedByEmail(inputList, ascending);
+            case "4" -> SortUtils.getContactsSortedByPhoneNumber(inputList, ascending);
+            case "5" -> SortUtils.getContactsSortedByTag(inputList, ascending);
+            default -> inputList;
         };
     }
 
