@@ -1,6 +1,6 @@
 package contactmanager.features;
 
-import contactmanager.Contact;
+import contactmanager.core.Contact;
 import contactmanager.exception.UserCancelledException;
 import contactmanager.utils.InputUtils;
 import contactmanager.utils.SortUtils;

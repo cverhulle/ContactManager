@@ -1,4 +1,4 @@
-package contactmanager;
+package contactmanager.core;
 
 import contactmanager.utils.Utils;
 

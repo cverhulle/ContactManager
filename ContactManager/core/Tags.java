@@ -1,4 +1,4 @@
-package contactmanager;
+package contactmanager.core;
 
 public enum Tags {
     AMI,

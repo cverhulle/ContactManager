@@ -1,7 +1,7 @@
 package contactmanager.features;
 
-import contactmanager.Contact;
-import contactmanager.ContactManager;
+import contactmanager.core.Contact;
+import contactmanager.core.ContactManager;
 import contactmanager.exception.UserCancelledException;
 import java.util.Scanner;
 

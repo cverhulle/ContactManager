@@ -1,7 +1,7 @@
 package contactmanager.app;
 
-import contactmanager.Contact;
-import contactmanager.ContactManager;
+import contactmanager.core.Contact;
+import contactmanager.core.ContactManager;
 import contactmanager.features.ContactAdder;
 import contactmanager.features.ContactDisplayer;
 import contactmanager.features.ContactModifier;
