@@ -1,4 +1,4 @@
-package contactmanager;
+package contactmanager.utils;
 
 import java.util.function.Consumer;
 

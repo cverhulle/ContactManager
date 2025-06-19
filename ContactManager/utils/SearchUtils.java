@@ -1,7 +1,10 @@
-package contactmanager;
+package contactmanager.utils;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import contactmanager.Contact;
+import contactmanager.Tags;
 
 public class SearchUtils {
 

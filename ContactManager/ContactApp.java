@@ -1,5 +1,6 @@
 package contactmanager;
 
+import contactmanager.utils.InputUtils;
 import java.util.List;
 import java.util.Scanner;
 

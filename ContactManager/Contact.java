@@ -1,5 +1,7 @@
 package contactmanager;
 
+import contactmanager.utils.Utils;
+
 // Cette classe a pour but de créer l'objet "Contact". 
 public class Contact {
 
