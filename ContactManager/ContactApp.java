@@ -86,12 +86,13 @@ public class ContactApp {
     private void handleDisplayContacts(){
 
         // Tout d'abord, on affiche tous les contacts.
-        displayContacts(contacts.getAllContacts());
+        displayer.displayContacts(contacts.getAllContacts());
 
         // On demande à l'utilisateur s'il souhaite trier la liste
-        List<Contact> sortedContacts = handleSortingContact(contacts.getAllContacts());
+        List<Contact> sortedContacts = sorter.handleSortingContact(contacts.getAllContacts());
         
-        displayContacts(sortedContacts);
+        // On affiche la lsite des contacts triées.
+        displayer.displayContacts(sortedContacts);
     }
 
     // Cette méthode permet de rechercher un contact lorsqu'on est dans le cas Tag.
