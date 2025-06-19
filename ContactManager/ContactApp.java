@@ -308,7 +308,7 @@ public class ContactApp {
             String choice = InputUtils.askMenuChoice(scanner, "Choisissez le filtre pour trier les données", options, "Quitter", false);
 
             // On demande si le tri est croissant ou décroissant
-            boolean ascending = InputUtils.chooseDirectionInBoolean(scanner);
+            boolean ascending = InputUtils.askSortDirectionInBoolean(scanner);
 
             // En fonction des choix réalisés, on appelle la méthode correspondante.
             return getSortedContactsByChoice(inputList, choice, ascending);

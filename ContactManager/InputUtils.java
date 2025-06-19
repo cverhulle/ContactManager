@@ -119,13 +119,13 @@ public class InputUtils {
     }
 
     // Cette méthode retourne true si le choix de tri est croissant et, false si c'est décroissant
-    public static Boolean chooseDirectionInBoolean(Scanner scanner) {
-        String directionChoice = chooseDirectionInString(scanner);
+    public static Boolean askSortDirectionInBoolean(Scanner scanner) {
+        String directionChoice = askSortDirectionInString(scanner);
         return Utils.transformDirectionStringInBoolean(directionChoice);
     }
 
     // Cette méthode permet de choisir la manière de trier (croissant ou décroissant) en retournant "1" pour croissant et "2" pour décroissant.
-    private static String chooseDirectionInString(Scanner scanner) {
+    private static String askSortDirectionInString(Scanner scanner) {
         String[] direction = {"Croissant", "Décroissant"};
         return askMenuChoice(scanner, "Quel est le sens de tri ?", direction, "Quitter", false);
     }
