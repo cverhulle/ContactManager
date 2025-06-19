@@ -178,25 +178,8 @@ public class ContactApp {
             System.out.println("Aucun contact trouvé avec cet ID.");
             return;
         }
-        
-        try{
-            // On entre les données à modifier
-            System.out.println("Laissez vide pour ne pas modifier un champ.");
-
-            // On crée un contact mis à jour à partir des données du contact précédent.
-            Contact updated = buildContactFromUserInput(contact);
-
-            // On met à jour le contact avec les données.
-            boolean success = contacts.updateContact(id, updated.getFirstName(), updated.getLastName(), 
-                                                        updated.getEmail(), updated.getPhoneNumber(), updated.getTag()); 
-
-            // Si les données sont "valables", on affiche un message de succès. Sinon, c'est un message d'erreur.
-            System.out.println(success ? "Contact modifié avec succès !" : "Erreur lors de la modification.");
-            
-        // Si l'utlisateur déclenche l'erreur (en tapant 0), on annule la modification et, on affiche un message.
-        } catch (UserCancelledException e) {
-            System.out.println("Modification annulée");
-        }
+        // On lance la méthode pour lancer la modification.
+        handleModificationContact(id, contact);
     }
 
     // Cette méthode permet de centraliser la demande d'un id de contact.
