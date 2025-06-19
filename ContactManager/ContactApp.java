@@ -6,16 +6,30 @@ import java.util.Scanner;
 // Cette classe permet de gérer le déroulé de l'application en fonction des réponses de l'utilisateur.
 public class ContactApp {
 
-    @SuppressWarnings("FieldMayBeFinal")
-    private ContactManager contacts;
-    @SuppressWarnings("FieldMayBeFinal")
-    private Scanner scanner;
+    // Classe Contact et Scanner.
+    private final ContactManager contacts;
+    private final Scanner scanner;
+
+    // Modules métiers.
+    private final ContactAdder adder;
+    private final ContactRemover remover;
+    private final ContactModifier modifier;
+    private final ContactSearcher searcher;
+    private final ContactDisplayer displayer;
+    private final ContactSorter sorter;
     
     // On crée le constructeur de la classe : 
-    // Il initialise une liste de contacts vide et, le scanner.
+    // Il initialise une liste de contacts vide, le scanner et les instances de chaque classe.
     public ContactApp() {
         this.contacts = new ContactManager();
         this.scanner = new Scanner(System.in);
+
+        this.adder = new ContactAdder(contacts, scanner);
+        this.remover = new ContactRemover(contacts, scanner);
+        this.modifier = new ContactModifier(contacts, scanner);
+        this.searcher = new ContactSearcher(contacts, scanner);
+        this.displayer = new ContactDisplayer();
+        this.sorter = new ContactSorter(scanner);
     }
 
     // Cette méthode est utilisée lorsque le programme est en cours.
