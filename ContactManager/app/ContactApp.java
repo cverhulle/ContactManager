@@ -65,6 +65,8 @@ public class ContactApp {
             "Afficher les contacts",
             "Rechercher un contact",
             "Modifier un contact",
+            "Sauvegarder les contacts",
+            "Importer des contacts",
             "Quitter"
         };
 
