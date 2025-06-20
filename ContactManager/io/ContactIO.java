@@ -12,14 +12,11 @@ import java.util.List;
 
 public class ContactIO {
     
-    // On nomme le fichier
-    private static final String FILE_NAME = "contacts.csv";
-
     // Sauvegarde la liste des contacts dans un fichier CSV
-    public static void exportToCSV(List<Contact> contacts) {
+    public static void exportToCSV(List<Contact> contacts, String filePath) {
 
         // Bloc try-with-resources : ouvre automatiquement le fichier et le referme correctement
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(FILE_NAME))) {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath))) {
 
             // Pour chaque contact
             for (Contact contact : contacts) {
@@ -50,13 +47,13 @@ public class ContactIO {
     }
 
     // Méthode permettant d’importer des contacts depuis un fichier CSV
-    public static List<Contact> importFromCSV() {
+    public static List<Contact> importFromCSV(String filePath) {
 
         // On crée une liste vide qui stockera les contacts.
         List<Contact> importedContacts = new ArrayList<>();
 
         // Bloc try-with-resources : ouvre automatiquement le fichier et le referme correctement
-        try (BufferedReader reader = new BufferedReader(new FileReader(FILE_NAME))) {
+        try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
 
             String line;
 
