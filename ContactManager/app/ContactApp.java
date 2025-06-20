@@ -86,11 +86,11 @@ public class ContactApp {
             case "4" -> findContact();
             case "5" -> modifyContact();
             case "6" -> {
-                 System.out.println("→ Export en cours...");
+                 System.out.println("Export en cours...");
                  ContactImporterExporter.exportContacts(contacts.getAllContacts());
             }
             case "7" -> {
-                    System.out.println("→ Import en cours...");
+                    System.out.println("Import en cours...");
                     ContactImporterExporter.importContacts(contacts);
             }
             case "8" -> {
