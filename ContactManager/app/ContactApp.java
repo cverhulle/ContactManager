@@ -84,7 +84,9 @@ public class ContactApp {
             case "3" -> displayContacts();
             case "4" -> findContact();
             case "5" -> modifyContact();
-            case "6" -> {
+            case "6" -> exportContacts();
+            case "7" -> importContacts();
+            case "8" -> {
                 System.out.println("Au revoir !");
                 return false;
             }
@@ -126,5 +128,13 @@ public class ContactApp {
 
         // On lance la méthode pour lancer la modification.
         modifier.modifyContact();
+    }
+
+    private void exportContacts() {
+
+    }
+
+    private void importContacts() {
+
     }
 }
