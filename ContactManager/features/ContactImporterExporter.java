@@ -8,8 +8,8 @@ import java.util.List;
 public class ContactImporterExporter {
 
     // Cette méthode permet de gérer l'export de contact.
-    public static void exportContacts(List<Contact> contacts) {
-        ContactIO.exportToCSV(contacts);
+    public static void exportContacts(List<Contact> contactsToExport) {
+        ContactIO.exportToCSV(contactsToExport);
     }
 
     // Cette méthode permet de gérer l'import de Contact.
