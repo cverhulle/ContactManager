@@ -1,9 +1,13 @@
 package contactmanager.io;
 
 import contactmanager.core.Contact;
+import contactmanager.core.Tags;
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 public class ContactIO {
@@ -14,8 +18,7 @@ public class ContactIO {
     // Sauvegarde la liste des contacts dans un fichier CSV
     public static void exportToCSV(List<Contact> contacts) {
 
-        // On ajoute un try pour que le fichier soit correctement fermé
-        // même en cas d'erreur.
+        // Bloc try-with-resources : ouvre automatiquement le fichier et le referme correctement
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(FILE_NAME))) {
 
             // Pour chaque contact
@@ -46,4 +49,66 @@ public class ContactIO {
         }
     }
 
+    // Méthode permettant d’importer des contacts depuis un fichier CSV
+    public static List<Contact> importFromCSV() {
+
+        // On crée une liste vide qui stockera les contacts.
+        List<Contact> importedContacts = new ArrayList<>();
+
+        // Bloc try-with-resources : ouvre automatiquement le fichier et le referme correctement
+        try (BufferedReader reader = new BufferedReader(new FileReader(FILE_NAME))) {
+
+            String line;
+
+            // On lit le fichier ligne par ligne
+            while ((line = reader.readLine()) != null) {
+
+                // On divise chaque ligne sur la virgule 
+                // (Cela suppose que chaque champ du contact est séparé par une virgule)
+                String[] parts = line.split(",");
+
+                // On vérifie que la ligne a bien 6 éléments (id, nom, prénom, email, téléphone, tag)
+                if (parts.length != 6) {
+                    System.out.println("Ligne ignorée (format invalide) : " + line);
+
+                    // On passe à ligne suivante.
+                    continue; 
+                }
+
+                try {
+                    // Extraction et conversion des champs
+                    int id = Integer.parseInt(parts[0].trim());             // id
+                    String lastName = parts[1].trim();                      // nom
+                    String firstName = parts[2].trim();                     // prénom
+                    String email = parts[3].trim();                         // email
+                    String phone = parts[4].trim();                         // téléphone
+                    Tags tag = Tags.valueOf(parts[5].trim().toUpperCase()); // tag (doit exister dans l'enum Tags)
+
+                    // Création d’un nouveau Contact à partir des données lues
+                    Contact contact = new Contact(lastName, firstName, email, phone, tag);
+
+                    // On fixe l'id à la main.
+                    contact.setId(id); 
+
+                    // Ajout à la liste
+                    importedContacts.add(contact);
+
+                } catch (Exception e) {
+
+                    // Si une erreur survient lors du parsing, on ignore la ligne
+                    System.out.println("Erreur lors du parsing de la ligne : " + line);
+                    System.out.println("Détail : " + e.getMessage());
+                }
+            }
+
+            System.out.println("Contacts importés avec succès !");
+
+        } catch (IOException e) {
+            // Gère les erreurs d’ouverture ou de lecture du fichier
+            System.out.println("Erreur lors de l'import : " + e.getMessage());
+        }
+
+        // On retourne tous les contacts.
+        return importedContacts;
+    }
 }
