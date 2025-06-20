@@ -4,6 +4,7 @@ import contactmanager.core.Contact;
 import contactmanager.core.ContactManager;
 import contactmanager.features.ContactAdder;
 import contactmanager.features.ContactDisplayer;
+import contactmanager.features.ContactImporterExporter;
 import contactmanager.features.ContactModifier;
 import contactmanager.features.ContactRemover;
 import contactmanager.features.ContactSearcher;
@@ -84,8 +85,8 @@ public class ContactApp {
             case "3" -> displayContacts();
             case "4" -> findContact();
             case "5" -> modifyContact();
-            case "6" -> exportContacts();
-            case "7" -> importContacts();
+            case "6" -> ContactImporterExporter.exportContacts(contacts.getAllContacts());
+            case "7" -> ContactImporterExporter.importContacts(contacts);
             case "8" -> {
                 System.out.println("Au revoir !");
                 return false;
@@ -128,13 +129,5 @@ public class ContactApp {
 
         // On lance la méthode pour lancer la modification.
         modifier.modifyContact();
-    }
-
-    private void exportContacts() {
-
-    }
-
-    private void importContacts() {
-
     }
 }
