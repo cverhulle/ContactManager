@@ -93,11 +93,11 @@ public class ContactIO {
                     // Ajout à la liste
                     importedContacts.add(contact);
 
-                } catch (Exception e) {
-
-                    // Si une erreur survient lors du parsing, on ignore la ligne
-                    System.out.println("Erreur lors du parsing de la ligne : " + line);
-                    System.out.println("Détail : " + e.getMessage());
+                } catch (NumberFormatException e) {
+                    System.out.println("Erreur de conversion numérique sur la ligne : " + line);
+                }
+                catch (IllegalArgumentException e) {
+                    System.out.println("Tag inconnu ou autre erreur sur la ligne : " + line);
                 }
             }
 
