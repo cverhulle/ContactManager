@@ -14,7 +14,7 @@ public class Contact {
     private String firstName;
     private String email;
     private String phoneNumber;
-    final private int id;
+    private int id;
     private Tags tag;
 
     // On crée le constructeur de la classe Contact.
@@ -55,6 +55,11 @@ public class Contact {
     // On crée une méthode pour récupérer le tag.
     public Tags getTag() {
         return tag;
+    }
+
+    // On crée une méthode pour modifier l'id (utiliser dans l'export de fichier)
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     // On crée une méthode pour modifier le nom.
