@@ -85,8 +85,14 @@ public class ContactApp {
             case "3" -> displayContacts();
             case "4" -> findContact();
             case "5" -> modifyContact();
-            case "6" -> ContactImporterExporter.exportContacts(contacts.getAllContacts());
-            case "7" -> ContactImporterExporter.importContacts(contacts);
+            case "6" -> {
+                 System.out.println("→ Export en cours...");
+                 ContactImporterExporter.exportContacts(contacts.getAllContacts());
+            }
+            case "7" -> {
+                    System.out.println("→ Import en cours...");
+                    ContactImporterExporter.importContacts(contacts);
+            }
             case "8" -> {
                 System.out.println("Au revoir !");
                 return false;
