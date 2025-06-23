@@ -14,6 +14,11 @@ public class ContactIO {
 
     // Cette variable stocke le chemin de l'auto sauvegarde des contacts.
     private static final String AUTO_SAVE_PATH = "autosave.csv";
+
+    // Cette méthode retourne le chemin de la sauvegarde automatique.
+    public static String getAutoSavePath() {
+        return AUTO_SAVE_PATH;
+    }
     
     // Sauvegarde la liste des contacts dans un fichier CSV
     public static void exportToCSV(List<Contact> contacts, String filePath) {
