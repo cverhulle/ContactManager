@@ -99,6 +99,9 @@ public class ContactApp {
             }
         }
 
+        // Cette méthode permet de sauvegarder automatiquement les contacts avant fermeture.
+        ContactImporterExporter.autoSaveContacts(contacts.getAllContacts());
+
         // On retourne true pour poursuivre la boucle.
         return true;
     }
