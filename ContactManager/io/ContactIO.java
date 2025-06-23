@@ -44,9 +44,6 @@ public class ContactIO {
                 // On passe à la ligne suivante.
                 writer.newLine();
             }
-
-            // Message d'information à la fin de l'écriture du fichier.
-            System.out.println("Contacts exportés avec succès !");
         
         // En cas d'erreur, on affiche un message.
         } catch (IOException e) {

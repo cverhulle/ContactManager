@@ -17,6 +17,9 @@ public class ContactImporterExporter {
 
         // On lance la méthode d'export.
         ContactIO.exportToCSV(contactsToExport, filePath);
+
+        // Message d'information à la fin de l'écriture du fichier.
+        System.out.println("Contacts exportés avec succès !");
     }
 
     // Cette méthode permet de gérer l'import de Contact.
@@ -52,7 +55,7 @@ public class ContactImporterExporter {
         List<Contact> imported = ContactIO.importFromCSV(ContactIO.getAutoSavePath());
 
         int added = 0;
-        
+
         // On crée une boucle pour ne pas ajouter les contacts déjà dans notre liste.
         for (Contact contact : imported) {
             if (!contacts.getAllContacts().stream().anyMatch(
