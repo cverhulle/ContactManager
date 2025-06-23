@@ -40,4 +40,10 @@ public class ContactImporterExporter {
         }
         System.out.println("Import terminé : " + added + " contacts ajoutés.");
     }
+
+    // Cette méthode permet de sauvegarder automatiquement les contacts.
+    private void autoSaveContacts(ContactManager contacts) {
+        ContactIO.exportToCSV(contacts.getAllContacts(), ContactIO.getAutoSavePath());
+        System.out.println("Sauvegarde automatique effectuée.");
+    }
 }
