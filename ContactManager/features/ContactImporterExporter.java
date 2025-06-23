@@ -46,4 +46,22 @@ public class ContactImporterExporter {
         ContactIO.exportToCSV(contactsToExport, ContactIO.getAutoSavePath());
         System.out.println("Sauvegarde automatique effectuée.");
     }
+
+    // Cette méthode permet de charger automatiquement les contacts au démarrage de l'application
+    public static void autoLoadContacts(ContactManager contacts) {
+        List<Contact> imported = ContactIO.importFromCSV(ContactIO.getAutoSavePath());
+
+        int added = 0;
+        
+        // On crée une boucle pour ne pas ajouter les contacts déjà dans notre liste.
+        for (Contact contact : imported) {
+            if (!contacts.getAllContacts().stream().anyMatch(
+                    c -> c.getEmail().equalsIgnoreCase(contact.getEmail())
+                        || c.getPhoneNumber().equals(contact.getPhoneNumber()))) {
+                contacts.addContact(contact);
+                added++;
+            }
+        }
+        System.out.println("Chargement automatique : " + added + " contacts restaurés.");
+    }
 }
