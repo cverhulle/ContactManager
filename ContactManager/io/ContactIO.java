@@ -12,6 +12,7 @@ import java.util.List;
 
 public class ContactIO {
 
+    // Cette variable stocke le chemin de l'auto sauvegarde des contacts.
     private static final String AUTO_SAVE_PATH = "autosave.csv";
     
     // Sauvegarde la liste des contacts dans un fichier CSV
