@@ -55,6 +55,9 @@ public class ContactApp {
                 // On appelle la méthode correspondante au choix de l'utilisateur.
                 running = handleMenuChoice(choice);
             }
+
+            // Cette méthode permet de sauvegarder automatiquement les contacts avant fermeture.
+            ContactImporterExporter.autoSaveContacts(contacts.getAllContacts());
         }
     }
 
@@ -98,9 +101,6 @@ public class ContactApp {
                 return false;
             }
         }
-
-        // Cette méthode permet de sauvegarder automatiquement les contacts avant fermeture.
-        ContactImporterExporter.autoSaveContacts(contacts.getAllContacts());
 
         // On retourne true pour poursuivre la boucle.
         return true;
