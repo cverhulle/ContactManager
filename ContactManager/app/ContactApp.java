@@ -47,6 +47,9 @@ public class ContactApp {
         try (scanner) {
             boolean running = true;
 
+            // On charge automatiquement les contacts en mémoire
+            ContactImporterExporter.autoLoadContacts(contacts);
+
             // Tant que le programme est en cours, on affiche le menu.
             while(running) {
                 // On affiche le menu principal et, on récupère son choix.
@@ -56,7 +59,7 @@ public class ContactApp {
                 running = handleMenuChoice(choice);
             }
 
-            // Cette méthode permet de sauvegarder automatiquement les contacts avant fermeture.
+            // On sauvegarde automatiquement les contacts avant fermeture.
             ContactImporterExporter.autoSaveContacts(contacts.getAllContacts());
         }
     }
