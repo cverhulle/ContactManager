@@ -27,20 +27,11 @@ public class ContactImporterExporter {
 
         // On demande le chemin du fichier à importer.
         String filePath = InputUtils.askInput(scanner, "Chemin du fichier pour exporter (ex: contacts.csv) : ");
+        
+        // On appelle la méthode pour gérer l'import
+        Integer added = handleContactImportationFromAPath(contacts, filePath);
 
-        // On récupère la liste des contacts avec la méthode d'import.
-        List<Contact> imported = ContactIO.importFromCSV(filePath);
-        int added = 0;
-
-        // On crée une boucle pour ne pas ajouter les contacts déjà dans notre liste.
-        for (Contact contact : imported) {
-            if (!contacts.getAllContacts().stream().anyMatch(
-                    c -> c.getEmail().equalsIgnoreCase(contact.getEmail())
-                        || c.getPhoneNumber().equals(contact.getPhoneNumber()))) {
-                contacts.addContact(contact);
-                added++;
-            }
-        }
+            // On affiche un message pour l'utilisateur
         System.out.println("Import terminé : " + added + " contacts ajoutés.");
     }
 
@@ -52,8 +43,22 @@ public class ContactImporterExporter {
 
     // Cette méthode permet de charger automatiquement les contacts au démarrage de l'application
     public static void autoLoadContacts(ContactManager contacts) {
-        List<Contact> imported = ContactIO.importFromCSV(ContactIO.getAutoSavePath());
 
+        // On appelle la méthode pour gérer l'import
+        Integer added = handleContactImportationFromAPath(contacts, ContactIO.getAutoSavePath());
+
+        // On affiche un message pour l'utilisateur
+        System.out.println("Chargement automatique : " + added + " contacts restaurés.");
+    }
+
+    // Cette méthode s'occupe de la gestion de l'import de contact.
+    // Elle retourne le nombre de contacts ajoutés.
+    private static Integer handleContactImportationFromAPath(ContactManager contacts, String path) {
+
+        // On décrypte le fichier csv dont le chemin est fourni dans path.
+        List<Contact> imported = ContactIO.importFromCSV(path);
+        
+        // On initialise à 0 le nombre de contact ajoutés.
         int added = 0;
 
         // On crée une boucle pour ne pas ajouter les contacts déjà dans notre liste.
@@ -65,6 +70,7 @@ public class ContactImporterExporter {
                 added++;
             }
         }
-        System.out.println("Chargement automatique : " + added + " contacts restaurés.");
+
+        return added;
     }
 }
