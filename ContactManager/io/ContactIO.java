@@ -11,6 +11,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ContactIO {
+
+    private static final String AUTO_SAVE_PATH = "autosave.csv";
     
     // Sauvegarde la liste des contacts dans un fichier CSV
     public static void exportToCSV(List<Contact> contacts, String filePath) {
