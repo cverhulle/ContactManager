@@ -3,6 +3,7 @@ package contactmanager.features;
 import contactmanager.core.Contact;
 import java.util.List;
 
+// Cette feature s'occupe de l'affichage.
 public class ContactDisplayer {
 
     // Cette méthode permet d'afficher les Contacts dans une liste de contacts.
@@ -13,5 +14,4 @@ public class ContactDisplayer {
             contactsToDisplay.forEach(System.out::println);
         }
     }
-
 }
