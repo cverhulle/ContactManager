@@ -1,5 +1,6 @@
 package contactmanager.core;
 
+// Cette classe permet de lister les 4 catégories possibles pour un contact.
 public enum Tags {
     AMI,
     TRAVAIL,
