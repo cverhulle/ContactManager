@@ -4,7 +4,7 @@ import contactmanager.utils.Utils;
 import java.util.ArrayList;
 import java.util.List;
 
-// Cette classe permet de gérer le carnet d'adresse.
+// Cette classe permet de construire et de gérer le carnet d'adresse (liste de contacts).
 public class ContactManager {
     
     // On crée une variable pour stocker la liste des contacts.
