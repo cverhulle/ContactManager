@@ -7,6 +7,7 @@ import contactmanager.utils.InputUtils;
 import java.util.List;
 import java.util.Scanner;
 
+// Cette feature s'occupe de l'import et l'export des données.
 public class ContactImporterExporter {
 
     // Cette méthode permet de charger automatiquement les contacts au démarrage de l'application
