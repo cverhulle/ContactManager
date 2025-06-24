@@ -5,7 +5,7 @@ import contactmanager.core.ContactManager;
 import contactmanager.exception.UserCancelledException;
 import java.util.Scanner;
 
-
+// Cette feature gère l'ajout d'un contact dans une liste de contact.
 public class ContactAdder {
 
     @SuppressWarnings("FieldMayBeFinal")
