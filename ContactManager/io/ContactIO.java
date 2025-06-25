@@ -10,6 +10,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+// Cette classe s'occupe de l'import et l'export de contact.
 public class ContactIO {
 
     // Cette variable stocke le chemin de l'auto sauvegarde des contacts.
