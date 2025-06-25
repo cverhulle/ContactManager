@@ -7,6 +7,7 @@ import contactmanager.utils.SortUtils;
 import java.util.List;
 import java.util.Scanner;
 
+// Cette feature s'occupe du tri des contacts.
 public class ContactSorter {
 
     @SuppressWarnings("FieldMayBeFinal")
