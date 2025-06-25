@@ -5,6 +5,7 @@ import contactmanager.core.ContactManager;
 import contactmanager.exception.UserCancelledException;
 import java.util.Scanner;
 
+// Cette feature s'occupe de la modifications de contact.
 public class ContactModifier {
 
     @SuppressWarnings("FieldMayBeFinal")
