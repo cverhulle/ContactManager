@@ -5,6 +5,7 @@ import contactmanager.core.ContactManager;
 import contactmanager.utils.InputUtils;
 import java.util.Scanner;
 
+// Cette feature s'occupe de la suppression de contact.
 public class ContactRemover {
 
     @SuppressWarnings("FieldMayBeFinal")
