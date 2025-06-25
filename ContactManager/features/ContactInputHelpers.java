@@ -6,6 +6,7 @@ import contactmanager.exception.UserCancelledException;
 import contactmanager.utils.InputUtils;
 import java.util.Scanner;
 
+// Cette feature s'occupe des intéractions avec l'utilisateur
 public class ContactInputHelpers {
 
     // Cette méthode permet de centraliser la demande d'un id de contact.
