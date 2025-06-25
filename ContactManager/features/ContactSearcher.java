@@ -9,6 +9,7 @@ import contactmanager.utils.SearchUtils;
 import java.util.List;
 import java.util.Scanner;
 
+// Cette feature s'occupe de la recherche de contact.
 public class ContactSearcher {
 
     @SuppressWarnings("FieldMayBeFinal")
