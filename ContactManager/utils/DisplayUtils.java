@@ -1,5 +1,6 @@
 package contactmanager.utils;
 
+// Cette classe s'occupe des méthodes d'affichage dans le programme.
 public class DisplayUtils {
 
     // Cette méthode permet d'afficher un menu de choix
