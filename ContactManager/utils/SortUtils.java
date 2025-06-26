@@ -6,6 +6,7 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.function.Function;
 
+// Cette classe regroupe les méthodes liées au tri.
 public class SortUtils {
 
     // Cette méthode retourne une liste triée de contacts selon le comparateur donné.
