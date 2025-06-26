@@ -4,6 +4,7 @@ import contactmanager.core.Tags;
 import contactmanager.exception.UserCancelledException;
 import java.util.Scanner;
 
+// Cette classe regroupe les méthodes liées aux demandes utilisateur.
 public class InputUtils {
 
 
