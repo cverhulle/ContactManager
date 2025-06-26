@@ -2,6 +2,7 @@ package contactmanager.utils;
 
 import java.util.function.Consumer;
 
+// Cette classe regroupe les "diverses" méthodes
 public abstract class Utils {
 
     // Cette méthode permet d'appliquer un setter seulement si la valeur n'est pas null ou vide.
