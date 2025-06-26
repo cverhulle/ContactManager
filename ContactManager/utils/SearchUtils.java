@@ -5,6 +5,7 @@ import contactmanager.core.Tags;
 import java.util.ArrayList;
 import java.util.List;
 
+// Cette classe regroupe les méthodes liées à la recherche.
 public class SearchUtils {
 
     // Cette méthode sera appelée dans les différentes voies pour trouver un contact.
